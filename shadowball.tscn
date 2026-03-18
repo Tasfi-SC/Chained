@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmwbsv4iv1442"]
+
+[ext_resource type="Script" uid="uid://chmr771p7dddn" path="res://shadowball.gd" id="1_5waqx"]
+[ext_resource type="Texture2D" uid="uid://o25bsw66x13o" path="res://mc/mcsprite normal.png" id="2_8jybp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kb4c1"]
+radius = 79.6241
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxmbo"]
+atlas = ExtResource("2_8jybp")
+region = Rect2(905, 180, 181, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5waqx"]
+atlas = ExtResource("2_8jybp")
+region = Rect2(1288, 180, 161, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8k0ca"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxmbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5waqx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Shadowball" type="Area2D"]
+script = ExtResource("1_5waqx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kb4c1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-15, -4)
+sprite_frames = SubResource("SpriteFrames_8k0ca")
+frame_progress = 0.716898
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
