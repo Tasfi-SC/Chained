@@ -180,6 +180,7 @@ func unlock_ability(ability: String) -> void:
 	match ability:
 		"shadow_ball":
 			shadow_ball_unlocked = true
+			
 		"sword":
 			sword_unlocked = true
 		"demon_form":
