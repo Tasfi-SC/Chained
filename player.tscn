@@ -574,8 +574,7 @@ shape = SubResource("CapsuleShape2D_2hs0m")
 position = Vector2(1, 2.98023e-08)
 scale = Vector2(1, 0.994444)
 sprite_frames = SubResource("SpriteFrames_04cqw")
-animation = &"sword_summon"
-frame_progress = 0.40881
+animation = &"run"
 
 [node name="Hurtbox" type="Area2D" parent="."]
 
@@ -596,5 +595,9 @@ shape = SubResource("CapsuleShape2D_dw050")
 [node name="AbilityCDtimer" type="Timer" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 2848
+limit_bottom = 1600
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

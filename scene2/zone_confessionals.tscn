@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqnyngmytwicq"]
+
+[ext_resource type="Texture2D" uid="uid://6bts6kynwul" path="res://scene2/s2-2(1).png" id="1_4s1o1"]
+
+[node name="ZoneConfessionals" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_4s1o1")

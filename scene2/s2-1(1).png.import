@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvid7m0lgcf06"
-path="res://.godot/imported/Serath sprite.png-b689b846853add3cfa232c91d7814781.ctex"
+uid="uid://crhegxfkelbm1"
+path="res://.godot/imported/s2-1(1).png-69c76014ead32f1f29c5f6a8ff57f80d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://villains/Serath sprite.png"
-dest_files=["res://.godot/imported/Serath sprite.png-b689b846853add3cfa232c91d7814781.ctex"]
+source_file="res://scene2/s2-1(1).png"
+dest_files=["res://.godot/imported/s2-1(1).png-69c76014ead32f1f29c5f6a8ff57f80d.ctex"]
 
 [params]
 
