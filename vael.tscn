@@ -499,6 +499,11 @@ animations = [{
 "name": &"left",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xf82n")
@@ -538,7 +543,6 @@ animations = [{
 position = Vector2(70, 70)
 scale = Vector2(1.63158, 1.68349)
 sprite_frames = SubResource("SpriteFrames_img35")
-animation = &"death"
-frame_progress = 0.999368
+animation = &"new_animation"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
