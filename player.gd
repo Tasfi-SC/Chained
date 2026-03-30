@@ -1,5 +1,5 @@
 extends CharacterBody2D
-@export var max_hp: float = 600.0
+@export var max_health: float = 600.0
 @export var speed: float = 200.0
 @export var jump_velocity: float = -400.0
 @export var gravity: float = 900.0
@@ -21,7 +21,7 @@ extends CharacterBody2D
 @export var ball_scene: PackedScene
 @export var ball_speed: float = 400.0
 
-var hp: float
+var health: float
 var demon_form: bool = true
 var is_dodging: bool = false
 var is_invincible: bool = false
@@ -44,7 +44,7 @@ signal player_died
 signal demon_form_activated
 signal ability_unlocked(ability_name)
 func _ready() -> void:
-	hp = max_hp
+	health = max_health
 	attack_collision.disabled = true
 	sprite.play("idle")
 	sprite.animation_finished.connect(_on_animation_finished)
@@ -150,13 +150,13 @@ func _do_shadow_ball() -> void:
 			if shot_count > 1:
 				await get_tree().create_timer(0.1).timeout
 func take_damage(amount: float) -> void:
-	if is_invincible or is_dead:
-		return
+	health -= amount
+	if health < 0:
+		health = 0
 
-	hp -= amount
-	emit_signal("hp_changed", hp, max_hp)
+	print("Player took ", amount, " damage. HP: ", health)
 
-	if hp <= 0.0:
+	if health <= 0:
 		_die()
 		return
 
@@ -217,7 +217,7 @@ func _on_animation_finished() -> void:
 		is_attacking = false
 		attack_collision.disabled = true
 func get_hp_percent() -> float:
-	return hp / max_hp
+	return health/max_health
 
 func get_dodge_cooldown_percent() -> float:
 	var cooldown = dodge_cooldown_demon if demon_form else dodge_cooldown_human
@@ -226,4 +226,7 @@ func get_dodge_cooldown_percent() -> float:
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy_hitbox"):
-		take_damage(area.damage if "damage" in area else 10.0)
+		var dmg = 10.0
+		if area.get("damage") != null:
+			dmg = area.damage
+		take_damage(dmg)
