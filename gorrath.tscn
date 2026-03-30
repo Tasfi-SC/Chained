@@ -280,6 +280,8 @@ frame = 7
 frame_progress = 1.0
 
 [node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CapsuleShape2D_xcp5e")
@@ -302,6 +304,7 @@ shape = SubResource("CapsuleShape2D_pi72k")
 
 [node name="DetectionArea" type="Area2D" parent="."]
 visible = false
+collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]

@@ -32,7 +32,7 @@ func _ready() -> void:
 
 	_set_state(State.IDLE)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if is_dead:
 		return
 	match current_state:

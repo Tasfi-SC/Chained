@@ -420,6 +420,7 @@ radius = 208.741
 radius = 261.017
 
 [node name="Serath" type="CharacterBody2D"]
+collision_layer = 4
 script = ExtResource("1_s5t1o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -432,9 +433,11 @@ position = Vector2(33, 25)
 scale = Vector2(1.48529, 1.52083)
 sprite_frames = SubResource("SpriteFrames_3nodl")
 animation = &"shadowball"
-frame_progress = 0.0350759
+frame_progress = 0.59014
 
 [node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 visible = false
@@ -442,18 +445,24 @@ scale = Vector2(-14.2088, 15.5839)
 shape = SubResource("CircleShape2D_lcxyl")
 
 [node name="EvileyeArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EvileyeArea"]
 visible = false
 shape = SubResource("CircleShape2D_h5v57")
 
 [node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 visible = false
 shape = SubResource("CircleShape2D_m3xds")
 
 [node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_0t6vb")
