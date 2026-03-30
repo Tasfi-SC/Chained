@@ -1,5 +1,5 @@
 extends CharacterBody2D
-@export var max_hp: float = 100.0
+@export var max_health: float = 600.0
 @export var speed: float = 200.0
 @export var jump_velocity: float = -400.0
 @export var gravity: float = 900.0
@@ -21,8 +21,8 @@ extends CharacterBody2D
 @export var ball_scene: PackedScene
 @export var ball_speed: float = 400.0
 
-var hp: float
-var demon_form: bool = false
+var health: float
+var demon_form: bool = true
 var is_dodging: bool = false
 var is_invincible: bool = false
 var sword_active: bool = false
@@ -44,12 +44,10 @@ signal player_died
 signal demon_form_activated
 signal ability_unlocked(ability_name)
 func _ready() -> void:
-	hp = max_hp
+	health = max_health
 	attack_collision.disabled = true
 	sprite.play("idle")
 	sprite.animation_finished.connect(_on_animation_finished)
-	floor_snap_length = 10.0  
-	floor_max_angle = deg_to_rad(120)
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
@@ -125,27 +123,21 @@ func _do_melee() -> void:
 	_play_anim("melee")
 	attack_collision.disabled = false
 	await get_tree().create_timer(0.2).timeout
-	is_attacking = false 
-	_play_anim("idle") 
 	attack_collision.disabled = true
 func _do_sword_attack() -> void:
 	is_attacking = true
 	sword_cooldown_timer = sword_cooldown
 	_play_anim("sword_slash")
 	attack_collision.disabled = false
-	await get_tree().create_timer(0.7).timeout
+	await get_tree().create_timer(0.3).timeout
 	attack_collision.disabled = true
-	is_attacking = false   
-	_play_anim("idle") 
 func _do_shadow_ball() -> void:
 	is_attacking = true
 	ball_cooldown_timer = ball_cooldown
 	_play_anim("shadow_ball")
-	
 
-	await get_tree().create_timer(0.7).timeout
-	is_attacking = false  
-	_play_anim("idle") 
+	await get_tree().create_timer(0.2).timeout
+
 	if ball_scene:
 		var shot_count = 3 if demon_form else 1
 		for i in range(shot_count):
@@ -158,13 +150,13 @@ func _do_shadow_ball() -> void:
 			if shot_count > 1:
 				await get_tree().create_timer(0.1).timeout
 func take_damage(amount: float) -> void:
-	if is_invincible or is_dead:
-		return
+	health -= amount
+	if health < 0:
+		health = 0
 
-	hp -= amount
-	emit_signal("hp_changed", hp, max_hp)
+	print("Player took ", amount, " damage. HP: ", health)
 
-	if hp <= 0.0:
+	if health <= 0:
 		_die()
 		return
 
@@ -224,9 +216,8 @@ func _on_animation_finished() -> void:
 	or "exhaust" in anim or "dodge" in anim:
 		is_attacking = false
 		attack_collision.disabled = true
-		_play_anim("idle")
 func get_hp_percent() -> float:
-	return hp / max_hp
+	return health/max_health
 
 func get_dodge_cooldown_percent() -> float:
 	var cooldown = dodge_cooldown_demon if demon_form else dodge_cooldown_human
@@ -235,4 +226,7 @@ func get_dodge_cooldown_percent() -> float:
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy_hitbox"):
-		take_damage(area.damage if "damage" in area else 10.0)
+		var dmg = 10.0
+		if area.get("damage") != null:
+			dmg = area.damage
+		take_damage(dmg)

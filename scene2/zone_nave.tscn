@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://csmp1f5qsoxaf"]
+[gd_scene load_steps=19 format=4 uid="uid://csmp1f5qsoxaf"]
 
 [ext_resource type="Texture2D" uid="uid://crhegxfkelbm1" path="res://scene2/s2-1(1).png" id="1_odwn6"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="2_3qk08"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://d0hlpoquflq26" path="res://scene2/crystals4.gd" id="7_3asra"]
 [ext_resource type="Script" uid="uid://bm0d5pestlpvv" path="res://scene2/door.gd" id="11_d0d4e"]
 [ext_resource type="Script" uid="uid://bv5txa4ji1ux2" path="res://scene2/door_teleports2-1.gd" id="12_jeyun"]
+[ext_resource type="PackedScene" uid="uid://bljf38yplp4fg" path="res://serath.tscn" id="13_4ln5c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_woqyn"]
 texture = ExtResource("3_oyj4q")
@@ -187,6 +188,9 @@ script = ExtResource("12_jeyun")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TP"]
 position = Vector2(-12, -6.5)
 shape = SubResource("RectangleShape2D_4ln5c")
+
+[node name="Serath" parent="." instance=ExtResource("13_4ln5c")]
+position = Vector2(1573, 817)
 
 [connection signal="body_shape_entered" from="Crystals" to="Crystals" method="_on_body_shape_entered"]
 [connection signal="body_shape_entered" from="Crystals2" to="Crystals2" method="_on_body_shape_entered"]

@@ -1,5 +1,6 @@
-[gd_scene load_steps=37 format=3 uid="uid://b8kda2qrih8qt"]
+[gd_scene load_steps=38 format=3 uid="uid://b8kda2qrih8qt"]
 
+[ext_resource type="Script" uid="uid://bvngirslxi0jw" path="res://gorrath.gd" id="1_u0qxr"]
 [ext_resource type="Texture2D" uid="uid://dpbn6e11pcusl" path="res://villains/Goliath sprite.png" id="1_yv1fr"]
 [ext_resource type="Texture2D" uid="uid://bqw4b5cd5t5bw" path="res://villains/villains/Goliath sprite.png" id="2_xcp5e"]
 
@@ -146,7 +147,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7aibc")
 }],
-"loop": true,
+"loop": false,
 "name": &"dead",
 "speed": 5.0
 }, {
@@ -177,7 +178,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5pji1")
 }],
-"loop": true,
+"loop": false,
 "name": &"slam",
 "speed": 5.0
 }, {
@@ -203,7 +204,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fnjh5")
 }],
-"loop": true,
+"loop": false,
 "name": &"summon",
 "speed": 5.0
 }, {
@@ -220,7 +221,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_i2lrv")
 }],
-"loop": true,
+"loop": false,
 "name": &"sweep",
 "speed": 5.0
 }, {
@@ -261,10 +262,12 @@ radius = 88.0
 height = 178.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wuy0h"]
-radius = 109.0
-height = 218.0
+radius = 122.0
+height = 244.0
 
 [node name="Gorrath" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_u0qxr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -273,32 +276,48 @@ shape = SubResource("CapsuleShape2D_yv1fr")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nlybp")
 animation = &"dead"
-frame_progress = 0.139052
+frame = 7
+frame_progress = 1.0
 
 [node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-visible = false
 shape = SubResource("CapsuleShape2D_xcp5e")
 
 [node name="AttackArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-visible = false
 shape = SubResource("CapsuleShape2D_u0qxr")
 
 [node name="ShockwaveArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShockwaveArea"]
-visible = false
 shape = SubResource("CapsuleShape2D_pi72k")
 
 [node name="DetectionArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-visible = false
 shape = SubResource("CapsuleShape2D_wuy0h")
 
 [node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="PhaseTimer" type="Timer" parent="."]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_entered" from="ShockwaveArea" to="." method="_on_shockwave_area_body_entered"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

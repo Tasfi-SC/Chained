@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://dvloxd4thpsun"]
+[gd_scene load_steps=77 format=3 uid="uid://dvloxd4thpsun"]
 
 [ext_resource type="Script" uid="uid://b5t1wwtd1jx8r" path="res://player.gd" id="1_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://cx0aio4jxgmou" path="res://mc/mcdevilsword.png" id="1_sweqy"]
@@ -199,17 +199,21 @@ region = Rect2(364, 540, 182, 180)
 atlas = ExtResource("4_dw050")
 region = Rect2(546, 540, 182, 180)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6w8y"]
+atlas = ExtResource("4_dw050")
+region = Rect2(0, 0, 161, 180)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_vl8ci"]
 atlas = ExtResource("4_dw050")
 region = Rect2(0, 180, 177, 180)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ieltc"]
-atlas = ExtResource("4_dw050")
-region = Rect2(182, 180, 177, 180)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_oybyf"]
 atlas = ExtResource("4_dw050")
 region = Rect2(364, 180, 177, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ieltc"]
+atlas = ExtResource("4_dw050")
+region = Rect2(182, 180, 177, 180)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ajfva"]
 atlas = ExtResource("4_dw050")
@@ -475,15 +479,26 @@ animations = [{
 "name": &"melee",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6w8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6w8y")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vl8ci")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ieltc")
+"texture": SubResource("AtlasTexture_oybyf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oybyf")
+"texture": SubResource("AtlasTexture_ieltc")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ajfva")
@@ -564,6 +579,8 @@ radius = 69.0
 height = 216.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_2hs0m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -575,14 +592,19 @@ position = Vector2(1, 2.98023e-08)
 scale = Vector2(1, 0.994444)
 sprite_frames = SubResource("SpriteFrames_04cqw")
 animation = &"run"
+frame_progress = 0.939323
 
 [node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 visible = false
 shape = SubResource("CapsuleShape2D_1jxqw")
 
 [node name="AttackHitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
 visible = false
@@ -595,9 +617,5 @@ shape = SubResource("CapsuleShape2D_dw050")
 [node name="AbilityCDtimer" type="Timer" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-limit_left = 0
-limit_top = 0
-limit_right = 2848
-limit_bottom = 1600
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
