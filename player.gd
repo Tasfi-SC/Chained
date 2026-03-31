@@ -20,9 +20,9 @@ extends CharacterBody2D
 
 @export var ball_scene: PackedScene
 @export var ball_speed: float = 400.0
-
+	
 var health: float
-var demon_form: bool = true
+var demon_form: bool = false
 var is_dodging: bool = false
 var is_invincible: bool = false
 var sword_active: bool = false
@@ -48,6 +48,8 @@ func _ready() -> void:
 	attack_collision.disabled = true
 	sprite.play("idle")
 	sprite.animation_finished.connect(_on_animation_finished)
+	floor_snap_length = 10.0  
+	floor_max_angle = deg_to_rad(70)
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
@@ -122,22 +124,27 @@ func _do_melee() -> void:
 	is_attacking = true
 	_play_anim("melee")
 	attack_collision.disabled = false
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.9).timeout
 	attack_collision.disabled = true
+	is_attacking = false
+	_play_anim("idle") 
 func _do_sword_attack() -> void:
 	is_attacking = true
 	sword_cooldown_timer = sword_cooldown
 	_play_anim("sword_slash")
 	attack_collision.disabled = false
-	await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(0.9).timeout
 	attack_collision.disabled = true
+	is_attacking = false
+	_play_anim("idle") 
 func _do_shadow_ball() -> void:
 	is_attacking = true
 	ball_cooldown_timer = ball_cooldown
 	_play_anim("shadow_ball")
 
-	await get_tree().create_timer(0.2).timeout
-
+	await get_tree().create_timer(0.9).timeout
+	is_attacking = false
+	_play_anim("idle") 
 	if ball_scene:
 		var shot_count = 3 if demon_form else 1
 		for i in range(shot_count):
@@ -216,6 +223,7 @@ func _on_animation_finished() -> void:
 	or "exhaust" in anim or "dodge" in anim:
 		is_attacking = false
 		attack_collision.disabled = true
+		_play_anim("idle") 
 func get_hp_percent() -> float:
 	return health/max_health
 

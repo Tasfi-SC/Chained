@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djb1jmk6gv7y5"
-path="res://.godot/imported/s2-3.png-77513467dc1d9bf04d3dd3ce245effb9.ctex"
+uid="uid://ccn3prd5u2lex"
+path="res://.godot/imported/doorfix.png-c18bf35bbc33b81bd76e556c03d36849.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scene2/s2-3.png"
-dest_files=["res://.godot/imported/s2-3.png-77513467dc1d9bf04d3dd3ce245effb9.ctex"]
+source_file="res://scene2/doorfix.png"
+dest_files=["res://.godot/imported/doorfix.png-c18bf35bbc33b81bd76e556c03d36849.ctex"]
 
 [params]
 
