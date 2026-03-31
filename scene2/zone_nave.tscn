@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://2pmer5cv75vl"]
+[gd_scene load_steps=24 format=4 uid="uid://2pmer5cv75vl"]
 
 [ext_resource type="Texture2D" uid="uid://dm0jktubjfjup" path="res://scene2/s2-1.png" id="1_jbn6h"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="2_3qk08"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://cqd2gr88odsek" path="res://scene2/door_teleports2-1.gd" id="12_jeyun"]
 [ext_resource type="Texture2D" uid="uid://b7bc4oag2qk3" path="res://scene2/transparent.png" id="13_4ln5c"]
 [ext_resource type="PackedScene" uid="uid://dva2gnxgiqq1a" path="res://rock.tscn" id="15_0sn6r"]
+[ext_resource type="Script" uid="uid://bgjri55166u8r" path="res://scene2/water.gd" id="15_upgcc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jbn6h"]
 texture = ExtResource("9_jeyun")
@@ -2880,6 +2881,9 @@ texture_region_size = Vector2i(138, 127)
 physics_layer_0/collision_layer = 1
 sources/3 = SubResource("TileSetAtlasSource_jbn6h")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85tix"]
+size = Vector2(2297, 730)
+
 [sub_resource type="LabelSettings" id="LabelSettings_ibs4g"]
 font = ExtResource("10_jbn6h")
 font_size = 31
@@ -2986,8 +2990,18 @@ position = Vector2(2125, 1237)
 [node name="Rock4" parent="." instance=ExtResource("15_0sn6r")]
 position = Vector2(2653, 1413)
 
-[node name="Player" parent="." groups=["player"] instance=ExtResource("2_3qk08")]
+[node name="Player" parent="." instance=ExtResource("2_3qk08")]
 position = Vector2(112, 1246)
+collision_layer = 3
+
+[node name="water" type="Area2D" parent="."]
+position = Vector2(1217, 1425)
+collision_layer = 2
+script = ExtResource("15_upgcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="water"]
+position = Vector2(-117.5, -106)
+shape = SubResource("RectangleShape2D_85tix")
 
 [node name="CrystalLabel" type="Label" parent="."]
 visible = false
@@ -3064,5 +3078,8 @@ tile_set = SubResource("TileSet_85tix")
 [connection signal="body_shape_entered" from="Crystals2" to="Crystals2" method="_on_body_shape_entered"]
 [connection signal="body_shape_entered" from="Crystals3" to="Crystals3" method="_on_body_shape_entered"]
 [connection signal="body_shape_entered" from="Crystals4" to="Crystals4" method="_on_body_shape_entered"]
+[connection signal="body_entered" from="water" to="water" method="_on_body_entered"]
+[connection signal="body_exited" from="water" to="Player" method="_on_water_body_exited"]
+[connection signal="body_exited" from="water" to="water" method="_on_body_exited"]
 [connection signal="input_event" from="Door" to="Door" method="_on_input_event"]
 [connection signal="body_entered" from="TP" to="TP" method="_on_body_entered"]

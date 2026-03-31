@@ -4,6 +4,9 @@ extends CharacterBody2D
 @export var jump_velocity: float = -400.0
 @export var gravity: float = 900.0
 
+var in_water: bool = false
+@export var water_slow_multiplier: float = 0.5
+
 @export var shadow_ball_unlocked: bool = true
 @export var sword_unlocked: bool = true
 @export var demon_form_unlocked: bool = true
@@ -67,6 +70,7 @@ func _physics_process(delta: float) -> void:
 
 	_update_animation()
 	move_and_slide()
+	
 func _update_timers(delta: float) -> void:
 	dodge_cooldown_timer = max(0.0, dodge_cooldown_timer - delta)
 	ball_cooldown_timer = max(0.0, ball_cooldown_timer - delta)
@@ -92,11 +96,16 @@ func _handle_movement(delta: float) -> void:
 		direction = -1.0
 		facing_right = false
 		sprite.flip_h = true
-
-	if direction != 0.0:
-		velocity.x = direction * speed
-	else:
-		velocity.x = move_toward(velocity.x, 0.0, speed)
+	
+	if not is_dodging:
+		var current_speed = speed
+		if in_water:
+			# print("in water")
+			current_speed *= water_slow_multiplier
+		if direction != 0.0:
+			velocity.x = direction * current_speed
+		else:
+			velocity.x = move_toward(velocity.x, 0.0, current_speed)
 func _handle_jump() -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity

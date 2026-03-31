@@ -410,7 +410,6 @@ collision_layer = 2
 script = ExtResource("1_s5t1o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 scale = Vector2(-14.2088, 15.5839)
 shape = SubResource("CircleShape2D_lcxyl")
 
@@ -438,7 +437,6 @@ visible = false
 shape = SubResource("CircleShape2D_h5v57")
 
 [node name="AttackArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -446,11 +444,10 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_m3xds")
 
 [node name="DetectionArea" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
+collision_layer = 2
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-visible = false
 shape = SubResource("CircleShape2D_0t6vb")
 
 [node name="AttackTimer" type="Timer" parent="."]

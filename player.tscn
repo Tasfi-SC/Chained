@@ -582,7 +582,7 @@ height = 200.0
 radius = 56.0
 height = 220.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_2hs0m")
@@ -596,7 +596,7 @@ position = Vector2(1, 2.98023e-08)
 scale = Vector2(1, 0.994444)
 sprite_frames = SubResource("SpriteFrames_04cqw")
 animation = &"run"
-frame_progress = 0.814791
+frame_progress = 0.670397
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 2
