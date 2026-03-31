@@ -419,7 +419,7 @@ position = Vector2(33, 25)
 scale = Vector2(1.674, 2.77294)
 sprite_frames = SubResource("SpriteFrames_3nodl")
 animation = &"dash"
-frame_progress = 0.264784
+frame_progress = 0.0423822
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 4
@@ -450,6 +450,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+visible = false
 shape = SubResource("CircleShape2D_0t6vb")
 
 [node name="AttackTimer" type="Timer" parent="."]
