@@ -44,15 +44,11 @@ func _physics_process(_delta: float) -> void:
 			if player:
 				var direction = (player.global_position - global_position).normalized()
 				velocity = direction * speed
-
-				if anim.animation != "right":
-					anim.play("right")
-
 				anim.flip_h = player.global_position.x < global_position.x
 			else:
 				_set_state(State.IDLE)
 
-		State.DASH, State.EVIL_EYE, State.SHADOWBALL:
+		State.DASH, State.EVIL_EYE, State.SHADOWBALL, State.DEATH:
 			velocity = Vector2.ZERO
 
 	move_and_slide()
@@ -69,8 +65,10 @@ func _set_state(new_state: State) -> void:
 			anim.play("idle")
 
 		State.MOVE:
-			anim.play("right")
-			_face_player()
+			if player:
+				anim.flip_h = player.global_position.x < global_position.x
+				anim.play("right")
+
 
 		State.DASH:
 			_face_player()
@@ -95,11 +93,8 @@ func _on_evileye_area_body_entered(body: Node2D) -> void:
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("player") or is_dead:
 		return
-
 	if current_state == State.DASH or current_state == State.SHADOWBALL:
 		_deal_percent_damage(body)
-	elif can_attack:
-		_trigger_next_attack()
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and not is_dead:
 		player = body
@@ -139,25 +134,23 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	match current_state:
 		State.DASH, State.EVIL_EYE, State.SHADOWBALL:
-			attack_timer.start()
+			attack_timer.start()  # Always start — no condition needed
 			if player:
 				_set_state(State.MOVE)
 			else:
 				_set_state(State.IDLE)
 		State.DEATH:
 			anim.stop()
-
-
 func _on_attack_timer_timeout() -> void:
 	can_attack = true
 	if player and not is_dead:
-		for body in attack_area.get_overlapping_bodies():
-			if body.is_in_group("player"):
-				_trigger_next_attack()
-				break
+		_trigger_next_attack()
+
 func take_damage(amount: float) -> void:
 	if is_dead:
 		return
 	health -= amount
+	print("Serath took ", amount, " damage. HP: ", health)
+
 	if health <= 0:
 		_set_state(State.DEATH)

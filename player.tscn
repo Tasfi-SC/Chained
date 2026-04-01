@@ -359,7 +359,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bwjto")
 }],
-"loop": true,
+"loop": false,
 "name": &"demon_shadowball",
 "speed": 5.0
 }, {
@@ -382,7 +382,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pbfsw")
 }],
-"loop": true,
+"loop": false,
 "name": &"demon_sword_slash",
 "speed": 5.0
 }, {
@@ -402,7 +402,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jm5j8")
 }],
-"loop": true,
+"loop": false,
 "name": &"demon_sword_summon",
 "speed": 5.0
 }, {
@@ -419,7 +419,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_efrwb")
 }],
-"loop": true,
+"loop": false,
 "name": &"demon_sword_swing",
 "speed": 5.0
 }, {
@@ -430,7 +430,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ibah8")
 }],
-"loop": true,
+"loop": false,
 "name": &"demon_transform",
 "speed": 2.0
 }, {
@@ -475,7 +475,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v2t6f")
 }],
-"loop": true,
+"loop": false,
 "name": &"melee",
 "speed": 5.0
 }, {
@@ -523,7 +523,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kh4g0")
 }],
-"loop": true,
+"loop": false,
 "name": &"shadow_ball",
 "speed": 5.0
 }, {
@@ -548,7 +548,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_feeoa")
 }],
-"loop": true,
+"loop": false,
 "name": &"sword_slash",
 "speed": 5.0
 }, {
@@ -565,7 +565,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xry5e")
 }],
-"loop": true,
+"loop": false,
 "name": &"sword_summon",
 "speed": 2.0
 }]
@@ -591,8 +591,7 @@ shape = SubResource("CapsuleShape2D_2hs0m")
 position = Vector2(1, 2.98023e-08)
 scale = Vector2(1, 0.994444)
 sprite_frames = SubResource("SpriteFrames_04cqw")
-animation = &"run"
-frame_progress = 0.939323
+animation = &"melee"
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 2

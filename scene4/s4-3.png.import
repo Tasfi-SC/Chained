@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cfgtawcsw0ik7"
-valid=false
+path="res://.godot/imported/s4-3.png-a3ae7fff5a07a16e739936e10c25c659.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://scene4/s4-3.png"
+dest_files=["res://.godot/imported/s4-3.png-a3ae7fff5a07a16e739936e10c25c659.ctex"]
 
 [params]
 

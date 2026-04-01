@@ -48,6 +48,8 @@ func _ready() -> void:
 	attack_collision.disabled = true
 	sprite.play("idle")
 	sprite.animation_finished.connect(_on_animation_finished)
+	floor_snap_length = 10.0
+	floor_max_angle = deg_to_rad(120)
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
