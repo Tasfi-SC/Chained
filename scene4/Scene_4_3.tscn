@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://ceu2lxw422w5p"]
 
 [ext_resource type="Texture2D" uid="uid://boy21kj7drrnu" path="res://scene4/s42d-3.png" id="1_fe1rh"]
-[ext_resource type="Script" uid="uid://cekrokws1t3j4" path="res://scene4/camera_2d(2).gd" id="2_isl8t"]
+[ext_resource type="Script" path="res://scene4/camera_2d(2).gd" id="2_isl8t"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="3_knwn8"]
-[ext_resource type="Script" uid="uid://dwb68llvjmcy8" path="res://scene4/portal3.gd" id="4_y0meo"]
+[ext_resource type="Script" path="res://scene4/portal3.gd" id="4_y0meo"]
 [ext_resource type="Texture2D" uid="uid://bc2v1f83dnqpe" path="res://scene4/s4sprite2.png" id="5_v6xlp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dpny4"]
@@ -151,7 +151,7 @@ script = ExtResource("4_y0meo")
 next_scene_path = "res://scene4/Scene_4_4.tscn"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Portal"]
-position = Vector2(-1616, 142)
+position = Vector2(-1616, 100)
 tile_map_data = PackedByteArray(0, 0, 240, 255, 255, 255, 0, 0, 8, 0, 2, 0, 0, 0)
 tile_set = SubResource("TileSet_mf8oi")
 

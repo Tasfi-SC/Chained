@@ -4,6 +4,9 @@ extends CharacterBody2D
 @export var jump_velocity: float = -400.0
 @export var gravity: float = 900.0
 
+var in_water: bool = false
+@export var water_slow_multiplier: float = 0.5
+
 @export var shadow_ball_unlocked: bool = true
 @export var sword_unlocked: bool = true
 @export var demon_form_unlocked: bool = true
@@ -20,9 +23,9 @@ extends CharacterBody2D
 
 @export var ball_scene: PackedScene
 @export var ball_speed: float = 400.0
-
+	
 var health: float
-var demon_form: bool = true
+var demon_form: bool = false
 var is_dodging: bool = false
 var is_invincible: bool = false
 var sword_active: bool = false
@@ -48,8 +51,8 @@ func _ready() -> void:
 	attack_collision.disabled = true
 	sprite.play("idle")
 	sprite.animation_finished.connect(_on_animation_finished)
-	floor_snap_length = 10.0
-	floor_max_angle = deg_to_rad(120)
+	floor_snap_length = 10.0  
+	floor_max_angle = deg_to_rad(70)
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
@@ -67,6 +70,7 @@ func _physics_process(delta: float) -> void:
 
 	_update_animation()
 	move_and_slide()
+	
 func _update_timers(delta: float) -> void:
 	dodge_cooldown_timer = max(0.0, dodge_cooldown_timer - delta)
 	ball_cooldown_timer = max(0.0, ball_cooldown_timer - delta)
@@ -92,11 +96,16 @@ func _handle_movement(delta: float) -> void:
 		direction = -1.0
 		facing_right = false
 		sprite.flip_h = true
-
-	if direction != 0.0:
-		velocity.x = direction * speed
-	else:
-		velocity.x = move_toward(velocity.x, 0.0, speed)
+	
+	if not is_dodging:
+		var current_speed = speed
+		if in_water:
+			# print("in water")
+			current_speed *= water_slow_multiplier
+		if direction != 0.0:
+			velocity.x = direction * current_speed
+		else:
+			velocity.x = move_toward(velocity.x, 0.0, current_speed)
 func _handle_jump() -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
@@ -124,22 +133,27 @@ func _do_melee() -> void:
 	is_attacking = true
 	_play_anim("melee")
 	attack_collision.disabled = false
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.9).timeout
 	attack_collision.disabled = true
+	is_attacking = false
+	_play_anim("idle") 
 func _do_sword_attack() -> void:
 	is_attacking = true
 	sword_cooldown_timer = sword_cooldown
 	_play_anim("sword_slash")
 	attack_collision.disabled = false
-	await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(0.9).timeout
 	attack_collision.disabled = true
+	is_attacking = false
+	_play_anim("idle") 
 func _do_shadow_ball() -> void:
 	is_attacking = true
 	ball_cooldown_timer = ball_cooldown
 	_play_anim("shadow_ball")
 
-	await get_tree().create_timer(0.2).timeout
-
+	await get_tree().create_timer(0.9).timeout
+	is_attacking = false
+	_play_anim("idle") 
 	if ball_scene:
 		var shot_count = 3 if demon_form else 1
 		for i in range(shot_count):
@@ -218,6 +232,7 @@ func _on_animation_finished() -> void:
 	or "exhaust" in anim or "dodge" in anim:
 		is_attacking = false
 		attack_collision.disabled = true
+		_play_anim("idle") 
 func get_hp_percent() -> float:
 	return health/max_health
 

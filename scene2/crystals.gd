@@ -10,7 +10,3 @@ func _on_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, 
 		$"../CrystalLabel".visible = true
 		await get_tree().create_timer(1.0).timeout
 		$"../CrystalLabel".visible = false
-
-
-func _on_tp_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
