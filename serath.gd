@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var attack_cooldown: float = 2.0
 @export var gravity: float = 900.0
 
-enum State { IDLE, CHASE, DASH, EVIL_EYE, SHADOWBALL, DEATH }
+enum State { IDLE, CHASE, DASH, EVIL_EYE, SHADOWBALL, RETURN, DEATH }
 enum Phase { ONE, TWO, THREE }
 
 var health: float
@@ -17,6 +17,7 @@ var can_attack: bool = true
 var attack_landed: bool = false
 var attack_queue: Array = ["dash", "evil_eye", "shadowball"]
 var attack_index: int = 0
+var start_position: Vector2
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_timer: Timer = $AttackTimer
@@ -26,6 +27,7 @@ var attack_index: int = 0
 
 func _ready() -> void:
 	health = max_health
+	start_position = global_position
 	attack_timer.wait_time = attack_cooldown
 	attack_timer.one_shot = true
 	attack_timer.timeout.connect(_on_attack_timer_timeout)
@@ -56,6 +58,20 @@ func _physics_process(delta: float) -> void:
 				_set_state(State.IDLE)
 		State.DASH, State.EVIL_EYE, State.SHADOWBALL:
 			velocity.x = 0
+		State.RETURN:
+			if not is_on_floor():
+				velocity.y += gravity * delta
+			var dis = abs(global_position.x - start_position.x)
+			if dis > 0.5:
+				var dire_x = sign(start_position.x - global_position.x)
+				velocity.x = dire_x * speed
+				if dire_x <0:
+					anim.flip_h = true
+				else:
+					anim.flip_h = false
+			else:
+				global_position.x = start_position.x
+				_set_state(State.IDLE)
 		State.DEATH:
 			velocity = Vector2.ZERO
 	move_and_slide()
@@ -86,6 +102,8 @@ func _set_state(new_state: State) -> void:
 		State.SHADOWBALL:
 			_face_player()
 			anim.play("shadowball")
+		State.RETURN:
+			anim.play("right")
 		State.DEATH:
 			anim.play("death")
 			is_dead = true
@@ -136,7 +154,7 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 		can_attack = true
 		attack_landed = false
 		attack_timer.stop()
-		_set_state(State.IDLE)
+		_set_state(State.RETURN)
 		
 func _on_animated_sprite_2d_animation_finished() -> void:
 	match current_state:

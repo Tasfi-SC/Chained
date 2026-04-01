@@ -1,11 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbotoitgyr7nv"]
+[gd_scene load_steps=3 format=3 uid="uid://ckmwkgkkg6ssj"]
 
-[ext_resource type="Texture2D" uid="uid://vwrym12663y7" path="res://scene2/crystals.png" id="1_qcjw8"]
+[ext_resource type="Texture2D" uid="uid://vp3mkhbqfijw" path="res://scene2/crystals.png" id="1_qcjw8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xmq1"]
 size = Vector2(89, 77)
 
 [node name="Crystals" type="Area2D"]
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-144.25, -98.25)
@@ -13,5 +14,6 @@ scale = Vector2(0.238786, 0.295699)
 texture = ExtResource("1_qcjw8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-143.5, -96.5)
 shape = SubResource("RectangleShape2D_1xmq1")
