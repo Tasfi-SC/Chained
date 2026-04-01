@@ -104,7 +104,7 @@ texture = ExtResource("1_hgwu7")
 expand_mode = 1
 
 [node name="Serath" parent="." instance=ExtResource("2_i3dkl")]
-position = Vector2(2537, 1037)
+position = Vector2(2537, 1011)
 collision_layer = 1
 
 [node name="stairs" type="TileMapLayer" parent="."]
