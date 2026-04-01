@@ -1,12 +1,12 @@
-[gd_scene load_steps=39 format=3 uid="uid://b8kda2qrih8qt"]
+[gd_scene load_steps=41 format=3 uid="uid://b8kda2qrih8qt"]
 
 [ext_resource type="Script" uid="uid://bvngirslxi0jw" path="res://gorrath.gd" id="1_u0qxr"]
 [ext_resource type="Texture2D" uid="uid://dpbn6e11pcusl" path="res://villains/Goliath sprite.png" id="1_yv1fr"]
 [ext_resource type="Texture2D" uid="uid://bqw4b5cd5t5bw" path="res://villains/villains/Goliath sprite.png" id="2_xcp5e"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yv1fr"]
-radius = 71.0
-height = 142.0
+radius = 139.0
+height = 314.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yv1fr"]
 atlas = ExtResource("1_yv1fr")
@@ -257,22 +257,29 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xcp5e"]
-radius = 72.0
-height = 144.0
+radius = 151.0
+height = 302.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u0qxr"]
-radius = 90.0
-height = 180.0
+radius = 263.0
+height = 526.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pi72k"]
-radius = 88.0
-height = 178.0
+radius = 337.0
+height = 674.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wuy0h"]
-radius = 122.0
-height = 244.0
+radius = 327.0
+height = 654.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u0qxr"]
+bg_color = Color(0.0475577, 0.0475577, 0.0475576, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pi72k"]
+bg_color = Color(0.817996, 0.18145, 0.250717, 1)
 
 [node name="Gorrath" type="CharacterBody2D"]
+position = Vector2(0, 2)
 collision_layer = 4
 script = ExtResource("1_u0qxr")
 
@@ -281,12 +288,12 @@ visible = false
 shape = SubResource("CapsuleShape2D_yv1fr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.3, 2.3)
 sprite_frames = SubResource("SpriteFrames_nlybp")
-animation = &"dead"
-frame = 8
-frame_progress = 1.0
+animation = &"walk"
 
 [node name="Hitbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 4
 collision_mask = 2
 
@@ -294,7 +301,6 @@ collision_mask = 2
 shape = SubResource("CapsuleShape2D_xcp5e")
 
 [node name="AttackArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -307,6 +313,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShockwaveArea"]
+position = Vector2(-2, 0)
 shape = SubResource("CapsuleShape2D_pi72k")
 
 [node name="DetectionArea" type="Area2D" parent="."]
@@ -315,12 +322,25 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+visible = false
 shape = SubResource("CapsuleShape2D_wuy0h")
 
 [node name="AttackTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="PhaseTimer" type="Timer" parent="."]
+
+[node name="HealthBarUI" type="Node2D" parent="."]
+position = Vector2(-4, -75)
+
+[node name="ProgressBar" type="ProgressBar" parent="HealthBarUI"]
+offset_left = -23.0
+offset_top = -82.0
+offset_right = 77.0
+offset_bottom = -55.0
+theme_override_styles/background = SubResource("StyleBoxFlat_u0qxr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pi72k")
+max_value = 500.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
