@@ -1,16 +1,16 @@
-[gd_scene load_steps=21 format=3 uid="uid://ddgicgskb4d28"]
+[gd_scene load_steps=21 format=3 uid="uid://bhcawao38wc0d"]
 
-[ext_resource type="Texture2D" uid="uid://b1mwji3qxbim6" path="res://scene3/Scene3_1.png" id="1_qe0fi"]
-[ext_resource type="Script" path="res://scene3/camera1.gd" id="2_mtw2n"]
-[ext_resource type="Script" path="res://scene3/portals3_1.gd" id="3_hnuht"]
+[ext_resource type="Texture2D" uid="uid://22agpkxod5xm" path="res://scene3/bgs/bg2.png" id="1_hnuht"]
+[ext_resource type="Script" uid="uid://o32myepnxxk1" path="res://scene3/camera1.gd" id="2_mtw2n"]
+[ext_resource type="Script" uid="uid://d4darl0cvd0yy" path="res://scene3/portals3_1.gd" id="3_hnuht"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="3_mtw2n"]
 [ext_resource type="Texture2D" uid="uid://cbdau86ufwg73" path="res://scene3/s3sprite4.png" id="3_x0jid"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnuht"]
-size = Vector2(1614, 108)
+size = Vector2(2156, 108)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vwlc8"]
-size = Vector2(467, 228)
+size = Vector2(467, 805)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bxea"]
 size = Vector2(330, 1107)
@@ -105,20 +105,20 @@ motion_scale = Vector2(0.85, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(-1880, -143)
-texture = ExtResource("1_qe0fi")
+texture = ExtResource("1_hnuht")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-2158, -16)
+position = Vector2(-1891, 71)
 shape = SubResource("RectangleShape2D_hnuht")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1096, -48)
+position = Vector2(-584, -187.5)
 shape = SubResource("RectangleShape2D_vwlc8")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-3143, -170)
+position = Vector2(-3120, -151)
 shape = SubResource("RectangleShape2D_3bxea")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -132,7 +132,7 @@ script = ExtResource("3_hnuht")
 next_scene_path = "res://scene3/Scene3_2.tscn"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Portal"]
-position = Vector2(-1615, -234)
+position = Vector2(-1555, -232)
 sprite_frames = SubResource("SpriteFrames_5bxnu")
 animation = &"run"
 frame_progress = 0.868203
@@ -142,10 +142,10 @@ position = Vector2(-297, -16)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/TriggerArea"]
-position = Vector2(-1258, -218)
+position = Vector2(-1285, -198)
 shape = SubResource("RectangleShape2D_oh20g")
 
 [node name="Player" parent="." instance=ExtResource("3_mtw2n")]
-position = Vector2(-2903, -186)
+position = Vector2(-2876, -131)
 
 [connection signal="body_entered" from="Portal/TriggerArea" to="Portal" method="_on_trigger_area_body_entered"]
