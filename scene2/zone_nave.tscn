@@ -2958,7 +2958,7 @@ offset_bottom = 1652.0
 texture = ExtResource("2_jbn6h")
 expand_mode = 1
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="rockfloor" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AACyAFwAAAABAAQAAACyAF0AAAABAAQAAAAcAEUAAwAEAAQAAAA1AFYAAwAIAAQAAACFAE8AAwAIAAQAAACmAFoAAwAIAAQAAABmADsAAwAIAAQAAACaAGIAAwADAAIAAACiAGIAAwADAAIAAACqAGIAAwADAAIAAACyAGIAAwADAAIAAACyAGcAAwADAAIAAACrAGcAAwADAAIAAACjAGcAAwADAAIAAACbAGcAAwADAAIAAACSAGIAAwADAAIAAACTAGcAAwADAAIAAACRAGcAAwADAAIAAAA=")
 tile_set = SubResource("TileSet_16tcb")
 
