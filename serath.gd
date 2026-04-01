@@ -1,17 +1,16 @@
 extends CharacterBody2D
+
 @export var speed: float = 80.0
-@export var health: float = 500.0
+@export var max_health: float = 500.0
 @export var attack_cooldown: float = 2.0
+@export var gravity: float = 900.0
 
-enum State { IDLE, MOVE, DASH, EVIL_EYE, SHADOWBALL, DEATH }
+enum State { IDLE, CHASE, DASH, EVIL_EYE, SHADOWBALL, DEATH }
+enum Phase { ONE, TWO, THREE }
+
+var health: float
 var current_state: State = State.IDLE
-@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
-@onready var attack_timer: Timer = $AttackTimer
-@onready var phase_timer: Timer = $PhaseTimer
-@onready var detection_area: Area2D = $DetectionArea
-@onready var attack_area: Area2D = $AttackArea
-@onready var evileye_area: Area2D = $EvileyeArea
-
+var current_phase: Phase = Phase.ONE
 var player: Node2D = null
 var is_dead: bool = false
 var can_attack: bool = true
@@ -19,71 +18,74 @@ var attack_landed: bool = false
 var attack_queue: Array = ["dash", "evil_eye", "shadowball"]
 var attack_index: int = 0
 
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var attack_timer: Timer = $AttackTimer
+@onready var detection_area: Area2D = $DetectionArea
+@onready var attack_area: Area2D = $AttackArea
+@onready var evileye_area: Area2D = $EvileyeArea
+
 func _ready() -> void:
+	health = max_health
 	attack_timer.wait_time = attack_cooldown
 	attack_timer.one_shot = true
 	attack_timer.timeout.connect(_on_attack_timer_timeout)
-
 	detection_area.body_entered.connect(_on_detection_area_body_entered)
 	detection_area.body_exited.connect(_on_detection_area_body_exited)
 	attack_area.body_entered.connect(_on_attack_area_body_entered)
 	evileye_area.body_entered.connect(_on_evileye_area_body_entered)
 	anim.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
-
 	_set_state(State.IDLE)
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
-
+	if not is_on_floor():
+		velocity.y += gravity * delta
+		
 	match current_state:
 		State.IDLE:
-			velocity = Vector2.ZERO
-
-		State.MOVE:
+			velocity.x = 0
+		State.CHASE:
 			if player:
-				var direction = (player.global_position - global_position).normalized()
-				velocity = direction * speed
-
+				var dir_x = sign(player.global_position.x - global_position.x)
+				velocity.x = dir_x * speed
+				anim.flip_h = dir_x < 0
 				if anim.animation != "right":
 					anim.play("right")
-
-				anim.flip_h = player.global_position.x < global_position.x
 			else:
 				_set_state(State.IDLE)
-
 		State.DASH, State.EVIL_EYE, State.SHADOWBALL:
+			velocity.x = 0
+		State.DEATH:
 			velocity = Vector2.ZERO
-
 	move_and_slide()
 
 func _face_player() -> void:
 	if player:
 		anim.flip_h = player.global_position.x < global_position.x
+
 func _set_state(new_state: State) -> void:
 	current_state = new_state
 	attack_landed = false
 
 	match new_state:
 		State.IDLE:
-			anim.play("idle")
-
-		State.MOVE:
+			if anim.sprite_frames.has_animation("idle"):
+				anim.play("idle")
+			else:
+				anim.play("right")
+		State.CHASE:
 			anim.play("right")
 			_face_player()
-
 		State.DASH:
 			_face_player()
 			anim.play("dash")
-
 		State.EVIL_EYE:
 			_face_player()
 			anim.play("evil_eye")
-
 		State.SHADOWBALL:
 			_face_player()
 			anim.play("shadowball")
-
 		State.DEATH:
 			anim.play("death")
 			is_dead = true
@@ -103,12 +105,11 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and not is_dead:
 		player = body
-		_set_state(State.MOVE)
-
+		_set_state(State.CHASE)
+		
 func _trigger_next_attack() -> void:
 	if not can_attack or is_dead:
 		return
-
 	can_attack = false
 	attack_landed = false
 
@@ -122,6 +123,7 @@ func _trigger_next_attack() -> void:
 			_set_state(State.EVIL_EYE)
 		"shadowball":
 			_set_state(State.SHADOWBALL)
+
 func _deal_percent_damage(body: Node2D) -> void:
 	if attack_landed:
 		return
@@ -135,19 +137,17 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 		attack_landed = false
 		attack_timer.stop()
 		_set_state(State.IDLE)
-
+		
 func _on_animated_sprite_2d_animation_finished() -> void:
 	match current_state:
 		State.DASH, State.EVIL_EYE, State.SHADOWBALL:
 			attack_timer.start()
 			if player:
-				_set_state(State.MOVE)
+				_set_state(State.CHASE)
 			else:
 				_set_state(State.IDLE)
 		State.DEATH:
 			anim.stop()
-
-
 func _on_attack_timer_timeout() -> void:
 	can_attack = true
 	if player and not is_dead:
