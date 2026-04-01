@@ -1,0 +1,145 @@
+[gd_scene load_steps=20 format=3 uid="uid://1gkmcj2cbo7"]
+
+[ext_resource type="Texture2D" uid="uid://brb6vf66gj0rm" path="res://scene3/Scene3_3.png" id="1_s8laf"]
+[ext_resource type="Script" uid="uid://o32myepnxxk1" path="res://scene3/camera1.gd" id="2_hhakq"]
+[ext_resource type="Script" uid="uid://d4darl0cvd0yy" path="res://scene3/portals3_1.gd" id="3_0pi25"]
+[ext_resource type="Texture2D" uid="uid://cbdau86ufwg73" path="res://scene3/s3sprite4.png" id="4_hj130"]
+[ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="5_1ev6b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnuht"]
+size = Vector2(1912, 108)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3bxea"]
+size = Vector2(330, 1107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnuht"]
+atlas = ExtResource("4_hj130")
+region = Rect2(0, 654, 136, 109)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwlc8"]
+atlas = ExtResource("4_hj130")
+region = Rect2(136, 654, 136, 109)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bxea"]
+atlas = ExtResource("4_hj130")
+region = Rect2(272, 654, 136, 109)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oh20g"]
+atlas = ExtResource("4_hj130")
+region = Rect2(408, 654, 136, 109)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2v0j3"]
+atlas = ExtResource("4_hj130")
+region = Rect2(544, 654, 136, 109)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhq3c"]
+atlas = ExtResource("4_hj130")
+region = Rect2(680, 654, 136, 109)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nleh"]
+atlas = ExtResource("4_hj130")
+region = Rect2(816, 654, 136, 109)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuskb"]
+atlas = ExtResource("4_hj130")
+region = Rect2(952, 654, 136, 109)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yayfx"]
+atlas = ExtResource("4_hj130")
+region = Rect2(1088, 654, 136, 109)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yie0f"]
+atlas = ExtResource("4_hj130")
+region = Rect2(1224, 654, 136, 109)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5bxnu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnuht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwlc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bxea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oh20g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2v0j3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhq3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nleh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kuskb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yayfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yie0f")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oh20g"]
+size = Vector2(193, 227)
+
+[node name="Scene3_1" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.85, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-1899.15, -131.1)
+scale = Vector2(1.40254, 0.840039)
+texture = ExtResource("1_s8laf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-2014, 0)
+shape = SubResource("RectangleShape2D_hnuht")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-3087, -165)
+shape = SubResource("RectangleShape2D_3bxea")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-2371, -131)
+zoom = Vector2(0.95, 0.95)
+script = ExtResource("2_hhakq")
+target_path = NodePath("../Player")
+
+[node name="Portal" type="Node2D" parent="."]
+script = ExtResource("3_0pi25")
+next_scene_path = "res://scene4/Scene4_1.tscn"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Portal"]
+position = Vector2(-1684, -228)
+sprite_frames = SubResource("SpriteFrames_5bxnu")
+animation = &"run"
+frame_progress = 0.868203
+
+[node name="TriggerArea" type="Area2D" parent="Portal"]
+position = Vector2(-297, -16)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/TriggerArea"]
+position = Vector2(-1319, -157)
+shape = SubResource("RectangleShape2D_oh20g")
+
+[node name="Player" parent="." instance=ExtResource("5_1ev6b")]
+position = Vector2(-2903, -186)
+
+[connection signal="body_entered" from="Portal/TriggerArea" to="Portal" method="_on_trigger_area_body_entered"]

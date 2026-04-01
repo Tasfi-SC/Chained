@@ -2,7 +2,8 @@ extends Camera2D
 
 @export var target_path: NodePath
 @export var follow_speed: float = 8.0
-@export var fixed_y: float = -131.0  
+@export var fixed_y: float = -131.0 
+
 var target: Node2D
 
 func _ready() -> void:
