@@ -143,6 +143,7 @@ target_path = NodePath("../Player")
 
 [node name="Portal" type="Node2D" parent="."]
 script = ExtResource("3_c68fu")
+next_scene_path = "res://scene3/Scene3_3.png"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Portal"]
 position = Vector2(-1770, -24)
