@@ -42,12 +42,15 @@ var pulse_cooldown_timer: float = 0.0
 @onready var hurtbox: Area2D = $Hurtbox
 @onready var camera: Camera2D = $Camera2D
 @onready var attack_collision: CollisionShape2D = $AttackHitbox/CollisionShape2D
+@onready var health_bar: ProgressBar = $CanvasLayer/ProgressBar
 signal hp_changed(new_hp, max_hp)
 signal player_died
 signal demon_form_activated
 signal ability_unlocked(ability_name)
 func _ready() -> void:
 	health = max_health
+	health_bar.max_value = max_health
+	health_bar.value = health
 	attack_collision.disabled = true
 	sprite.play("idle")
 	sprite.animation_finished.connect(_on_animation_finished)
@@ -169,7 +172,7 @@ func take_damage(amount: float) -> void:
 	health -= amount
 	if health < 0:
 		health = 0
-
+	health_bar.value = health
 	print("Player took ", amount, " damage. HP: ", health)
 
 	if health <= 0:
@@ -184,8 +187,11 @@ func take_damage(amount: float) -> void:
 func _die() -> void:
 	is_dead = true
 	is_invincible = true
+	health_bar.value = 0
+	_play_anim("death")
 	emit_signal("player_died")
 	await get_tree().create_timer(1.5).timeout
+	get_tree().paused = true
 func activate_demon_form() -> void:
 	demon_form = true
 	demon_form_unlocked = true
@@ -242,8 +248,13 @@ func get_dodge_cooldown_percent() -> float:
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if area.is_in_group("enemy_hitbox"):
+	if area.is_in_group("enemy"):
 		var dmg = 10.0
 		if area.get("damage") != null:
 			dmg = area.damage
 		take_damage(dmg)
+
+
+func _on_attack_hitbox_body_entered(body: Node2D) -> void:
+	if body.has_method("take_damage"):
+		body.take_damage(20.0)

@@ -1,7 +1,7 @@
-[gd_scene load_steps=57 format=3 uid="uid://bljf38yplp4fg"]
+[gd_scene load_steps=61 format=3 uid="uid://bljf38yplp4fg"]
 
 [ext_resource type="Script" uid="uid://d33tftj8x4nrd" path="res://serath.gd" id="1_s5t1o"]
-[ext_resource type="Texture2D" uid="uid://cvid7m0lgcf06" path="res://villains/Serath sprite.png" id="1_vbntf"]
+[ext_resource type="Texture2D" uid="uid://cvid7m0lgcf06" path="res://villains/serath sprite.png" id="1_vbntf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lcxyl"]
 radius = 9.13676
@@ -65,6 +65,10 @@ region = Rect2(952, 680, 136, 85)
 [sub_resource type="AtlasTexture" id="AtlasTexture_m022n"]
 atlas = ExtResource("1_vbntf")
 region = Rect2(1088, 680, 136, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlw5b"]
+atlas = ExtResource("1_vbntf")
+region = Rect2(1140, 576, 109, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqa3j"]
 atlas = ExtResource("1_vbntf")
@@ -225,7 +229,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7wkpn")
 }],
-"loop": true,
+"loop": false,
 "name": &"dash",
 "speed": 3.0
 }, {
@@ -259,8 +263,17 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m022n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlw5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlw5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlw5b")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -295,7 +308,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5k4oq")
 }],
-"loop": true,
+"loop": false,
 "name": &"evil_eye",
 "speed": 5.0
 }, {
@@ -338,7 +351,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kurrf")
 }],
-"loop": true,
+"loop": false,
 "name": &"left",
 "speed": 5.0
 }, {
@@ -367,7 +380,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2xtii")
 }],
-"loop": true,
+"loop": false,
 "name": &"right",
 "speed": 5.0
 }, {
@@ -396,7 +409,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tmluq")
 }],
-"loop": true,
+"loop": false,
 "name": &"shadowball",
 "speed": 5.0
 }]
@@ -413,28 +426,38 @@ radius = 303.67
 [sub_resource type="CircleShape2D" id="CircleShape2D_0t6vb"]
 radius = 360.43
 
+[sub_resource type="Theme" id="Theme_s5t1o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lcxyl"]
+bg_color = Color(0.0110876, 0.0110876, 0.0110876, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5v57"]
+bg_color = Color(1, 0.34837, 0.225171, 1)
+
 [node name="Serath" type="CharacterBody2D"]
-collision_layer = 2
+collision_layer = 4
 script = ExtResource("1_s5t1o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 scale = Vector2(-14.2088, 15.5839)
 shape = SubResource("CircleShape2D_lcxyl")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["enemy"]]
 position = Vector2(33, 25)
 scale = Vector2(1.674, 2.77294)
 sprite_frames = SubResource("SpriteFrames_3nodl")
-animation = &"shadowball"
+animation = &"right"
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="HurtBox" type="Area2D" parent="." groups=["enemy"]]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CircleShape2D_s5t1o")
 
 [node name="EvileyeArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -443,6 +466,7 @@ visible = false
 shape = SubResource("CircleShape2D_h5v57")
 
 [node name="AttackArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -450,8 +474,9 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_m3xds")
 
 [node name="DetectionArea" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 5
+visible = false
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_0t6vb")
@@ -459,6 +484,19 @@ shape = SubResource("CircleShape2D_0t6vb")
 [node name="AttackTimer" type="Timer" parent="."]
 
 [node name="PhaseTimer" type="Timer" parent="."]
+
+[node name="HealthBarUI" type="Node2D" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="HealthBarUI"]
+offset_left = -33.0
+offset_top = -173.0
+offset_right = 67.0
+offset_bottom = -146.0
+theme = SubResource("Theme_s5t1o")
+theme_override_styles/background = SubResource("StyleBoxFlat_lcxyl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_h5v57")
+max_value = 500.0
+value = 500.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="EvileyeArea" to="." method="_on_evileye_area_body_entered"]

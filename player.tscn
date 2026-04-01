@@ -1,7 +1,8 @@
-[gd_scene load_steps=78 format=3 uid="uid://dvloxd4thpsun"]
+[gd_scene load_steps=77 format=3 uid="uid://dvloxd4thpsun"]
 
 [ext_resource type="Script" uid="uid://b5t1wwtd1jx8r" path="res://player.gd" id="1_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://cx0aio4jxgmou" path="res://mc/mcdevilsword.png" id="1_sweqy"]
+[ext_resource type="PackedScene" uid="uid://cmwbsv4iv1442" path="res://shadowball.tscn" id="2_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://dg58g1yek8xgc" path="res://mc/mcdevilsprite.png" id="2_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://bf7lo4nx75th7" path="res://mc/mcdevilshadow.png" id="3_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://d4fvlamwaexmq" path="res://mc/mc sprite.png" id="4_dw050"]
@@ -198,14 +199,6 @@ region = Rect2(364, 540, 182, 180)
 [sub_resource type="AtlasTexture" id="AtlasTexture_v2t6f"]
 atlas = ExtResource("4_dw050")
 region = Rect2(546, 540, 182, 180)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yem3p"]
-atlas = ExtResource("4_dw050")
-region = Rect2(8, 0, 183, 181)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_86rna"]
-atlas = ExtResource("4_dw050")
-region = Rect2(374, 0, 183, 181)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ym00c"]
 atlas = ExtResource("4_dw050")
@@ -490,12 +483,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yem3p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_86rna")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_ym00c")
 }, {
 "duration": 1.0,
@@ -586,6 +573,7 @@ height = 220.0
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_2hs0m")
+ball_scene = ExtResource("2_1jxqw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -596,11 +584,10 @@ position = Vector2(1, 2.98023e-08)
 scale = Vector2(1, 0.994444)
 sprite_frames = SubResource("SpriteFrames_04cqw")
 animation = &"run"
-frame_progress = 0.670397
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 visible = false
@@ -627,4 +614,15 @@ limit_top = 0
 limit_right = 2848
 limit_bottom = 1600
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 220.0
+offset_bottom = 47.0
+max_value = 600.0
+value = 600.0
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="AttackHitbox" to="." method="_on_attack_hitbox_body_entered"]

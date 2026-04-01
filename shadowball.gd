@@ -7,16 +7,17 @@ var damage: float = 15.0
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	$VisibleOnScreenNotifier2D.screen_exited.connect(queue_free)
+	print("Ball spawned. Layer: ", collision_layer, " Mask: ", collision_mask)
 	if is_demon:
 		damage = 25.0
 		$AnimatedSprite2D.play("demon_ball")
 	else:
 		$AnimatedSprite2D.play("ball")
-
 func _physics_process(delta: float) -> void:
 	global_position += direction * speed * delta
 
 func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("enemies"):
+	print("Ball touched: ", body.name, " | groups: ", body.get_groups())
+	if body.is_in_group("enemy"):
 		body.take_damage(damage)
 		queue_free()
