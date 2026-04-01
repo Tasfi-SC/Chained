@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://b8kda2qrih8qt"]
+[gd_scene load_steps=39 format=3 uid="uid://b8kda2qrih8qt"]
 
 [ext_resource type="Script" uid="uid://bvngirslxi0jw" path="res://gorrath.gd" id="1_u0qxr"]
 [ext_resource type="Texture2D" uid="uid://dpbn6e11pcusl" path="res://villains/Goliath sprite.png" id="1_yv1fr"]
@@ -37,8 +37,12 @@ atlas = ExtResource("1_yv1fr")
 region = Rect2(1112, 645, 126, 123)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7aibc"]
-atlas = ExtResource("1_yv1fr")
-region = Rect2(1242, 645, 123, 123)
+atlas = ExtResource("2_xcp5e")
+region = Rect2(1254, 654, 114, 109)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlybp"]
+atlas = ExtResource("2_xcp5e")
+region = Rect2(1116, 425, 124, 85)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_02qyk"]
 atlas = ExtResource("1_yv1fr")
@@ -146,6 +150,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7aibc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlybp")
 }],
 "loop": false,
 "name": &"dead",
@@ -276,7 +283,7 @@ shape = SubResource("CapsuleShape2D_yv1fr")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nlybp")
 animation = &"dead"
-frame = 7
+frame = 8
 frame_progress = 1.0
 
 [node name="Hitbox" type="Area2D" parent="."]
