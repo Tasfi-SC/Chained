@@ -290,7 +290,8 @@ shape = SubResource("CapsuleShape2D_yv1fr")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2.3, 2.3)
 sprite_frames = SubResource("SpriteFrames_nlybp")
-animation = &"walk"
+animation = &"dead"
+frame_progress = 0.43055
 
 [node name="Hitbox" type="Area2D" parent="."]
 visible = false

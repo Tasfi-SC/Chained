@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://dvloxd4thpsun"]
+[gd_scene load_steps=80 format=3 uid="uid://dvloxd4thpsun"]
 
 [ext_resource type="Script" uid="uid://b5t1wwtd1jx8r" path="res://player.gd" id="1_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://cx0aio4jxgmou" path="res://mc/mcdevilsword.png" id="1_sweqy"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bf7lo4nx75th7" path="res://mc/mcdevilshadow.png" id="3_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://d4fvlamwaexmq" path="res://mc/mc sprite.png" id="4_dw050"]
 [ext_resource type="Texture2D" uid="uid://o25bsw66x13o" path="res://mc/mcsprite normal.png" id="5_b26j0"]
+[ext_resource type="Texture2D" uid="uid://dfou5ra1xv1f1" path="res://mc/mcTest.png" id="7_dw050"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2hs0m"]
 radius = 34.0
@@ -200,25 +201,33 @@ region = Rect2(364, 540, 182, 180)
 atlas = ExtResource("4_dw050")
 region = Rect2(546, 540, 182, 180)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ym00c"]
-atlas = ExtResource("4_dw050")
-region = Rect2(8, 181, 183, 181)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_oybyf"]
-atlas = ExtResource("4_dw050")
-region = Rect2(364, 180, 177, 180)
+atlas = ExtResource("7_dw050")
+region = Rect2(182, 180, 182, 180)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ee2o4"]
-atlas = ExtResource("4_dw050")
-region = Rect2(191, 181, 183, 181)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ieltc"]
+atlas = ExtResource("7_dw050")
+region = Rect2(364, 180, 182, 180)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vie4p"]
-atlas = ExtResource("4_dw050")
-region = Rect2(374, 181, 183, 181)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl8ci"]
+atlas = ExtResource("7_dw050")
+region = Rect2(1092, 180, 182, 180)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0jj5r"]
-atlas = ExtResource("4_dw050")
-region = Rect2(557, 181, 183, 181)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajfva"]
+atlas = ExtResource("7_dw050")
+region = Rect2(910, 180, 182, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6w8y"]
+atlas = ExtResource("7_dw050")
+region = Rect2(1274, 180, 182, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yem3p"]
+atlas = ExtResource("7_dw050")
+region = Rect2(0, 180, 182, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ef02"]
+atlas = ExtResource("7_dw050")
+region = Rect2(546, 180, 182, 180)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xg1a7"]
 atlas = ExtResource("5_b26j0")
@@ -483,19 +492,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ym00c")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_oybyf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ee2o4")
+"texture": SubResource("AtlasTexture_ieltc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vie4p")
+"texture": SubResource("AtlasTexture_vl8ci")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0jj5r")
+"texture": SubResource("AtlasTexture_ajfva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6w8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yem3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ef02")
 }],
 "loop": true,
 "name": &"run",
@@ -583,8 +598,8 @@ shape = SubResource("CapsuleShape2D_2hs0m")
 position = Vector2(1, 2.98023e-08)
 scale = Vector2(1, 0.994444)
 sprite_frames = SubResource("SpriteFrames_04cqw")
-animation = &"demon_sword_slash"
-frame_progress = 0.368284
+animation = &"run"
+frame_progress = 0.662676
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 2
