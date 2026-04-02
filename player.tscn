@@ -599,7 +599,7 @@ position = Vector2(1, 2.98023e-08)
 scale = Vector2(1, 0.994444)
 sprite_frames = SubResource("SpriteFrames_04cqw")
 animation = &"run"
-frame_progress = 0.662676
+frame_progress = 0.278956
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 2

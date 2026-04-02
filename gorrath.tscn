@@ -291,7 +291,8 @@ shape = SubResource("CapsuleShape2D_yv1fr")
 scale = Vector2(2.3, 2.3)
 sprite_frames = SubResource("SpriteFrames_nlybp")
 animation = &"dead"
-frame_progress = 0.43055
+frame = 8
+frame_progress = 1.0
 
 [node name="Hitbox" type="Area2D" parent="."]
 visible = false
