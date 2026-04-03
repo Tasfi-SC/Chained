@@ -1,7 +1,7 @@
 [gd_scene load_steps=61 format=3 uid="uid://bljf38yplp4fg"]
 
 [ext_resource type="Script" uid="uid://d33tftj8x4nrd" path="res://serath.gd" id="1_s5t1o"]
-[ext_resource type="Texture2D" uid="uid://cvid7m0lgcf06" path="res://villains/serath sprite.png" id="1_vbntf"]
+[ext_resource type="Texture2D" uid="uid://cvid7m0lgcf06" path="res://villains/Serath sprite.png" id="1_vbntf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lcxyl"]
 radius = 9.13676
@@ -454,6 +454,7 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+visible = false
 shape = SubResource("CircleShape2D_s5t1o")
 
 [node name="EvileyeArea" type="Area2D" parent="."]
@@ -471,6 +472,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+visible = false
 shape = SubResource("CircleShape2D_m3xds")
 
 [node name="DetectionArea" type="Area2D" parent="."]
@@ -479,6 +481,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+visible = false
 shape = SubResource("CircleShape2D_0t6vb")
 
 [node name="AttackTimer" type="Timer" parent="."]
