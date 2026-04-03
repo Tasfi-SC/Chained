@@ -2959,6 +2959,7 @@ texture = ExtResource("2_jbn6h")
 expand_mode = 1
 
 [node name="rockfloor" type="TileMapLayer" parent="."]
+position = Vector2(1, 0)
 tile_map_data = PackedByteArray("AACyAFwAAAABAAQAAACyAF0AAAABAAQAAAAcAEUAAwAEAAQAAAA1AFYAAwAIAAQAAACFAE8AAwAIAAQAAACmAFoAAwAIAAQAAABmADsAAwAIAAQAAACaAGIAAwADAAIAAACiAGIAAwADAAIAAACqAGIAAwADAAIAAACyAGIAAwADAAIAAACyAGcAAwADAAIAAACrAGcAAwADAAIAAACjAGcAAwADAAIAAACbAGcAAwADAAIAAACSAGIAAwADAAIAAACTAGcAAwADAAIAAACRAGcAAwADAAIAAAA=")
 tile_set = SubResource("TileSet_16tcb")
 
@@ -2995,6 +2996,7 @@ position = Vector2(112, 1246)
 collision_layer = 3
 
 [node name="water" type="Area2D" parent="."]
+visible = false
 position = Vector2(1217, 1425)
 collision_layer = 2
 script = ExtResource("15_upgcc")
