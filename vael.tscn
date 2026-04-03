@@ -541,9 +541,12 @@ radius = 138.362
 position = Vector2(70, 70)
 scale = Vector2(1.63158, 1.68349)
 sprite_frames = SubResource("SpriteFrames_img35")
-animation = &"idle"
+animation = &"light_beam"
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(69, 61)
 shape = SubResource("CircleShape2D_qx60c")
 
@@ -553,3 +556,17 @@ position = Vector2(69, 61)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 
 [node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+
+[node name="AttackTimer" type="Timer" parent="."]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="Node2D"]
+offset_right = 4.0
+offset_bottom = 27.0
