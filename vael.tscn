@@ -541,9 +541,7 @@ radius = 138.362
 position = Vector2(70, 70)
 scale = Vector2(1.63158, 1.68349)
 sprite_frames = SubResource("SpriteFrames_img35")
-animation = &"light_beam"
-frame = 5
-frame_progress = 1.0
+animation = &"dash"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
