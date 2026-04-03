@@ -1,8 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://b22227gg4qpq2"]
+[gd_scene load_steps=21 format=3 uid="uid://1gkmcj2cbo7"]
 
 [ext_resource type="Texture2D" uid="uid://brb6vf66gj0rm" path="res://scene3/Scene3_3.png" id="1_s8laf"]
-[ext_resource type="Script" path="res://scene3/camera1.gd" id="2_hhakq"]
-[ext_resource type="Script" path="res://scene3/portals3_1.gd" id="3_0pi25"]
+[ext_resource type="Script" uid="uid://o32myepnxxk1" path="res://scene3/camera1.gd" id="2_hhakq"]
+[ext_resource type="Script" uid="uid://d4darl0cvd0yy" path="res://scene3/portals3_1.gd" id="3_0pi25"]
 [ext_resource type="Texture2D" uid="uid://cbdau86ufwg73" path="res://scene3/s3sprite4.png" id="4_hj130"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="5_1ev6b"]
 [ext_resource type="PackedScene" uid="uid://b8kda2qrih8qt" path="res://gorrath.tscn" id="6_hhakq"]
