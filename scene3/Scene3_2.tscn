@@ -1,7 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://rgpmtnevt6y6"]
+[gd_scene load_steps=23 format=3 uid="uid://djgcrnks5bn2p"]
 
 [ext_resource type="Texture2D" uid="uid://vrmxnxyqxdvs" path="res://scene3/Scene3_2.png" id="1_7kvgt"]
-[ext_resource type="Script" uid="uid://o32myepnxxk1" path="res://scene3/camera1.gd" id="2_7rrqf"]
+[ext_resource type="Script" path="res://scene3/camera1.gd" id="2_7rrqf"]
 [ext_resource type="Script" uid="uid://d4darl0cvd0yy" path="res://scene3/portals3_1.gd" id="3_c68fu"]
 [ext_resource type="Texture2D" uid="uid://cbdau86ufwg73" path="res://scene3/s3sprite4.png" id="4_51614"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="5_ttvjl"]

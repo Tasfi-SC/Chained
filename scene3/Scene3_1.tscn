@@ -1,7 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://bhcawao38wc0d"]
+[gd_scene load_steps=22 format=3 uid="uid://ddgicgskb4d28"]
 
 [ext_resource type="Texture2D" uid="uid://22agpkxod5xm" path="res://scene3/bg2.png" id="1_hnuht"]
-[ext_resource type="Script" uid="uid://o32myepnxxk1" path="res://scene3/camera1.gd" id="2_mtw2n"]
+[ext_resource type="Script" path="res://scene3/camera1.gd" id="2_mtw2n"]
 [ext_resource type="Script" uid="uid://d4darl0cvd0yy" path="res://scene3/portals3_1.gd" id="3_hnuht"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="3_mtw2n"]
 [ext_resource type="Texture2D" uid="uid://cbdau86ufwg73" path="res://scene3/s3sprite4.png" id="3_x0jid"]
@@ -147,9 +147,15 @@ position = Vector2(-1285, -198)
 shape = SubResource("RectangleShape2D_oh20g")
 
 [node name="Player" parent="." instance=ExtResource("3_mtw2n")]
-position = Vector2(-2876, -131)
+position = Vector2(-2798, -73)
 
-[node name="Shadowblob" parent="." groups=["enemy"] instance=ExtResource("6_vwlc8")]
+[node name="Shadowblob1" parent="." groups=["enemy"] instance=ExtResource("6_vwlc8")]
 position = Vector2(-2139, -13)
+
+[node name="Shadowblob2" parent="." groups=["enemy"] instance=ExtResource("6_vwlc8")]
+position = Vector2(-2556, -24)
+
+[node name="Shadowblob3" parent="." groups=["enemy"] instance=ExtResource("6_vwlc8")]
+position = Vector2(-1818, -64)
 
 [connection signal="body_entered" from="Portal/TriggerArea" to="Portal" method="_on_trigger_area_body_entered"]

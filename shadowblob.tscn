@@ -94,9 +94,7 @@ script = ExtResource("1_1hlir")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_q4fso")
-animation = &"death"
-frame = 3
-frame_progress = 1.0
+animation = &"right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
