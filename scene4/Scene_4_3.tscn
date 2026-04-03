@@ -1,13 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://ceu2lxw422w5p"]
+[gd_scene load_steps=14 format=3 uid="uid://ceu2lxw422w5p"]
 
 [ext_resource type="Texture2D" uid="uid://boy21kj7drrnu" path="res://scene4/s42d-3.png" id="1_fe1rh"]
-[ext_resource type="Script" path="res://scene4/camera_2d(2).gd" id="2_isl8t"]
+[ext_resource type="Script" uid="uid://bfyytb0h78ykt" path="res://scene4/scene_4_3.gd" id="1_isl8t"]
+[ext_resource type="Script" uid="uid://cekrokws1t3j4" path="res://scene4/camera_2d(2).gd" id="2_isl8t"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="3_knwn8"]
-[ext_resource type="Script" path="res://scene4/portal3.gd" id="4_y0meo"]
+[ext_resource type="Script" uid="uid://dwb68llvjmcy8" path="res://scene4/portal3.gd" id="4_y0meo"]
 [ext_resource type="Texture2D" uid="uid://bc2v1f83dnqpe" path="res://scene4/s4sprite2.png" id="5_v6xlp"]
+[ext_resource type="PackedScene" uid="uid://bh6h3a0vuis6b" path="res://redblob.tscn" id="7_knwn8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dpny4"]
-size = Vector2(2159.25, 85)
+size = Vector2(2724.63, 85)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xv80l"]
 size = Vector2(77, 508)
@@ -117,6 +119,7 @@ sources/0 = SubResource("TileSetAtlasSource_m6o8v")
 size = Vector2(526, 697)
 
 [node name="Scene4_3" type="Node2D"]
+script = ExtResource("1_isl8t")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -124,14 +127,14 @@ size = Vector2(526, 697)
 motion_scale = Vector2(0.8, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(-1932, -178)
-scale = Vector2(1.5, 1.5)
+position = Vector2(-1646, -181)
+scale = Vector2(1.9, 1.5)
 texture = ExtResource("1_fe1rh")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1946.63, 246)
+position = Vector2(-1631, 145)
 shape = SubResource("RectangleShape2D_dpny4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
@@ -143,23 +146,35 @@ position = Vector2(-2371, -131)
 script = ExtResource("2_isl8t")
 target_path = NodePath("../Player")
 
-[node name="Player" parent="." groups=["player"] instance=ExtResource("3_knwn8")]
-position = Vector2(-2875, 97)
+[node name="Player" parent="." instance=ExtResource("3_knwn8")]
+position = Vector2(-2683, 18)
 
 [node name="Portal" type="Node2D" parent="."]
+position = Vector2(72, -3)
 script = ExtResource("4_y0meo")
 next_scene_path = "res://scene4/Scene_4_4.tscn"
+starts_locked = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Portal"]
-position = Vector2(-1616, 100)
+position = Vector2(-556, 52)
 tile_map_data = PackedByteArray(0, 0, 240, 255, 255, 255, 0, 0, 8, 0, 2, 0, 0, 0)
 tile_set = SubResource("TileSet_mf8oi")
 
 [node name="TriggerArea" type="Area2D" parent="Portal"]
+position = Vector2(1074, 0)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/TriggerArea"]
 position = Vector2(-1668, -149)
 shape = SubResource("RectangleShape2D_2f83j")
+
+[node name="Redblob1" parent="." groups=["enemy"] instance=ExtResource("7_knwn8")]
+position = Vector2(-1408, -3)
+
+[node name="Redblob2" parent="." groups=["enemy"] instance=ExtResource("7_knwn8")]
+position = Vector2(-1873, 19)
+
+[node name="Redblob3" parent="." groups=["enemy"] instance=ExtResource("7_knwn8")]
+position = Vector2(-2410, 32)
 
 [connection signal="body_entered" from="Portal/TriggerArea" to="Portal" method="_on_area_2d_body_entered"]

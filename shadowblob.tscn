@@ -1,0 +1,134 @@
+[gd_scene load_steps=17 format=3 uid="uid://d2rwvv4ct2agq"]
+
+[ext_resource type="Script" uid="uid://t1nkrn8lngx1" path="res://shadowblob.gd" id="1_1hlir"]
+[ext_resource type="Texture2D" uid="uid://c7hyc1b2ecsyj" path="res://villains/shadowblobsprite.png" id="1_ghbl5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hlir"]
+atlas = ExtResource("1_ghbl5")
+region = Rect2(240, 639, 237, 205)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gweun"]
+atlas = ExtResource("1_ghbl5")
+region = Rect2(526, 639, 260, 205)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbnmd"]
+atlas = ExtResource("1_ghbl5")
+region = Rect2(831, 639, 274, 205)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6uh6"]
+atlas = ExtResource("1_ghbl5")
+region = Rect2(1108, 639, 274, 205)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qc6cr"]
+atlas = ExtResource("1_ghbl5")
+region = Rect2(0, 0, 494, 257)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xru8s"]
+atlas = ExtResource("1_ghbl5")
+region = Rect2(0, 265, 494, 257)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4uil7"]
+atlas = ExtResource("1_ghbl5")
+region = Rect2(497, 265, 494, 257)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4fso"]
+atlas = ExtResource("1_ghbl5")
+region = Rect2(994, 265, 494, 257)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q4fso"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hlir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gweun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbnmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6uh6")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qc6cr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xru8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4uil7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4fso")
+}],
+"loop": true,
+"name": &"right",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ghbl5"]
+radius = 148.946
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1hlir"]
+radius = 197.436
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gweun"]
+bg_color = Color(0.0383972, 0.0383972, 0.0383971, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jbnmd"]
+bg_color = Color(0.730554, 0.0133383, 0.0286692, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gweun"]
+radius = 209.0
+
+[node name="Shadowblob" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_1hlir")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_q4fso")
+animation = &"right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(88, -45)
+shape = SubResource("CircleShape2D_ghbl5")
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(88, -32)
+shape = SubResource("CircleShape2D_1hlir")
+
+[node name="AttackTimer" type="Timer" parent="."]
+
+[node name="HealthBarUI" type="Node2D" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="HealthBarUI"]
+offset_left = -7.0
+offset_top = -185.0
+offset_right = 193.0
+offset_bottom = -158.0
+theme_override_styles/background = SubResource("StyleBoxFlat_gweun")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jbnmd")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(86, -31)
+shape = SubResource("CircleShape2D_gweun")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
