@@ -6,15 +6,15 @@ extends Node2D
 @onready var character_sprite = $resizefix/Control/narrative_mc/Sprite2D
 
 const speaker_change = {
-	"MC NAME": preload("res://narrative/mctextbox.png"),
+	"MC NAME": preload("res://narrative/mctextboxv2.png"),
 	"PIX": preload("res://narrative/pixtextbox.png")
 }
 const speaker_positions = {
-	"MC NAME": Vector2(642, 362),
+	"MC NAME": Vector2(600, 760),
 	"PIX": Vector2(300, 780)
 }
 const speaker_scales = {
-	"MC NAME": Vector2(0.8, 0.8), 
+	"MC NAME": Vector2(1.1, 1.1), 
 	"PIX": Vector2(1, 1)
 }
 var dialog_index : int = 0
