@@ -1,6 +1,8 @@
-[gd_scene load_steps=68 format=3 uid="uid://2jer7xlvu6mb"]
+[gd_scene load_steps=72 format=3 uid="uid://2jer7xlvu6mb"]
 
+[ext_resource type="Script" uid="uid://dfu2n4gwiprkx" path="res://vael.gd" id="1_fym2w"]
 [ext_resource type="Texture2D" uid="uid://b56wt2ac0sdjm" path="res://villains/villains/vaelsprite2.png" id="1_qx60c"]
+[ext_resource type="PackedScene" uid="uid://cmgw48y5kfjwq" path="res://vael_beam.tscn" id="2_fiyxs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2y68u"]
 atlas = ExtResource("1_qx60c")
@@ -145,18 +147,6 @@ region = Rect2(342, 0, 114, 109)
 [sub_resource type="AtlasTexture" id="AtlasTexture_26xsr"]
 atlas = ExtResource("1_qx60c")
 region = Rect2(456, 0, 114, 109)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5v47c"]
-atlas = ExtResource("1_qx60c")
-region = Rect2(570, 0, 114, 109)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ujaxw"]
-atlas = ExtResource("1_qx60c")
-region = Rect2(684, 0, 114, 109)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q58xx"]
-atlas = ExtResource("1_qx60c")
-region = Rect2(798, 0, 114, 109)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ypa7y"]
 atlas = ExtResource("1_qx60c")
@@ -414,31 +404,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_26xsr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5v47c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ujaxw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q58xx")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_ypa7y")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k4tpq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tb11a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_weltg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_26xsr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5v47c")
 }],
 "loop": true,
 "name": &"idle",
@@ -535,38 +504,80 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_qx60c"]
 radius = 138.362
 
-[node name="vael" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_xy0fs"]
+radius = 195.318
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fym2w"]
+radius = 283.572
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fiyxs"]
+radius = 386.063
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qheh8"]
+bg_color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8e8fa"]
+bg_color = Color(0.917515, 0.233405, 0.234451, 1)
+
+[node name="vael" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 4
+script = ExtResource("1_fym2w")
+beam_scene = ExtResource("2_fiyxs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(70, 70)
-scale = Vector2(1.63158, 1.68349)
+scale = Vector2(2, 2.062)
 sprite_frames = SubResource("SpriteFrames_img35")
-animation = &"light_beam"
-frame = 5
-frame_progress = 1.0
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(69, 61)
 shape = SubResource("CircleShape2D_qx60c")
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="PulseArea" type="Area2D" parent="."]
 position = Vector2(69, 61)
+collision_layer = 0
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PulseArea"]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_xy0fs")
 
 [node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(71, 62)
+shape = SubResource("CircleShape2D_fym2w")
 
 [node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(72, 65)
+shape = SubResource("CircleShape2D_fiyxs")
 
 [node name="AttackTimer" type="Timer" parent="."]
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="HealthBarUI" type="Node2D" parent="."]
 
-[node name="ProgressBar" type="ProgressBar" parent="Node2D"]
-offset_right = 4.0
-offset_bottom = 27.0
+[node name="ProgressBar" type="ProgressBar" parent="HealthBarUI"]
+offset_left = 16.0
+offset_top = -44.0
+offset_right = 136.0
+offset_bottom = -17.0
+theme_override_styles/background = SubResource("StyleBoxFlat_qheh8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8e8fa")
+
+[node name="BeamSpawn" type="Marker2D" parent="."]
+position = Vector2(64, 73)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="PulseArea" to="." method="_on_pulse_area_body_entered"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

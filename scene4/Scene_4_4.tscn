@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://s7urrvgvc8cw"]
+[gd_scene load_steps=7 format=3 uid="uid://s7urrvgvc8cw"]
 
 [ext_resource type="Texture2D" uid="uid://srl2hpnyh68p" path="res://scene4/s42d-4.png" id="1_3v0vi"]
 [ext_resource type="Script" uid="uid://cekrokws1t3j4" path="res://scene4/camera_2d(2).gd" id="2_hhm5r"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="3_3tlid"]
+[ext_resource type="PackedScene" uid="uid://2jer7xlvu6mb" path="res://vael.tscn" id="4_hhm5r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dpny4"]
 size = Vector2(3116.63, 85)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xv80l"]
-size = Vector2(77, 508)
+size = Vector2(77, 727)
 
 [node name="Scene4_4" type="Node2D"]
 
@@ -19,17 +20,17 @@ motion_scale = Vector2(0.8, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(-1401, -191)
-scale = Vector2(1.5, 1.5)
+scale = Vector2(1.5, 2.3)
 texture = ExtResource("1_3v0vi")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1394, 195)
+position = Vector2(-1388, 343)
 shape = SubResource("RectangleShape2D_dpny4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-2987, -62)
+position = Vector2(-2987, 47.5)
 shape = SubResource("RectangleShape2D_xv80l")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -38,4 +39,7 @@ script = ExtResource("2_hhm5r")
 target_path = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_3tlid")]
-position = Vector2(-2870, 51)
+position = Vector2(-2824, 196)
+
+[node name="vael" parent="." instance=ExtResource("4_hhm5r")]
+position = Vector2(-1734, 92)

@@ -10,7 +10,7 @@
 size = Vector2(3100.5, 238)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8tx4p"]
-size = Vector2(125, 762.5)
+size = Vector2(125, 1001.25)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ff78r"]
 
@@ -134,7 +134,7 @@ motion_scale = Vector2(0.8, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/MainBg"]
 position = Vector2(-1417, -169)
-scale = Vector2(1.5, 1.5)
+scale = Vector2(1.5, 1.9)
 texture = ExtResource("1_t6s70")
 
 [node name="BackgroundBounds" type="Node2D" parent="."]
@@ -151,16 +151,16 @@ script = ExtResource("2_kyfma")
 target_path = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_6vecb")]
-position = Vector2(-2813, 44)
+position = Vector2(-2802, 162)
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(-1410.25, 285)
+position = Vector2(-1394, 363)
 shape = SubResource("RectangleShape2D_2gepj")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
-position = Vector2(-2992, -168)
+position = Vector2(-2992, -48.625)
 shape = SubResource("RectangleShape2D_8tx4p")
 
 [node name="Portal" type="Node2D" parent="."]
@@ -168,7 +168,7 @@ script = ExtResource("4_opkj4")
 next_scene_path = "res://scene4/Scene_4_2.tscn"
 
 [node name="PortalTileMap" type="TileMapLayer" parent="Portal"]
-position = Vector2(-317, -23)
+position = Vector2(-317, 116)
 tile_map_data = PackedByteArray(0, 0, 245, 255, 4, 0, 0, 0, 8, 0, 2, 0, 0, 0, 169, 0, 4, 0, 0, 0, 8, 0, 2, 0, 0, 0, 34, 1, 2, 0, 0, 0, 0, 0, 5, 0, 0, 0)
 tile_set = SubResource("TileSet_nfbki")
 
@@ -176,7 +176,7 @@ tile_set = SubResource("TileSet_nfbki")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/TriggerArea"]
-position = Vector2(-257.5, -191)
+position = Vector2(-257, -35)
 shape = SubResource("RectangleShape2D_6djli")
 
 [connection signal="body_entered" from="Portal/TriggerArea" to="Portal" method="_on_area_2d_body_entered"]

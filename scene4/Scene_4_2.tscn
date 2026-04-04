@@ -10,7 +10,7 @@
 size = Vector2(3104.5, 85)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xv80l"]
-size = Vector2(77, 508)
+size = Vector2(77, 705)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d7ne8"]
 
@@ -125,17 +125,17 @@ motion_scale = Vector2(0.8, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(-1473, -169)
-scale = Vector2(1.5, 1.5)
+scale = Vector2(1.5, 2.3)
 texture = ExtResource("1_sc2g0")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1474, 246)
+position = Vector2(-1455, 342)
 shape = SubResource("RectangleShape2D_dpny4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-3042, -25)
+position = Vector2(-3042, 73.5)
 shape = SubResource("RectangleShape2D_xv80l")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -144,14 +144,14 @@ script = ExtResource("2_0fohj")
 target_path = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_l85e8")]
-position = Vector2(-2843, 46)
+position = Vector2(-2838, 184)
 
 [node name="Portal" type="Node2D" parent="."]
 script = ExtResource("4_m1fo5")
 next_scene_path = "res://scene4/Scene_4_3.tscn"
 
 [node name="PortalTileMap" type="TileMapLayer" parent="Portal"]
-position = Vector2(-408, 82)
+position = Vector2(-793, 141)
 tile_map_data = PackedByteArray(0, 0, 240, 255, 255, 255, 0, 0, 8, 0, 2, 0, 0, 0)
 tile_set = SubResource("TileSet_mf8oi")
 
@@ -159,7 +159,7 @@ tile_set = SubResource("TileSet_mf8oi")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/TriggerArea"]
-position = Vector2(-411, -178.5)
+position = Vector2(-714, 6)
 shape = SubResource("RectangleShape2D_d7ne8")
 
 [connection signal="body_entered" from="Portal/TriggerArea" to="Portal" method="_on_trigger_area_body_entered"]

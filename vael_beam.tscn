@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://cmgw48y5kfjwq"]
+
+[ext_resource type="Script" uid="uid://qvplyjuxgf5h" path="res://vael_beam.gd" id="1_3f7th"]
+[ext_resource type="Texture2D" uid="uid://b56wt2ac0sdjm" path="res://villains/villains/vaelsprite2.png" id="2_nljb2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5osw"]
+atlas = ExtResource("2_nljb2")
+region = Rect2(685, 327, 137, 109)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyl8g"]
+atlas = ExtResource("2_nljb2")
+region = Rect2(804, 327, 129, 109)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vm1w3"]
+atlas = ExtResource("2_nljb2")
+region = Rect2(924, 327, 127, 109)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efa8r"]
+atlas = ExtResource("2_nljb2")
+region = Rect2(1056, 327, 127, 109)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jxo6k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5osw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyl8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vm1w3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efa8r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l7mtc"]
+radius = 57.7235
+
+[node name="VaelBeam" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_3f7th")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jxo6k")
+frame_progress = 0.999128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_l7mtc")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
