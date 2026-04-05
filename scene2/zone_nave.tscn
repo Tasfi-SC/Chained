@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=4 uid="uid://2pmer5cv75vl"]
+[gd_scene load_steps=26 format=4 uid="uid://2pmer5cv75vl"]
 
+[ext_resource type="Script" uid="uid://bpi05pji45d6b" path="res://scene2/zone_nave.gd" id="1_85tix"]
 [ext_resource type="Texture2D" uid="uid://dm0jktubjfjup" path="res://scene2/s2-1.png" id="1_jbn6h"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="2_3qk08"]
 [ext_resource type="Texture2D" uid="uid://diwsr47wovoec" path="res://scene2/DoorFixed.png" id="2_jbn6h"]
@@ -2943,6 +2944,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_upgcc")
 
 [node name="ZoneNave" type="Node2D"]
+script = ExtResource("1_85tix")
 
 [node name="DoorBroke" type="TextureRect" parent="."]
 offset_left = -4.0

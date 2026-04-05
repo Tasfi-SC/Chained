@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3hw0me3y3gwj"]
+[gd_scene load_steps=4 format=3 uid="uid://d3hw0me3y3gwj"]
 
 [ext_resource type="Script" uid="uid://b6j87m0q1pbt1" path="res://narrative/scenes/s_2_1transition.gd" id="1_5yk2j"]
 [ext_resource type="PackedScene" uid="uid://b20r40aumgwx4" path="res://narrative/scenes/BLACKSCRRENUI.tscn" id="2_pjemr"]
+[ext_resource type="AudioStream" uid="uid://18pwkbf53jyl" path="res://narrative/resources/sfx-blipmale.wav" id="3_pjemr"]
 
 [node name="narratives1-s2" type="Node2D"]
 script = ExtResource("1_5yk2j")
@@ -28,3 +29,6 @@ color = Color(0, 0, 0, 1)
 [node name="resizefix" type="CanvasLayer" parent="."]
 
 [node name="BLACKSCREENUI" parent="resizefix" instance=ExtResource("2_pjemr")]
+
+[node name="TypeSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_pjemr")

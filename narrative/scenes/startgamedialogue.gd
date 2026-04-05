@@ -3,13 +3,12 @@ extends Node2D
 @onready var label = $resizefix/BLACKSCREENUI/RichTextLabel
 @onready var type_sound: AudioStreamPlayer2D = $TypeSound
 
-const FULL_TEXT = "[center]You're closer.\n\nAccept it.[/center]"
+const FULL_TEXT = "[center]MC HAS NO FAMILY.\n\nNO HISTORY.\n\nSTRANGE THINGS FOLLOW HIM.[/center]"
 
 var is_typing = false
 
 func _ready():
 	MusicManagerScene2.player.stop()
-
 	label.text = FULL_TEXT
 	label.visible_characters = 0
 	await get_tree().create_timer(0.2).timeout
@@ -31,4 +30,4 @@ func _input(event):
 			label.visible_characters = -1
 			is_typing = false
 		else:
-			get_tree().change_scene_to_file("res://scene2/zone_nave.tscn")
+			get_tree().change_scene_to_file("res://narrative/scenes/narratives_start.tscn")

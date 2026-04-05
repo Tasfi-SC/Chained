@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Chained"
-run/main_scene="uid://dwe43pul6t8pp"
+run/main_scene="uid://ds1oxhdsj4ska"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameState="*res://scene2/GameState.gd"
+MusicManagerScene2="*res://MusicManagerScene2.tscn"
 
 [display]
 

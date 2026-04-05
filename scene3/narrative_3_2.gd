@@ -6,7 +6,7 @@ extends Node2D
 @onready var character_sprite = $resizefix/Control/narrative_mc/Sprite2D
 
 const speaker_change = {
-	"MC NAME": preload("res://narrative/mctextbox.png"),
+	"MC NAME": preload("res://narrative/resources/mctextbox.png"),
 	"PIX": preload("res://narrative/pixtextbox.png")
 }
 const speaker_positions = {
