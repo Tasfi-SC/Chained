@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ub16yi1qxpwl"]
+
+[ext_resource type="Script" uid="uid://dob663oloqhbx" path="res://scene2/music_manager_serath.gd" id="1_cfltk"]
+[ext_resource type="AudioStream" uid="uid://cc5d1wte70pm4" path="res://scene2/2-05. Living With Determination (P3R ver.).mp3" id="2_ey3vy"]
+
+[node name="MusicManagerSerath" type="Node"]
+script = ExtResource("1_cfltk")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ey3vy")

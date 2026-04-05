@@ -1,4 +1,5 @@
 extends Node2D
 
 func _ready():
-	MusicManagerScene2.player.play()
+	var tween = create_tween()
+	tween.tween_property(MusicManagerScene2.player, "volume_db", 0.0, 2.0)

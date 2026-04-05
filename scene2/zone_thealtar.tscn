@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=4 uid="uid://d3nja28dt0q0b"]
+[gd_scene load_steps=25 format=4 uid="uid://d3nja28dt0q0b"]
 
+[ext_resource type="Script" uid="uid://dsvutwskod8i" path="res://scene2/zone_thealtar.gd" id="1_78m1a"]
 [ext_resource type="Texture2D" uid="uid://djb1jmk6gv7y5" path="res://scene2/s2-3.png" id="1_hgwu7"]
 [ext_resource type="PackedScene" uid="uid://bljf38yplp4fg" path="res://serath.tscn" id="2_i3dkl"]
 [ext_resource type="Texture2D" uid="uid://gwesrp8hc3nl" path="res://scene2/s2sprite3.png" id="3_wleyb"]
@@ -152,6 +153,7 @@ animations = [{
 size = Vector2(233, 312)
 
 [node name="altar" type="Node2D"]
+script = ExtResource("1_78m1a")
 
 [node name="altarback" type="TextureRect" parent="."]
 offset_right = 3078.0

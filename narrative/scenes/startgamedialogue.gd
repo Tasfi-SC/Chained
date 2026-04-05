@@ -8,6 +8,7 @@ const FULL_TEXT = "[center]MC HAS NO FAMILY.\n\nNO HISTORY.\n\nSTRANGE THINGS FO
 var is_typing = false
 
 func _ready():
+	MusicManagerSerath.player.stop()
 	MusicManagerScene2.player.stop()
 	label.text = FULL_TEXT
 	label.visible_characters = 0

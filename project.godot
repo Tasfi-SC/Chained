@@ -18,7 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameState="*res://scene2/GameState.gd"
-MusicManagerScene2="*res://MusicManagerScene2.tscn"
+MusicManagerScene2="*res://scene2/MusicManagerScene2.tscn"
+MusicManagerSerath="*res://scene2/MusicManagerSerath.tscn"
 
 [display]
 

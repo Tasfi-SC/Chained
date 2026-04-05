@@ -8,7 +8,10 @@ const FULL_TEXT = "[center]MC doesn't know what 'she' means.\n\nHe has a sword m
 var is_typing = false
 
 func _ready():
-	MusicManagerScene2.player.stop()
+	var tween = create_tween()
+	tween.tween_property(MusicManagerSerath.player, "volume_db", -80.0, 5.0)
+	await tween.finished
+	MusicManagerSerath.player.stop()
 	label.text = FULL_TEXT
 	label.visible_characters = 0
 	await get_tree().create_timer(0.2).timeout

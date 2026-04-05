@@ -8,7 +8,8 @@ const FULL_TEXT = "[center]You're closer.\n\nAccept it.[/center]"
 var is_typing = false
 
 func _ready():
-	MusicManagerScene2.player.stop()
+	var tween = create_tween()
+	tween.tween_property(MusicManagerScene2.player, "volume_db", -80.0, 5.0)
 
 	label.text = FULL_TEXT
 	label.visible_characters = 0
