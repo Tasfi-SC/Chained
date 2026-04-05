@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://oydmxnf3286s"
-path="res://.godot/imported/gorrathtextbox.png-0df07a9cc06f373b1a1f96381f6bc4fb.ctex"
+path="res://.godot/imported/gorrathtextbox.png-90259e65cebbd54c5d345b586b1a47f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://narrative/gorrathtextbox.png"
-dest_files=["res://.godot/imported/gorrathtextbox.png-0df07a9cc06f373b1a1f96381f6bc4fb.ctex"]
+source_file="res://narrative/resources/gorrathtextbox.png"
+dest_files=["res://.godot/imported/gorrathtextbox.png-90259e65cebbd54c5d345b586b1a47f7.ctex"]
 
 [params]
 

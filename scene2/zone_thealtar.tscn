@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://d3nja28dt0q0b"]
+[gd_scene load_steps=24 format=4 uid="uid://d3nja28dt0q0b"]
 
 [ext_resource type="Texture2D" uid="uid://djb1jmk6gv7y5" path="res://scene2/s2-3.png" id="1_hgwu7"]
 [ext_resource type="PackedScene" uid="uid://bljf38yplp4fg" path="res://serath.tscn" id="2_i3dkl"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b7bc4oag2qk3" path="res://scene2/transparent.png" id="5_m8u4g"]
 [ext_resource type="Script" uid="uid://dkus2umxkhbhb" path="res://scene2/tp_s2-s3.gd" id="6_jhemd"]
 [ext_resource type="Texture2D" uid="uid://cg8rlmqawbk5" path="res://scene2/portals2-s3.png" id="7_m08ce"]
+[ext_resource type="PackedScene" uid="uid://ckldsor7q5am2" path="res://narrative/scenes/narrativeS2-SERATHDEATH.tscn" id="8_m08ce"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w61eb"]
 texture = ExtResource("3_wleyb")
@@ -195,5 +196,7 @@ position = Vector2(122, 1396)
 
 [node name="Serath" parent="." instance=ExtResource("2_i3dkl")]
 position = Vector2(2028, 1059)
+
+[node name="S2-INTERACT" parent="." instance=ExtResource("8_m08ce")]
 
 [connection signal="body_entered" from="tp/TeleportArea" to="tp" method="_on_teleport_area_body_entered"]

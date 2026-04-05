@@ -6,23 +6,24 @@ extends Node2D
 @onready var character_sprite = $resizefix/Control/narrative_mc/Sprite2D
 
 const speaker_change = {
-	"MC NAME": preload("res://narrative/mctextbox.png"),
-	"SERATH": preload("res://narrative/serathtextbox.png")
+	"MC NAME": preload("res://narrative/resources/mctextbox.png"),
+	"UNKWOWN": preload("res://narrative/resources/textbox.png")
 }
 const speaker_positions = {
 	"MC NAME": Vector2(642, 362),
-	"SERATH": Vector2(300, 760)
+	"UNKWOWN": Vector2(642, 362)
 }
 const speaker_scales = {
 	"MC NAME": Vector2(0.8, 0.8), 
-	"SERATH": Vector2(1, 1)
+	"UNKWOWN": Vector2(0.8, 0.8)
 }
 var dialog_index : int = 0
 
 const dialog_lines : Array[String] = [
-	"MC NAME: MC has no family. No history. Strange things follow him;broken locks, dead electronics...",
-	"SERATH: meh",
-	"MC NAME: hell"
+	"MC NAME: ..she?",
+	"UNKWOWN: Ignore what's in front",
+	"UNKWOWN: See what's within"
+	
 ]
 
 func _ready():
@@ -61,4 +62,3 @@ func process_current_line():
 		dialog_ui.visible_characters = 0
 		var tween = create_tween()
 		tween.tween_property(dialog_ui, "visible_characters", len(line_info["dialog_line"]), 1.5)
-		

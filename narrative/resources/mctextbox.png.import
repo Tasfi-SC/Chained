@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpjy7hccvxhe"
-path="res://.godot/imported/textbox.png-db478a28c399426f537710772968a6b7.ctex"
+uid="uid://uvngniut3bb5"
+path="res://.godot/imported/mctextbox.png-6693b0da8de0ae0757251aeae8306ea9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://narrative/textbox.png"
-dest_files=["res://.godot/imported/textbox.png-db478a28c399426f537710772968a6b7.ctex"]
+source_file="res://narrative/resources/mctextbox.png"
+dest_files=["res://.godot/imported/mctextbox.png-6693b0da8de0ae0757251aeae8306ea9.ctex"]
 
 [params]
 
