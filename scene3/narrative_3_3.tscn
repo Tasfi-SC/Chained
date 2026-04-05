@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfi476n3uim5u"]
+
+[ext_resource type="Script" uid="uid://7l13aguhk2xo" path="res://scene3/narrative_3_3.gd" id="1_q7gtf"]
+[ext_resource type="Texture2D" uid="uid://brb6vf66gj0rm" path="res://scene3/Scene3_3.png" id="2_5gxg1"]
+[ext_resource type="PackedScene" uid="uid://b1wwr76rff5xw" path="res://narrative/narrative_mc.tscn" id="2_q7gtf"]
+
+[node name="Narrative3_3" type="Node2D"]
+script = ExtResource("1_q7gtf")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+offset_right = 1600.0
+offset_bottom = 900.0
+texture = ExtResource("2_5gxg1")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 0.564706)
+
+[node name="resizefix" type="Node2D" parent="."]
+
+[node name="Control" type="Control" parent="resizefix"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="narrative_mc" parent="resizefix/Control" instance=ExtResource("2_q7gtf")]
+position = Vector2(310, 59)

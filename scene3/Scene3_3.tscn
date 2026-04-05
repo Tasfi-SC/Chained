@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://d4darl0cvd0yy" path="res://scene3/portals3_1.gd" id="3_0pi25"]
 [ext_resource type="Texture2D" uid="uid://cbdau86ufwg73" path="res://scene3/s3sprite4.png" id="4_hj130"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="5_1ev6b"]
-[ext_resource type="PackedScene" uid="uid://b8kda2qrih8qt" path="res://gorrath.tscn" id="6_hhakq"]
+[ext_resource type="PackedScene" uid="uid://b2eh8hhafpde3" path="res://pix.tscn" id="6_hhakq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnuht"]
 size = Vector2(1912, 108)
@@ -124,7 +124,7 @@ target_path = NodePath("../Player")
 
 [node name="Portal" type="Node2D" parent="."]
 script = ExtResource("3_0pi25")
-next_scene_path = "res://scene4/Scene4_1.tscn"
+next_scene_path = "res://scene3/narrative_3_3.tscn"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Portal"]
 position = Vector2(-1684, -228)
@@ -143,7 +143,7 @@ shape = SubResource("RectangleShape2D_oh20g")
 [node name="Player" parent="." instance=ExtResource("5_1ev6b")]
 position = Vector2(-2781, -148)
 
-[node name="Gorrath" parent="." groups=["enemy"] instance=ExtResource("6_hhakq")]
-position = Vector2(-2025, -197)
+[node name="pix" parent="." groups=["enemy"] instance=ExtResource("6_hhakq")]
+position = Vector2(-1983, -126)
 
 [connection signal="body_entered" from="Portal/TriggerArea" to="Portal" method="_on_trigger_area_body_entered"]
