@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uvngniut3bb5"
-path="res://.godot/imported/mctextbox.png-487b0d70cdd6712199f164ce0fbd1e99.ctex"
+uid="uid://b3b0gijov3cq1"
+path="res://.godot/imported/serathtextbox.png-7165a93abd2ce0d6949232bf63e2577c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://narrative/mctextbox.png"
-dest_files=["res://.godot/imported/mctextbox.png-487b0d70cdd6712199f164ce0fbd1e99.ctex"]
+source_file="res://narrative/resources/serathtextbox.png"
+dest_files=["res://.godot/imported/serathtextbox.png-7165a93abd2ce0d6949232bf63e2577c.ctex"]
 
 [params]
 

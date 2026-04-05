@@ -22,4 +22,4 @@ func _process(_delta: float) -> void:
 
 func _on_animation_finished() -> void:
 	if anim.animation == "tprun":
-		get_tree().change_scene_to_file("res://scene3/Scene3_1.tscn")
+		get_tree().change_scene_to_file("res://narrative/scenes/S2-S3TRANSITION.tscn")

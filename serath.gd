@@ -1,4 +1,5 @@
 extends CharacterBody2D
+signal serath_died
 
 @export var speed: float = 80.0
 @export var max_health: float = 500.0
@@ -92,6 +93,7 @@ func _set_state(new_state: State) -> void:
 			anim.play("death")
 			is_dead = true
 			health_bar.hide()
+			emit_signal("serath_died") 
 func _on_evileye_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and current_state == State.EVIL_EYE and not is_dead:
 		_deal_percent_damage(body)
