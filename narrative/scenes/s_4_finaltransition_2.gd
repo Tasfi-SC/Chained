@@ -1,7 +1,8 @@
 extends Node2D
 
 @onready var label = $resizefix/BLACKSCREENUI/RichTextLabel
-const FULL_TEXT = "[center]SOMEWHERE ABOVE,\n\n A WOMAN STEPS INTO MORNING LIGHT.\n\nSHE DOES NOT LOOK BACK.\n\nSHE NEVER PLANNED TO[/center]"
+const FULL_TEXT = "[center][font_size=25]CREDITS[/font_size]\n\n DEVELOPERS: TASKINA HASIN PROVA\n\n[indent] VALERIE\n\n[indent][indent][indent]TASFI SAMAD CHOUDHURY\n\n[indent]NAZ\n\n
+ART: MOSTLY AI GENERATED\n\n MUSIC: abcdc\n\n[indent]abachda[center]"
 
 var is_typing = false
 
