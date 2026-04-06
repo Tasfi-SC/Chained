@@ -1,21 +1,34 @@
-[gd_scene load_steps=12 format=3 uid="uid://defdjkkv75wul"]
+[gd_scene load_steps=17 format=3 uid="uid://dx40d27f5dhmk"]
 
-[ext_resource type="Texture2D" uid="uid://d0rxfiaiy3r0m" path="res://scene4/s42d.png" id="1_t6s70"]
-[ext_resource type="Script" uid="uid://du3ie33q4ldpn" path="res://scene4/camera_2d.gd" id="2_kyfma"]
-[ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="3_6vecb"]
-[ext_resource type="Script" uid="uid://b3qi2j0c5x36k" path="res://scene4/portal_1.gd" id="4_opkj4"]
-[ext_resource type="Texture2D" uid="uid://bc2v1f83dnqpe" path="res://scene4/s4sprite2.png" id="5_kt14r"]
+[ext_resource type="Script" uid="uid://xaugcqdkjrfx" path="res://puzzle_scene_1_2_.gd" id="1_u02i8"]
+[ext_resource type="Texture2D" uid="uid://cglm2fhpfqfwq" path="res://scene1/s1sprite2.png" id="2_6t6dd"]
+[ext_resource type="Script" uid="uid://bc2x6do6fao3l" path="res://scene1/portal_1_2.gd" id="3_lci8c"]
+[ext_resource type="Texture2D" uid="uid://bc2v1f83dnqpe" path="res://scene4/s4sprite2.png" id="4_er5w0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2gepj"]
-size = Vector2(3100.5, 238)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ia4x1"]
+atlas = ExtResource("2_6t6dd")
+region = Rect2(1270, 415, 64, 90)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tx4p"]
-size = Vector2(125, 1001.25)
+[sub_resource type="AtlasTexture" id="AtlasTexture_u02i8"]
+atlas = ExtResource("2_6t6dd")
+region = Rect2(448, 403, 64, 100)
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t6s70"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wsmu"]
+atlas = ExtResource("2_6t6dd")
+region = Rect2(1270.09, 415, 64, 90)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kyfma"]
-texture = ExtResource("5_kt14r")
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0k7e"]
+atlas = ExtResource("2_6t6dd")
+region = Rect2(1270.09, 415, 64, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4374"]
+atlas = ExtResource("2_6t6dd")
+region = Rect2(1270, 415, 64, 90)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ff78r"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lpy5h"]
+texture = ExtResource("4_er5w0")
 texture_region_size = Vector2i(137, 126)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -117,66 +130,103 @@ texture_region_size = Vector2i(137, 126)
 7:5/0 = 0
 8:5/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_nfbki"]
+[sub_resource type="TileSet" id="TileSet_0eebr"]
 physics_layer_0/collision_layer = 1
-physics_layer_0/physics_material = SubResource("PhysicsMaterial_t6s70")
-sources/0 = SubResource("TileSetAtlasSource_kyfma")
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_ff78r")
+sources/0 = SubResource("TileSetAtlasSource_lpy5h")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6djli"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdrs6"]
 size = Vector2(535, 718)
 
-[node name="Scene4_1" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82j6c"]
+size = Vector2(40, 57)
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oscv4"]
+size = Vector2(40, 58)
 
-[node name="MainBg" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.8, 1)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0te88"]
+size = Vector2(40, 56)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/MainBg"]
-position = Vector2(-1417, -169)
-scale = Vector2(1.5, 1.9)
-texture = ExtResource("1_t6s70")
+[node name="PuzzleScene_1_2_" type="Node2D"]
+script = ExtResource("1_u02i8")
+light_off_texture = SubResource("AtlasTexture_ia4x1")
+light_on_texture = SubResource("AtlasTexture_u02i8")
 
-[node name="BackgroundBounds" type="Node2D" parent="."]
+[node name="Light1" type="Sprite2D" parent="."]
+position = Vector2(300, -200)
+texture = SubResource("AtlasTexture_0wsmu")
 
-[node name="TopLeft" type="Marker2D" parent="BackgroundBounds"]
-position = Vector2(-2944, -825)
+[node name="Light2" type="Sprite2D" parent="."]
+position = Vector2(0, -200)
+texture = SubResource("AtlasTexture_x0k7e")
 
-[node name="BottomRight" type="Marker2D" parent="BackgroundBounds"]
-position = Vector2(10625, 115)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-2371, -131)
-script = ExtResource("2_kyfma")
-target_path = NodePath("../Player")
-
-[node name="Player" parent="." instance=ExtResource("3_6vecb")]
-position = Vector2(-2802, 162)
-
-[node name="Floor" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(-1394, 363)
-shape = SubResource("RectangleShape2D_2gepj")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
-position = Vector2(-2992, -48.625)
-shape = SubResource("RectangleShape2D_8tx4p")
+[node name="Light3" type="Sprite2D" parent="."]
+position = Vector2(-300, -200)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_j4374")
 
 [node name="Portal" type="Node2D" parent="."]
-script = ExtResource("4_opkj4")
-next_scene_path = "res://scene4/Scene_4_2.tscn"
+position = Vector2(1338, -130)
+script = ExtResource("3_lci8c")
 
 [node name="PortalTileMap" type="TileMapLayer" parent="Portal"]
 position = Vector2(-317, 116)
 tile_map_data = PackedByteArray(0, 0, 245, 255, 4, 0, 0, 0, 8, 0, 2, 0, 0, 0, 169, 0, 4, 0, 0, 0, 8, 0, 2, 0, 0, 0, 34, 1, 2, 0, 0, 0, 0, 0, 5, 0, 0, 0)
-tile_set = SubResource("TileSet_nfbki")
+tile_set = SubResource("TileSet_0eebr")
 
 [node name="TriggerArea" type="Area2D" parent="Portal"]
+visible = false
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/TriggerArea"]
+visible = false
 position = Vector2(-257, -35)
-shape = SubResource("RectangleShape2D_6djli")
+shape = SubResource("RectangleShape2D_cdrs6")
+
+[node name="Lever1" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Lever1"]
+position = Vector2(150, 150)
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever1/Area2D"]
+position = Vector2(0, 16.5)
+shape = SubResource("RectangleShape2D_82j6c")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lever1"]
+position = Vector2(150, 150)
+
+[node name="Lever2" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Lever2"]
+position = Vector2(-150, 150)
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever2/Area2D"]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_oscv4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lever2"]
+position = Vector2(-150, 150)
+
+[node name="Lever3" type="Node2D" parent="."]
+position = Vector2(0, 150)
+
+[node name="Area2D" type="Area2D" parent="Lever3"]
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever3/Area2D"]
+position = Vector2(0, 17)
+shape = SubResource("RectangleShape2D_0te88")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lever3"]
+
+[node name="InteractLabel" type="Label" parent="."]
+visible = false
+offset_left = -68.0
+offset_top = -130.0
+offset_right = 20.0
+offset_bottom = -107.0
+text = "Press \"E\""
 
 [connection signal="body_entered" from="Portal/TriggerArea" to="Portal" method="_on_area_2d_body_entered"]

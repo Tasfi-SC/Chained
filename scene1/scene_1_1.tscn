@@ -1,21 +1,42 @@
-[gd_scene load_steps=12 format=3 uid="uid://defdjkkv75wul"]
+[gd_scene load_steps=18 format=3 uid="uid://gp2mkkx7avme"]
 
-[ext_resource type="Texture2D" uid="uid://d0rxfiaiy3r0m" path="res://scene4/s42d.png" id="1_t6s70"]
-[ext_resource type="Script" uid="uid://du3ie33q4ldpn" path="res://scene4/camera_2d.gd" id="2_kyfma"]
-[ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="3_6vecb"]
-[ext_resource type="Script" uid="uid://b3qi2j0c5x36k" path="res://scene4/portal_1.gd" id="4_opkj4"]
-[ext_resource type="Texture2D" uid="uid://bc2v1f83dnqpe" path="res://scene4/s4sprite2.png" id="5_kt14r"]
+[ext_resource type="Texture2D" uid="uid://5vggdwuspw36" path="res://scene1/s11.png" id="1_pmduu"]
+[ext_resource type="Script" uid="uid://du3ie33q4ldpn" path="res://scene4/camera_2d.gd" id="2_7x6nd"]
+[ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="3_s4vxc"]
+[ext_resource type="Script" uid="uid://cfbcq1jdnugkk" path="res://scene1/portal1_1.gd" id="4_s4vxc"]
+[ext_resource type="Texture2D" uid="uid://bc2v1f83dnqpe" path="res://scene4/s4sprite2.png" id="5_unrju"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2gepj"]
-size = Vector2(3100.5, 238)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmduu"]
+size = Vector2(664.5, 40)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tx4p"]
-size = Vector2(125, 1001.25)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_pmduu"]
+a = Vector2(-548.5, 168)
+b = Vector2(-330.5, -22)
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t6s70"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_7x6nd"]
+a = Vector2(-1531.5, 161)
+b = Vector2(-1737.5, -9)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kyfma"]
-texture = ExtResource("5_kt14r")
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_s4vxc"]
+a = Vector2(-2016, -277)
+b = Vector2(-1843, -134)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unrju"]
+size = Vector2(386, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a62h5"]
+size = Vector2(1186, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_di66y"]
+size = Vector2(332.75, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4vxc"]
+size = Vector2(1000, 50)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s4vxc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_unrju"]
+texture = ExtResource("5_unrju")
 texture_region_size = Vector2i(137, 126)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -117,66 +138,83 @@ texture_region_size = Vector2i(137, 126)
 7:5/0 = 0
 8:5/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_nfbki"]
+[sub_resource type="TileSet" id="TileSet_di66y"]
 physics_layer_0/collision_layer = 1
-physics_layer_0/physics_material = SubResource("PhysicsMaterial_t6s70")
-sources/0 = SubResource("TileSetAtlasSource_kyfma")
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_s4vxc")
+sources/0 = SubResource("TileSetAtlasSource_unrju")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6djli"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_an2tp"]
 size = Vector2(535, 718)
 
-[node name="Scene4_1" type="Node2D"]
+[node name="Scene1_1" type="Node2D"]
+metadata/_edit_vertical_guides_ = [1113.0]
+metadata/_edit_horizontal_guides_ = [393.0, 250.0]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="MainBg" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.8, 1)
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/MainBg"]
-position = Vector2(-1417, -169)
-scale = Vector2(1.5, 1.9)
-texture = ExtResource("1_t6s70")
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("1_pmduu")
 
-[node name="BackgroundBounds" type="Node2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="TopLeft" type="Marker2D" parent="BackgroundBounds"]
-position = Vector2(-2944, -825)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1087.5, 541)
+shape = SubResource("RectangleShape2D_pmduu")
 
-[node name="BottomRight" type="Marker2D" parent="BackgroundBounds"]
-position = Vector2(10625, 115)
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1087.5, 541)
+shape = SubResource("SegmentShape2D_pmduu")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1087.5, 541)
+shape = SubResource("SegmentShape2D_7x6nd")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(898, 658)
+shape = SubResource("SegmentShape2D_s4vxc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-831, 548)
+shape = SubResource("RectangleShape2D_unrju")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(12, 727.5)
+shape = SubResource("RectangleShape2D_a62h5")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1263.63, 399.5)
+shape = SubResource("RectangleShape2D_di66y")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1419, -88)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_s4vxc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-2371, -131)
-script = ExtResource("2_kyfma")
+position = Vector2(-635, 336)
+script = ExtResource("2_7x6nd")
 target_path = NodePath("../Player")
+fixed_y = 246.0
 
-[node name="Player" parent="." instance=ExtResource("3_6vecb")]
-position = Vector2(-2802, 162)
-
-[node name="Floor" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(-1394, 363)
-shape = SubResource("RectangleShape2D_2gepj")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
-position = Vector2(-2992, -48.625)
-shape = SubResource("RectangleShape2D_8tx4p")
+[node name="Player" parent="." instance=ExtResource("3_s4vxc")]
+position = Vector2(-1198, 246)
 
 [node name="Portal" type="Node2D" parent="."]
-script = ExtResource("4_opkj4")
-next_scene_path = "res://scene4/Scene_4_2.tscn"
+position = Vector2(1600, 250)
+script = ExtResource("4_s4vxc")
 
 [node name="PortalTileMap" type="TileMapLayer" parent="Portal"]
 position = Vector2(-317, 116)
 tile_map_data = PackedByteArray(0, 0, 245, 255, 4, 0, 0, 0, 8, 0, 2, 0, 0, 0, 169, 0, 4, 0, 0, 0, 8, 0, 2, 0, 0, 0, 34, 1, 2, 0, 0, 0, 0, 0, 5, 0, 0, 0)
-tile_set = SubResource("TileSet_nfbki")
+tile_set = SubResource("TileSet_di66y")
 
 [node name="TriggerArea" type="Area2D" parent="Portal"]
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/TriggerArea"]
 position = Vector2(-257, -35)
-shape = SubResource("RectangleShape2D_6djli")
+shape = SubResource("RectangleShape2D_an2tp")
 
 [connection signal="body_entered" from="Portal/TriggerArea" to="Portal" method="_on_area_2d_body_entered"]

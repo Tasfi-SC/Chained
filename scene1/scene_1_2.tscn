@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://jjfh61tnkh8s"]
+
+[ext_resource type="Texture2D" uid="uid://cgt0bvcgptjf0" path="res://scene1/s12-4.png" id="1_6fffa"]
+[ext_resource type="Script" uid="uid://du3ie33q4ldpn" path="res://scene4/camera_2d.gd" id="2_04cqc"]
+[ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="3_cbdb5"]
+[ext_resource type="PackedScene" uid="uid://dx40d27f5dhmk" path="res://scene1/puzzle_scene_1_2_.tscn" id="4_04cqc"]
+[ext_resource type="Texture2D" uid="uid://cglm2fhpfqfwq" path="res://scene1/s1sprite2.png" id="5_cbdb5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0cef3"]
+size = Vector2(2404, 43.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbdb5"]
+size = Vector2(1000, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j7qf"]
+atlas = ExtResource("5_cbdb5")
+region = Rect2(147.991, 180.38, 124.63, 52.0301)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cef3"]
+atlas = ExtResource("5_cbdb5")
+region = Rect2(276.725, 181.5, 134.731, 52.3226)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2e0oa"]
+atlas = ExtResource("5_cbdb5")
+region = Rect2(416.09, 182.716, 125.574, 50.197)
+
+[node name="Scene1_2" type="Node2D"]
+metadata/_edit_vertical_guides_ = [640.0]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_6fffa")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-2371, -131)
+script = ExtResource("2_04cqc")
+target_path = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("3_cbdb5")]
+position = Vector2(-455, 188)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(22, 324)
+shape = SubResource("RectangleShape2D_0cef3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1171, -114)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_cbdb5")
+
+[node name="PuzzleScene_1_2_" parent="." instance=ExtResource("4_04cqc")]
+position = Vector2(101, 103)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-27, 27)
+texture = SubResource("AtlasTexture_5j7qf")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(99, 28)
+texture = SubResource("AtlasTexture_0cef3")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(226, 28)
+texture = SubResource("AtlasTexture_2e0oa")
