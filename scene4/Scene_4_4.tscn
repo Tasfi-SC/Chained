@@ -45,3 +45,5 @@ position = Vector2(-2824, 196)
 
 [node name="vael" parent="." instance=ExtResource("4_hhm5r")]
 position = Vector2(-1734, 92)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

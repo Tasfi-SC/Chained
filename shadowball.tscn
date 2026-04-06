@@ -1,27 +1,34 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmwbsv4iv1442"]
+[gd_scene load_steps=8 format=3 uid="uid://cmwbsv4iv1442"]
 
 [ext_resource type="Script" uid="uid://chmr771p7dddn" path="res://shadowball.gd" id="1_5waqx"]
-[ext_resource type="Texture2D" uid="uid://o25bsw66x13o" path="res://mc/mcsprite normal.png" id="2_8jybp"]
+[ext_resource type="Texture2D" uid="uid://km0mgo8oadv0" path="res://mc/shadowballsprite2.png" id="2_5waqx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kb4c1"]
 radius = 79.6241
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nxmbo"]
-atlas = ExtResource("2_8jybp")
-region = Rect2(905, 180, 181, 180)
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jybp"]
+atlas = ExtResource("2_5waqx")
+region = Rect2(728, 0, 364, 360)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5waqx"]
-atlas = ExtResource("2_8jybp")
-region = Rect2(1288, 180, 161, 180)
+[sub_resource type="AtlasTexture" id="AtlasTexture_kb4c1"]
+atlas = ExtResource("2_5waqx")
+region = Rect2(1092, 0, 364, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxmbo"]
+atlas = ExtResource("2_5waqx")
+region = Rect2(0, 360, 364, 360)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8k0ca"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nxmbo")
+"texture": SubResource("AtlasTexture_8jybp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5waqx")
+"texture": SubResource("AtlasTexture_kb4c1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxmbo")
 }],
 "loop": true,
 "name": &"default",
@@ -38,8 +45,9 @@ shape = SubResource("CircleShape2D_kb4c1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-15, -4)
+scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_8k0ca")
-frame_progress = 0.140052
+frame_progress = 0.426654
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 

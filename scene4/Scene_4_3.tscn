@@ -160,7 +160,7 @@ position = Vector2(-2687, 162)
 [node name="Portal" type="Node2D" parent="."]
 position = Vector2(-213, 16)
 script = ExtResource("4_y0meo")
-next_scene_path = "res://scene4/Scene_4_4.tscn"
+next_scene_path = "res://scene4/narrative_4_1.tscn"
 starts_locked = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Portal"]

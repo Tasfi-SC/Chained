@@ -5,7 +5,8 @@ extends AudioStreamPlayer
 @export var end_time: float = 52.0    # Where the music should "hit the wall" and restart
 
 func _ready():
-	# Start the music at your specific start point
+	MusicManagerScene2.player.stop()
+	MusicManagerSerath.player.stop()
 	play(start_time)
 
 func _process(_delta):

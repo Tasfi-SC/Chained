@@ -1,8 +1,8 @@
 extends AudioStreamPlayer
 
 # Define your timestamps in seconds
-@export var start_time: float = 16  # Where the music should start/loop back to
-@export var end_time: float = 28.0    # Where the music should "hit the wall" and restart
+@export var start_time: float = 0  # Where the music should start/loop back to
+@export var end_time: float = 202.0    
 
 func _ready():
 	MusicManagerScene2.player.stop()
@@ -10,7 +10,6 @@ func _ready():
 	play(start_time)
 
 func _process(_delta):
-	# We check every frame if we've passed the end point
 	if playing:
 		var current_pos = get_playback_position()
 		

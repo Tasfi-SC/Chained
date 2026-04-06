@@ -1,3 +1,4 @@
 extends Node2D
 func _ready() -> void:
-	pass
+	MusicManagerScene2.player.stop()
+	MusicManagerSerath.player.stop()

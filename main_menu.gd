@@ -3,6 +3,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	MusicManagerScene2.player.stop()
+	MusicManagerSerath.player.stop()
 	anim.play("default")
 
 
