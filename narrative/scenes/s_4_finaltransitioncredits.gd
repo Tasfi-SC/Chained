@@ -1,9 +1,8 @@
 extends Node2D
 
 @onready var label = $resizefix/BLACKSCREENUI/RichTextLabel
-const FULL_TEXT = "[center]SOMEWHERE ABOVE,\n\n A WOMAN STEPS INTO MORNING LIGHT.\n\n
-SHE DOES NOT LOOK BACK.\n\n
-SHE NEVER PLANNED TO[center]"
+const FULL_TEXT = "[center][font_size=25]CREDITS[/font_size]\n\n DEVELOPERS: VALERIE\n\n[indent]TASKINA HASIN PROVA \n\n[indent][indent][indent]TASFI SAMAD CHOUDHURY\n\n[indent]NAZ\n\n
+ART: MOSTLY AI GENERATED\n\n MUSIC: abcdc\n\n[indent]abachda[center]"
 
 var is_typing = false
 
@@ -28,4 +27,4 @@ func _input(event):
 			label.visible_characters = -1
 			is_typing = false
 		else:
-			get_tree().change_scene_to_file("res://narrative/scenes/S4-FINALTRANSITIONCREDITS.tscn")
+			get_tree().quit()
