@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://2pmer5cv75vl"]
+[gd_scene load_steps=27 format=4 uid="uid://2pmer5cv75vl"]
 
 [ext_resource type="Script" uid="uid://bpi05pji45d6b" path="res://scene2/zone_nave.gd" id="1_85tix"]
 [ext_resource type="Texture2D" uid="uid://dm0jktubjfjup" path="res://scene2/s2-1.png" id="1_jbn6h"]
@@ -2945,10 +2945,6 @@ uv_clipping = true
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_upgcc")
 
-[sub_resource type="LabelSettings" id="LabelSettings_fio15"]
-font = ExtResource("10_jbn6h")
-font_size = 40
-
 [node name="ZoneNave" type="Node2D"]
 script = ExtResource("1_85tix")
 
@@ -3091,16 +3087,10 @@ tile_set = SubResource("TileSet_85tix")
 script = ExtResource("18_fio15")
 
 [node name="Label" type="Label" parent="CrystalsUI"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -109.0
-offset_top = 14.0
-offset_right = -19.0
-offset_bottom = 48.0
-grow_horizontal = 0
-theme_override_fonts/font = ExtResource("10_jbn6h")
-label_settings = SubResource("LabelSettings_fio15")
+offset_left = 2782.0
+offset_top = 12.0
+offset_right = 2872.0
+offset_bottom = 46.0
 
 [connection signal="body_shape_entered" from="Crystals" to="Crystals" method="_on_body_shape_entered"]
 [connection signal="body_shape_entered" from="Crystals2" to="Crystals2" method="_on_body_shape_entered"]
