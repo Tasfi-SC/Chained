@@ -1,10 +1,12 @@
-[gd_scene load_steps=23 format=3 uid="uid://djgcrnks5bn2p"]
+[gd_scene load_steps=27 format=3 uid="uid://djgcrnks5bn2p"]
 
 [ext_resource type="Texture2D" uid="uid://vrmxnxyqxdvs" path="res://scene3/Scene3_2.png" id="1_7kvgt"]
-[ext_resource type="Script" uid="uid://o32myepnxxk1" path="res://scene3/camera1.gd" id="2_7rrqf"]
+[ext_resource type="Script" path="res://scene3/camera1.gd" id="2_7rrqf"]
 [ext_resource type="Script" uid="uid://d4darl0cvd0yy" path="res://scene3/portals3_1.gd" id="3_c68fu"]
 [ext_resource type="Texture2D" uid="uid://cbdau86ufwg73" path="res://scene3/s3sprite4.png" id="4_51614"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="5_ttvjl"]
+[ext_resource type="AudioStream" uid="uid://ci8r0p1hvbpaw" path="res://scene3/s3bgm.mp3" id="6_7rrqf"]
+[ext_resource type="Script" uid="uid://bj0hamb5i5s1p" path="res://scene3/s3audio2.gd" id="7_c68fu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnuht"]
 size = Vector2(300, 108)
@@ -20,6 +22,12 @@ size = Vector2(334, 123.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51614"]
 size = Vector2(269, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rrqf"]
+size = Vector2(173.5, 12.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttvjl"]
+size = Vector2(151, 2.75)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hnuht"]
 atlas = ExtResource("4_51614")
@@ -136,6 +144,14 @@ shape = SubResource("RectangleShape2D_c68fu")
 position = Vector2(-1803, 283)
 shape = SubResource("RectangleShape2D_51614")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-2657, -40)
+shape = SubResource("RectangleShape2D_7rrqf")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-2915.5, -198.375)
+shape = SubResource("RectangleShape2D_ttvjl")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-2371, -131)
 zoom = Vector2(0.95, 0.95)
@@ -148,6 +164,7 @@ script = ExtResource("3_c68fu")
 next_scene_path = "res://scene3/narrative_3_2.tscn"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Portal"]
+visible = false
 position = Vector2(-1770, -24)
 sprite_frames = SubResource("SpriteFrames_5bxnu")
 animation = &"run"
@@ -158,10 +175,15 @@ position = Vector2(-297, -16)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/TriggerArea"]
-position = Vector2(-1395, -13)
+position = Vector2(-3014, -521)
 shape = SubResource("RectangleShape2D_oh20g")
 
 [node name="Player" parent="." instance=ExtResource("5_ttvjl")]
 position = Vector2(-3201, -132)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_7rrqf")
+volume_db = -16.0
+script = ExtResource("7_c68fu")
 
 [connection signal="body_entered" from="Portal/TriggerArea" to="Portal" method="_on_trigger_area_body_entered"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cxrrsjcfqdu2t"]
 
-[ext_resource type="Script" uid="uid://dk2quwcsi110v" path="res://narrative/scenes/s_4_finaltransition_2.gd" id="1_u2pce"]
+[ext_resource type="Script" path="res://narrative/scenes/s_4_finaltransition_2.gd" id="1_u2pce"]
 [ext_resource type="PackedScene" uid="uid://b20r40aumgwx4" path="res://narrative/scenes/BLACKSCRRENUI.tscn" id="2_q2f16"]
 
 [node name="narrativeS4-FINAL" type="Node2D"]
