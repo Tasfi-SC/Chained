@@ -22,6 +22,7 @@ const crystals_dialog: Array[String] = [
 	"MC NAME: ...that's all of them.",
 	"MC NAME: ...why does this feel familiar?",
 	"UNKNOWN: Keep going.",
+	"UNKNOWN: Fix the door.",
 	"UNKNOWN: You're close.",
 	"MC NAME: ...close to what?"
 ]
@@ -31,8 +32,12 @@ const door_dialog: Array[String] = [
 	"MC NAME: Why?",
 	"UNKNOWN: You were meant to be here."
 ]
-const serath_dialog: Array[String] = [
-	"UNKNOWN: She loves you. That's the cruelest part."
+const slow_dialog: Array[String] = [
+	"MC NAME: This water is slowing me down...",
+	"MC NAME: ...",
+	"MC NAME: Rocks ahead...",
+	"MC NAME: They're blocking my way.",
+	"MC NAME: Maybe I can use my [color=red]sword[/color] to break them?"
 ]
 
 var current_dialog: Array[String] = []
@@ -42,7 +47,13 @@ func _ready() -> void:
 	character.visible = false
 	GameState.all_crystals_collected.connect(_on_all_crystals_collected)
 	get_node("../Door").door_interacted.connect(_on_door_interacted)
+	get_node("../SlowTrig").slow_trig.connect(_on_slow_triggered)
 	
+func _on_slow_triggered() -> void:
+	current_dialog = slow_dialog
+	dialog_index = 0
+	character.visible = true
+	process_current_line()
 func _on_all_crystals_collected() -> void:
 	current_dialog = crystals_dialog
 	dialog_index = 0

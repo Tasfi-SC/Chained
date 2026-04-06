@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds1oxhdsj4ska"]
+
+[ext_resource type="Script" uid="uid://bkbdqqga5m1fl" path="res://narrative/scenes/startgamedialogue.gd" id="1_2otot"]
+[ext_resource type="PackedScene" uid="uid://b20r40aumgwx4" path="res://narrative/scenes/BLACKSCRRENUI.tscn" id="2_1q5jt"]
+[ext_resource type="AudioStream" uid="uid://18pwkbf53jyl" path="res://narrative/resources/sfx-blipmale.wav" id="3_1q5jt"]
+
+[node name="START" type="Node2D"]
+script = ExtResource("1_2otot")
+
+[node name="background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="resizefix" type="CanvasLayer" parent="."]
+
+[node name="BLACKSCREENUI" parent="resizefix" instance=ExtResource("2_1q5jt")]
+
+[node name="TypeSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_1q5jt")

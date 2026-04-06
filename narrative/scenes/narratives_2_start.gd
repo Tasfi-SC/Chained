@@ -27,6 +27,7 @@ const dialog_lines : Array[String] = [
 ]
 
 func _ready():
+	MusicManagerScene2.player.stop()
 	dialog_index = 0
 	process_current_line()
 	
@@ -36,7 +37,7 @@ func _input(event):
 			dialog_index +=1
 			process_current_line()
 		else:
-			get_tree().change_scene_to_file("res://scene2/zone_nave.tscn")
+			get_tree().change_scene_to_file("res://narrative/scenes/S1-S2TRANSITION.tscn")
 
 func parse_line(line: String):
 	var line_info = line.split(":")

@@ -1,11 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckldsor7q5am2"]
+[gd_scene load_steps=4 format=3 uid="uid://bunfdwhkwhmn0"]
 
-[ext_resource type="Script" uid="uid://bcppqgldrj2fm" path="res://narrative/scenes/narrative_s_2_serathdeath.gd" id="1_ls6oy"]
-[ext_resource type="Texture2D" uid="uid://cg5xkwspfk4re" path="res://narrative/narrative background/s1-1.png" id="2_xog5n"]
-[ext_resource type="PackedScene" uid="uid://b1wwr76rff5xw" path="res://narrative/scenes/narrative_mc.tscn" id="3_mesp1"]
+[ext_resource type="Script" uid="uid://6mq1y73566cy" path="res://narrative/scenes/narrative_gorrathintro.gd" id="1_hqhik"]
+[ext_resource type="Texture2D" uid="uid://dm0jktubjfjup" path="res://scene2/s2-1.png" id="2_yucog"]
+[ext_resource type="PackedScene" uid="uid://b1wwr76rff5xw" path="res://narrative/scenes/narrative_mc.tscn" id="3_e5kro"]
 
-[node name="S2-SERATHDEATH" type="Node2D"]
-script = ExtResource("1_ls6oy")
+[node name="narrativegorrathintro" type="Node2D"]
+script = ExtResource("1_hqhik")
 
 [node name="background" type="CanvasLayer" parent="."]
 layer = -1
@@ -16,7 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_xog5n")
+texture = ExtResource("2_yucog")
 expand_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="background"]
@@ -25,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.415686)
+color = Color(0, 0, 0, 1)
 
 [node name="resizefix" type="CanvasLayer" parent="."]
 
@@ -42,6 +42,6 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="narrative_mc" parent="resizefix/Control" instance=ExtResource("3_mesp1")]
+[node name="narrative_mc" parent="resizefix/Control" instance=ExtResource("3_e5kro")]
 position = Vector2(-818, -932)
 scale = Vector2(1.5, 1.5)

@@ -1,6 +1,5 @@
 extends Area2D
 
-
 signal door_interacted
 @onready var black_rect: ColorRect = $"../CanvasLayer/ColorRect"
 

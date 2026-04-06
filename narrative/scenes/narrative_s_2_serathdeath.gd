@@ -16,7 +16,8 @@ const speaker_scales = {
 }
 
 const serath_dialog: Array[String] = [
-	"SERATH: She loves you. That's the cruelest part."
+	"SERATH: She loves you.",
+	"SERATH: That's the cruelest part."
 ]
 
 var current_dialog: Array[String] = []
