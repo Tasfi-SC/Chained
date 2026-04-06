@@ -87,7 +87,7 @@ script = ExtResource("4_jix8l")
 position = Vector2(651, 411.5)
 scale = Vector2(1.05469, 1.00588)
 sprite_frames = SubResource("SpriteFrames_dy7ct")
-frame_progress = 0.896454
+frame_progress = 0.296361
 
 [connection signal="pressed" from="MainMenu/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MainMenu/Button2" to="." method="_on_button_2_pressed"]
