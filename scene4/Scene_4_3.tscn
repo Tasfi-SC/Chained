@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ceu2lxw422w5p"]
+[gd_scene load_steps=18 format=3 uid="uid://ceu2lxw422w5p"]
 
 [ext_resource type="Texture2D" uid="uid://boy21kj7drrnu" path="res://scene4/s42d-3.png" id="1_fe1rh"]
 [ext_resource type="Script" uid="uid://bfyytb0h78ykt" path="res://scene4/scene_4_3.gd" id="1_isl8t"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" uid="uid://dwb68llvjmcy8" path="res://scene4/portal3.gd" id="4_y0meo"]
 [ext_resource type="Texture2D" uid="uid://bc2v1f83dnqpe" path="res://scene4/s4sprite2.png" id="5_v6xlp"]
 [ext_resource type="PackedScene" uid="uid://bh6h3a0vuis6b" path="res://redblob.tscn" id="7_knwn8"]
+[ext_resource type="Script" uid="uid://de7ca3belxeg5" path="res://scene4/S4_3narrative_area.gd" id="8_qc1dx"]
+[ext_resource type="Script" uid="uid://cxjt5yfg872jw" path="res://scene4/scene4_3-dialogue_layer.gd" id="8_v6xlp"]
+[ext_resource type="PackedScene" uid="uid://b1wwr76rff5xw" path="res://narrative/scenes/narrative_mc.tscn" id="8_y0meo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dpny4"]
 size = Vector2(2724.63, 85)
@@ -118,6 +121,9 @@ sources/0 = SubResource("TileSetAtlasSource_m6o8v")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2f83j"]
 size = Vector2(526, 697)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6xlp"]
+size = Vector2(69, 206)
+
 [node name="Scene4_3" type="Node2D"]
 script = ExtResource("1_isl8t")
 
@@ -175,6 +181,23 @@ position = Vector2(-1416, 92)
 position = Vector2(-1846, 106)
 
 [node name="Redblob3" parent="." groups=["enemy"] instance=ExtResource("7_knwn8")]
-position = Vector2(-2364, 135)
+position = Vector2(-2084, 137)
+
+[node name="NarrativeArea" type="Area2D" parent="."]
+position = Vector2(160, 10)
+collision_mask = 2
+script = ExtResource("8_qc1dx")
+dialogue_layer_path = NodePath("../DialogueLayer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NarrativeArea"]
+position = Vector2(-2529.5, 144)
+shape = SubResource("RectangleShape2D_v6xlp")
+
+[node name="DialogueLayer" type="CanvasLayer" parent="."]
+script = ExtResource("8_v6xlp")
+
+[node name="narrative_mc" parent="DialogueLayer" instance=ExtResource("8_y0meo")]
+position = Vector2(-2865, -625)
 
 [connection signal="body_entered" from="Portal/TriggerArea" to="Portal" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="NarrativeArea" to="NarrativeArea" method="_on_body_entered"]
