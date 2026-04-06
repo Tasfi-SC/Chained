@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bh6h3a0vuis6b" path="res://redblob.tscn" id="7_knwn8"]
 [ext_resource type="Script" uid="uid://de7ca3belxeg5" path="res://scene4/S4_3narrative_area.gd" id="8_qc1dx"]
 [ext_resource type="Script" uid="uid://cxjt5yfg872jw" path="res://scene4/scene4_3-dialogue_layer.gd" id="8_v6xlp"]
-[ext_resource type="PackedScene" uid="uid://b1wwr76rff5xw" path="res://narrative/narrative_mc.tscn" id="8_y0meo"]
+[ext_resource type="PackedScene" uid="uid://chc0tv4sn77do" path="res://narrative/narrative_mc.tscn" id="8_y0meo"]
 [ext_resource type="AudioStream" uid="uid://df70gndu25w87" path="res://scene4/scene4bgm1.mp3" id="11_nsbtb"]
 [ext_resource type="Script" uid="uid://8ctysfemwemi" path="res://scene4/audio_stream_player3.gd" id="12_4cvwm"]
 
