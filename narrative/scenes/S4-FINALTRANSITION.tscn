@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqpmp06ifu27u"]
+
+[ext_resource type="Script" uid="uid://cuykrn1h4yv4k" path="res://narrative/scenes/s_4_finaltransition.gd" id="1_h8n7p"]
+[ext_resource type="PackedScene" uid="uid://b20r40aumgwx4" path="res://narrative/scenes/BLACKSCRRENUI.tscn" id="2_oek6m"]
+
+[node name="narrativeS4-FINAL" type="Node2D"]
+script = ExtResource("1_h8n7p")
+
+[node name="background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="resizefix" type="CanvasLayer" parent="."]
+
+[node name="BLACKSCREENUI" parent="resizefix" instance=ExtResource("2_oek6m")]

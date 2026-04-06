@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://dtl6xljk3jbft"]
+[gd_scene load_steps=14 format=3 uid="uid://dtl6xljk3jbft"]
 
 [ext_resource type="Texture2D" uid="uid://bao8l3x0hq60r" path="res://scene4/s42d-2.png" id="1_sc2g0"]
 [ext_resource type="Script" uid="uid://cekrokws1t3j4" path="res://scene4/camera_2d(2).gd" id="2_0fohj"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="3_l85e8"]
 [ext_resource type="Script" path="res://scene4/portal2.gd" id="4_m1fo5"]
 [ext_resource type="Texture2D" uid="uid://bc2v1f83dnqpe" path="res://scene4/s4sprite2.png" id="5_u7tlm"]
+[ext_resource type="AudioStream" uid="uid://df70gndu25w87" path="res://scene4/scene4bgm1.mp3" id="6_0fohj"]
+[ext_resource type="Script" uid="uid://c6qmpofbgjay0" path="res://scene4/audio_stream_player2.gd" id="7_l85e8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dpny4"]
 size = Vector2(3104.5, 85)
@@ -161,5 +163,10 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/TriggerArea"]
 position = Vector2(-714, 6)
 shape = SubResource("RectangleShape2D_d7ne8")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_0fohj")
+volume_db = -16.22
+script = ExtResource("7_l85e8")
 
 [connection signal="body_entered" from="Portal/TriggerArea" to="Portal" method="_on_trigger_area_body_entered"]

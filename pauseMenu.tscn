@@ -1,0 +1,97 @@
+[gd_scene load_steps=12 format=3 uid="uid://cxgeu5c6n732y"]
+
+[ext_resource type="Script" uid="uid://u3hxxf8fe81l" path="res://pause_menu.gd" id="1_iw6dd"]
+[ext_resource type="Texture2D" uid="uid://bv3jo4jetk82y" path="res://narrative/resources/mainmenu2.png" id="2_mv768"]
+[ext_resource type="FontFile" uid="uid://cf26ou5dj0sg2" path="res://narrative/resources/Cinzel-ExtraBold.ttf" id="3_pfsnn"]
+[ext_resource type="Script" path="res://button_hover.gd" id="4_3w8xh"]
+[ext_resource type="Script" path="res://button_hover2.gd" id="5_08ged"]
+[ext_resource type="Texture2D" uid="uid://cmdbyql64nwu0" path="res://narrative/resources/particlesprite.png" id="6_37dju"]
+[ext_resource type="AudioStream" uid="uid://df70gndu25w87" path="res://scene4/scene4bgm1.mp3" id="7_ndjyy"]
+[ext_resource type="Script" uid="uid://crckwb624s0hp" path="res://audio_stream_playerMAINMENU.gd" id="8_wsvru"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qe12f"]
+atlas = ExtResource("6_37dju")
+region = Rect2(512, 340, 256, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qtwp"]
+atlas = ExtResource("6_37dju")
+region = Rect2(768, 340, 256, 170)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dy7ct"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qe12f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qtwp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_iw6dd")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1616.0
+offset_bottom = 1055.0
+texture = ExtResource("2_mv768")
+
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="resume" type="Button" parent="MainMenu"]
+layout_mode = 0
+offset_left = 605.0
+offset_top = 426.0
+offset_right = 1002.0
+offset_bottom = 497.0
+theme_override_colors/icon_hover_pressed_color = Color(0.960351, 0.960351, 0.960351, 1)
+theme_override_colors/icon_hover_color = Color(0.838567, 0.739731, 0.639813, 1)
+theme_override_colors/icon_pressed_color = Color(0.442911, 0.442911, 0.442911, 1)
+theme_override_colors/font_color = Color(0.914222, 0.900227, 0.986324, 1)
+theme_override_colors/font_focus_color = Color(0.973535, 0.973535, 0.973535, 1)
+theme_override_fonts/font = ExtResource("3_pfsnn")
+theme_override_font_sizes/font_size = 35
+text = "RESUME"
+flat = true
+script = ExtResource("4_3w8xh")
+
+[node name="mainmenu" type="Button" parent="MainMenu"]
+layout_mode = 0
+offset_left = 615.0
+offset_top = 556.0
+offset_right = 996.0
+offset_bottom = 613.0
+theme_override_colors/font_hover_pressed_color = Color(0.54099, 0.54099, 0.54099, 1)
+theme_override_colors/font_hover_color = Color(0.702043, 0.60985, 0.547412, 1)
+theme_override_colors/font_color = Color(0.991164, 0.991164, 0.991164, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.969137, 0.969137, 0.969137, 1)
+theme_override_fonts/font = ExtResource("3_pfsnn")
+theme_override_font_sizes/font_size = 35
+text = "MENU"
+flat = true
+script = ExtResource("5_08ged")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(651, 411.5)
+scale = Vector2(1.05469, 1.00588)
+sprite_frames = SubResource("SpriteFrames_dy7ct")
+frame_progress = 0.654756
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ndjyy")
+autoplay = true
+script = ExtResource("8_wsvru")
+
+[connection signal="pressed" from="MainMenu/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MainMenu/mainmenu" to="." method="_on_mainmenu_pressed"]

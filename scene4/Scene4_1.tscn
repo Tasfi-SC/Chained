@@ -1,10 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://defdjkkv75wul"]
+[gd_scene load_steps=19 format=3 uid="uid://defdjkkv75wul"]
 
+[ext_resource type="Script" uid="uid://dfmmj3sw2ow2j" path="res://scene4/scene_4_1.gd" id="1_kt14r"]
 [ext_resource type="Texture2D" uid="uid://d0rxfiaiy3r0m" path="res://scene4/s42d.png" id="1_t6s70"]
 [ext_resource type="Script" uid="uid://du3ie33q4ldpn" path="res://scene4/camera_2d.gd" id="2_kyfma"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="3_6vecb"]
 [ext_resource type="Script" uid="uid://b3qi2j0c5x36k" path="res://scene4/portal_1.gd" id="4_opkj4"]
 [ext_resource type="Texture2D" uid="uid://bc2v1f83dnqpe" path="res://scene4/s4sprite2.png" id="5_kt14r"]
+[ext_resource type="Script" uid="uid://ce1w8kmrccjf8" path="res://scene4/narrative_area.gd" id="6_6vecb"]
+[ext_resource type="Script" uid="uid://b83yrtyijc5iw" path="res://scene4/s4_1-dialogue_layer.gd" id="7_kt14r"]
+[ext_resource type="PackedScene" uid="uid://chc0tv4sn77do" path="res://narrative/narrative_mc.tscn" id="7_opkj4"]
+[ext_resource type="AudioStream" uid="uid://df70gndu25w87" path="res://scene4/scene4bgm1.mp3" id="10_pce8l"]
+[ext_resource type="Script" uid="uid://dtv3ey1bp7o45" path="res://scene4/audio_stream_player_2d.gd" id="11_ajglr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2gepj"]
 size = Vector2(3100.5, 238)
@@ -125,7 +131,11 @@ sources/0 = SubResource("TileSetAtlasSource_kyfma")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6djli"]
 size = Vector2(535, 718)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kt14r"]
+size = Vector2(148, 447)
+
 [node name="Scene4_1" type="Node2D"]
+script = ExtResource("1_kt14r")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -179,4 +189,27 @@ collision_mask = 2
 position = Vector2(-257, -35)
 shape = SubResource("RectangleShape2D_6djli")
 
+[node name="NarrativeArea" type="Area2D" parent="."]
+collision_mask = 3
+script = ExtResource("6_6vecb")
+dialogue_layer_path = NodePath("../DialogueLayer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NarrativeArea"]
+position = Vector2(-1426, 11)
+shape = SubResource("RectangleShape2D_kt14r")
+
+[node name="DialogueLayer" type="CanvasLayer" parent="."]
+script = ExtResource("7_kt14r")
+
+[node name="narrative_mc" parent="DialogueLayer" instance=ExtResource("7_opkj4")]
+position = Vector2(-1590, -404)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_pce8l")
+volume_db = -16.22
+autoplay = true
+playback_type = 1
+script = ExtResource("11_ajglr")
+
 [connection signal="body_entered" from="Portal/TriggerArea" to="Portal" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="NarrativeArea" to="NarrativeArea" method="_on_body_entered"]

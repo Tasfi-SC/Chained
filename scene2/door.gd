@@ -1,5 +1,6 @@
 extends Area2D
 
+signal door_interacted
 @onready var black_rect: ColorRect = $"../CanvasLayer/ColorRect"
 
 func _ready() -> void:
@@ -12,6 +13,7 @@ func _on_input_event(viewport, event, shape_idx) -> void:
 		$"../DoorFix".visible = true
 		await _fade_back()
 		$"../TP".monitoring = true
+		emit_signal("door_interacted")
 
 func _fade_to_black() -> void:
 	for i in range(100):

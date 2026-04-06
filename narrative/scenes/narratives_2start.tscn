@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbj1c0eb5wvm0"]
+
+[ext_resource type="Script" uid="uid://6slqjqix7uyc" path="res://narrative/scenes/narratives_2_start.gd" id="1_koir1"]
+[ext_resource type="Texture2D" uid="uid://cy4ouodg3w718" path="res://narrative/narrative background/s1-3.png" id="2_koir1"]
+[ext_resource type="PackedScene" uid="uid://b1wwr76rff5xw" path="res://narrative/scenes/narrative_mc.tscn" id="3_2ux5i"]
+
+[node name="narratives2START" type="Node2D"]
+script = ExtResource("1_koir1")
+
+[node name="background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_koir1")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.462745)
+
+[node name="resizefix" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="resizefix"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="narrative_mc" parent="resizefix/Control" instance=ExtResource("3_2ux5i")]
+position = Vector2(-818, -932)
+scale = Vector2(1.5, 1.5)

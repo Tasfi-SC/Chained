@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1wwr76rff5xw"]
+[gd_scene load_steps=6 format=3 uid="uid://chc0tv4sn77do"]
 
-[ext_resource type="Texture2D" uid="uid://uvngniut3bb5" path="res://narrative/mctextbox.png" id="1_2r3p6"]
+[ext_resource type="Texture2D" uid="uid://uvngniut3bb5" path="res://narrative/resources/mctextbox.png" id="1_2r3p6"]
 [ext_resource type="FontFile" uid="uid://dmttmx0rkwoiv" path="res://scene2/Minecraft.ttf" id="2_3tssd"]
-[ext_resource type="PackedScene" uid="uid://da280hsn42rao" path="res://narrative/dialog_ui.tscn" id="3_88o3u"]
+[ext_resource type="PackedScene" uid="uid://da280hsn42rao" path="res://narrative/scenes/dialog_ui.tscn" id="3_88o3u"]
 
 [sub_resource type="Theme" id="Theme_88o3u"]
 
@@ -22,10 +22,10 @@ anchors_preset = -1
 anchor_left = 0.39
 anchor_top = 0.739
 anchor_bottom = 0.986
-offset_left = 263.0
-offset_top = 249.0
-offset_right = 263.0
-offset_bottom = 249.0
+offset_left = 259.0
+offset_top = 245.0
+offset_right = 259.0
+offset_bottom = 245.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.6, 0.6)

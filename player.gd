@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed: float = 200.0
 @export var jump_velocity: float = -400.0
 @export var gravity: float = 900.0
-
+var can_move := true
 var in_water: bool = false
 @export var water_slow_multiplier: float = 0.5
 
@@ -62,7 +62,11 @@ func _physics_process(delta: float) -> void:
 
 	_update_timers(delta)
 	_apply_gravity(delta)
-
+	if not can_move:
+		velocity.x = 0.0
+		_play_anim("idle")
+		move_and_slide()
+		return
 	if not is_attacking:
 		_handle_movement(delta)
 		_handle_jump()

@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1wwr76rff5xw"]
+
+[ext_resource type="Texture2D" uid="uid://uvngniut3bb5" path="res://narrative/resources/mctextbox.png" id="1_2r3p6"]
+[ext_resource type="FontFile" uid="uid://dmttmx0rkwoiv" path="res://scene2/Minecraft.ttf" id="2_3tssd"]
+[ext_resource type="PackedScene" uid="uid://da280hsn42rao" path="res://narrative/scenes/dialog_ui.tscn" id="3_88o3u"]
+
+[sub_resource type="Theme" id="Theme_88o3u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_88o3u"]
+font = ExtResource("2_3tssd")
+font_color = Color(0, 0, 0, 1)
+
+[node name="narrative_mc" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(642, 362)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_2r3p6")
+
+[node name="DialogUI" parent="." instance=ExtResource("3_88o3u")]
+anchors_preset = -1
+anchor_left = 0.39
+anchor_top = 0.739
+anchor_bottom = 0.986
+offset_left = 263.0
+offset_top = 249.0
+offset_right = 263.0
+offset_bottom = 249.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.6, 0.6)
+
+[node name="speaker_name" type="Label" parent="."]
+offset_left = 456.0
+offset_top = 505.0
+offset_right = 527.0
+offset_bottom = 521.0
+rotation = -0.20944
+scale = Vector2(1.5, 1.5)
+theme = SubResource("Theme_88o3u")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_3tssd")
+text = "MC NAME"
+label_settings = SubResource("LabelSettings_88o3u")

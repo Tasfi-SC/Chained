@@ -7,6 +7,7 @@ extends Camera2D
 var target: Node2D
 
 func _ready() -> void:
+	
 	target = get_node_or_null(target_path)
 	enabled = true
 	position_smoothing_enabled = false
