@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+signal boss_died
 @export var speed: float = 90.0
 @export var dash_speed: float = 260.0
 @export var max_health: float = 100.0
@@ -133,6 +133,7 @@ func _set_state(new_state: State) -> void:
 
 		State.DEATH:
 			is_dead = true
+			boss_died.emit()
 			velocity = Vector2.ZERO
 			attack_area.monitoring = false
 			pulse_area.monitoring = false
