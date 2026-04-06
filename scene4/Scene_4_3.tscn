@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ceu2lxw422w5p"]
+[gd_scene load_steps=20 format=3 uid="uid://ceu2lxw422w5p"]
 
 [ext_resource type="Texture2D" uid="uid://boy21kj7drrnu" path="res://scene4/s42d-3.png" id="1_fe1rh"]
 [ext_resource type="Script" uid="uid://bfyytb0h78ykt" path="res://scene4/scene_4_3.gd" id="1_isl8t"]
@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bh6h3a0vuis6b" path="res://redblob.tscn" id="7_knwn8"]
 [ext_resource type="Script" uid="uid://de7ca3belxeg5" path="res://scene4/S4_3narrative_area.gd" id="8_qc1dx"]
 [ext_resource type="Script" uid="uid://cxjt5yfg872jw" path="res://scene4/scene4_3-dialogue_layer.gd" id="8_v6xlp"]
-[ext_resource type="PackedScene" uid="uid://b1wwr76rff5xw" path="res://narrative/scenes/narrative_mc.tscn" id="8_y0meo"]
+[ext_resource type="PackedScene" uid="uid://b1wwr76rff5xw" path="res://narrative/narrative_mc.tscn" id="8_y0meo"]
+[ext_resource type="AudioStream" uid="uid://df70gndu25w87" path="res://scene4/scene4bgm1.mp3" id="11_nsbtb"]
+[ext_resource type="Script" uid="uid://8ctysfemwemi" path="res://scene4/audio_stream_player3.gd" id="12_4cvwm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dpny4"]
 size = Vector2(2724.63, 85)
@@ -198,6 +200,12 @@ script = ExtResource("8_v6xlp")
 
 [node name="narrative_mc" parent="DialogueLayer" instance=ExtResource("8_y0meo")]
 position = Vector2(-2865, -625)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_nsbtb")
+volume_db = -16.22
+autoplay = true
+script = ExtResource("12_4cvwm")
 
 [connection signal="body_entered" from="Portal/TriggerArea" to="Portal" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="NarrativeArea" to="NarrativeArea" method="_on_body_entered"]
