@@ -19,7 +19,7 @@ func _ready():
 func start_typing():
 	is_typing = true
 	var tween = create_tween()
-	tween.tween_property(label, "visible_characters", len(label.get_parsed_text()), 7.0)
+	tween.tween_property(label, "visible_characters", len(label.get_parsed_text()), 6.0)
 	tween.tween_callback(func(): is_typing = false)
 	
 	while is_typing:
