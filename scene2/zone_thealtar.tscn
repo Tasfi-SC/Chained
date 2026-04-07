@@ -198,6 +198,7 @@ position = Vector2(122, 1396)
 
 [node name="Serath" parent="." groups=["enemy"] instance=ExtResource("2_i3dkl")]
 position = Vector2(2028, 1059)
+max_health = 300.0
 
 [node name="S2-INTERACT" parent="." instance=ExtResource("8_m08ce")]
 
