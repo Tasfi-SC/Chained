@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2d17dcov8brp"]
+
+[ext_resource type="Texture2D" uid="uid://cjw6x5qikjswp" path="res://scene4/dogtest.png" id="1_wmegy"]
+[ext_resource type="Script" uid="uid://bhphxrc8qd3j8" path="res://mazeenemy.gd" id="1_ywcpn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ywcpn"]
+size = Vector2(40, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dae71"]
+size = Vector2(54, 53)
+
+[node name="mazeenemy" type="CharacterBody2D"]
+script = ExtResource("1_ywcpn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.024, 0.024)
+texture = ExtResource("1_wmegy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_ywcpn")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 8.0
+path_max_distance = 20.0
+avoidance_enabled = true
+radius = 70.0
+
+[node name="restart" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="restart"]
+position = Vector2(-1, 1.5)
+shape = SubResource("RectangleShape2D_dae71")
+
+[connection signal="body_entered" from="restart" to="." method="_on_restart_body_entered"]
