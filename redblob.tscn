@@ -107,7 +107,7 @@ radius = 125.016
 radius = 142.004
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xg54v"]
-radius = 111.005
+radius = 187.949
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jq1ew"]
 bg_color = Color(0, 0, 0, 1)
@@ -157,6 +157,6 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_uqtpi")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
-[connection signal="body_entered" from="AttackArea" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
