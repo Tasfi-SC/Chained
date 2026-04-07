@@ -107,7 +107,7 @@ radius = 125.016
 radius = 142.004
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xg54v"]
-radius = 111.005
+radius = 191.212
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jq1ew"]
 bg_color = Color(0, 0, 0, 1)
