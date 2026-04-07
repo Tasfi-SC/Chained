@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbei2gde8t82i"]
+[gd_scene load_steps=4 format=3 uid="uid://dnc3ahct4lyys"]
 
-[ext_resource type="Texture2D" uid="uid://bq5sv60fjbvcb" path="res://scene4/cattest.png" id="1_8krqi"]
-[ext_resource type="Script" uid="uid://b2hn84p23m32h" path="res://mazeplayer.gd" id="1_fnrer"]
+[ext_resource type="Script" path="res://mazeplayer.gd" id="1_fnrer"]
+[ext_resource type="Texture2D" uid="uid://bql7ypfkgc2hc" path="res://mc/mcs4.png" id="2_fnrer"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fnrer"]
 size = Vector2(41, 50)
@@ -11,8 +11,8 @@ script = ExtResource("1_fnrer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-5.126e-06, -5)
-scale = Vector2(0.0216, 0.0237)
-texture = ExtResource("1_8krqi")
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("2_fnrer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -3)

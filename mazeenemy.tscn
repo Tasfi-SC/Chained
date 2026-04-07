@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2d17dcov8brp"]
+[gd_scene load_steps=5 format=3 uid="uid://d1am3sfgfu370"]
 
-[ext_resource type="Texture2D" uid="uid://cjw6x5qikjswp" path="res://scene4/dogtest.png" id="1_wmegy"]
-[ext_resource type="Script" uid="uid://bhphxrc8qd3j8" path="res://mazeenemy.gd" id="1_ywcpn"]
+[ext_resource type="Script" path="res://mazeenemy.gd" id="1_ywcpn"]
+[ext_resource type="Texture2D" uid="uid://ctaoj6v5xvncf" path="res://scene4/redblob.png" id="2_ywcpn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ywcpn"]
 size = Vector2(40, 41)
@@ -13,8 +13,8 @@ size = Vector2(54, 53)
 script = ExtResource("1_ywcpn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.024, 0.024)
-texture = ExtResource("1_wmegy")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_ywcpn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0.5)

@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bunfdwhkwhmn0"]
+[gd_scene load_steps=4 format=3 uid="uid://dtmlthg06p6lo"]
 
 [ext_resource type="Script" uid="uid://6mq1y73566cy" path="res://narrative/scenes/narrative_gorrathintro.gd" id="1_hqhik"]
 [ext_resource type="Texture2D" uid="uid://dm0jktubjfjup" path="res://scene2/s2-1.png" id="2_yucog"]
-[ext_resource type="PackedScene" uid="uid://b1wwr76rff5xw" path="res://narrative/scenes/narrative_mc.tscn" id="3_e5kro"]
+[ext_resource type="PackedScene" uid="uid://chc0tv4sn77do" path="res://narrative/narrative_mc.tscn" id="3_e5kro"]
 
 [node name="narrativegorrathintro" type="Node2D"]
 script = ExtResource("1_hqhik")

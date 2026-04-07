@@ -1,18 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxgeu5c6n732y"]
+[gd_scene load_steps=10 format=3 uid="uid://du8f513hlvx0o"]
 
-[ext_resource type="Script" uid="uid://u3hxxf8fe81l" path="res://pause_menu.gd" id="1_iw6dd"]
-[ext_resource type="Texture2D" uid="uid://bv3jo4jetk82y" path="res://narrative/resources/mainmenu2.png" id="2_mv768"]
-[ext_resource type="FontFile" uid="uid://cf26ou5dj0sg2" path="res://narrative/resources/Cinzel-ExtraBold.ttf" id="3_pfsnn"]
-[ext_resource type="Script" path="res://button_hover.gd" id="4_3w8xh"]
-[ext_resource type="Script" path="res://button_hover2.gd" id="5_08ged"]
-[ext_resource type="Texture2D" uid="uid://cmdbyql64nwu0" path="res://narrative/resources/particlesprite.png" id="6_37dju"]
+[ext_resource type="Script" uid="uid://67bkdcdwwh8f" path="res://death_screen.gd" id="1_f562y"]
+[ext_resource type="Texture2D" uid="uid://bv3jo4jetk82y" path="res://narrative/resources/mainmenu2.png" id="2_s44ck"]
+[ext_resource type="FontFile" uid="uid://cf26ou5dj0sg2" path="res://narrative/resources/Cinzel-ExtraBold.ttf" id="3_nus4h"]
+[ext_resource type="Script" path="res://button_hover.gd" id="4_b1ui3"]
+[ext_resource type="Script" path="res://button_hover2.gd" id="5_7ahhq"]
+[ext_resource type="Texture2D" uid="uid://cmdbyql64nwu0" path="res://narrative/resources/particlesprite.png" id="6_u708n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qe12f"]
-atlas = ExtResource("6_37dju")
+atlas = ExtResource("6_u708n")
 region = Rect2(512, 340, 256, 170)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8qtwp"]
-atlas = ExtResource("6_37dju")
+atlas = ExtResource("6_u708n")
 region = Rect2(768, 340, 256, 170)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dy7ct"]
@@ -29,15 +29,15 @@ animations = [{
 "speed": 2.0
 }]
 
-[node name="PauseMenu" type="CanvasLayer"]
+[node name="death_screen" type="CanvasLayer"]
 process_mode = 3
 visible = false
-script = ExtResource("1_iw6dd")
+script = ExtResource("1_f562y")
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 1616.0
 offset_bottom = 1055.0
-texture = ExtResource("2_mv768")
+texture = ExtResource("2_s44ck")
 
 [node name="MainMenu" type="Control" parent="."]
 layout_mode = 3
@@ -56,11 +56,11 @@ theme_override_colors/icon_hover_color = Color(0.838567, 0.739731, 0.639813, 1)
 theme_override_colors/icon_pressed_color = Color(0.442911, 0.442911, 0.442911, 1)
 theme_override_colors/font_color = Color(0.914222, 0.900227, 0.986324, 1)
 theme_override_colors/font_focus_color = Color(0.973535, 0.973535, 0.973535, 1)
-theme_override_fonts/font = ExtResource("3_pfsnn")
+theme_override_fonts/font = ExtResource("3_nus4h")
 theme_override_font_sizes/font_size = 35
-text = "RESUME"
+text = "RESTART"
 flat = true
-script = ExtResource("4_3w8xh")
+script = ExtResource("4_b1ui3")
 
 [node name="mainmenu" type="Button" parent="MainMenu"]
 layout_mode = 0
@@ -73,11 +73,11 @@ theme_override_colors/font_hover_color = Color(0.702043, 0.60985, 0.547412, 1)
 theme_override_colors/font_color = Color(0.991164, 0.991164, 0.991164, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.969137, 0.969137, 0.969137, 1)
-theme_override_fonts/font = ExtResource("3_pfsnn")
+theme_override_fonts/font = ExtResource("3_nus4h")
 theme_override_font_sizes/font_size = 35
 text = "MENU"
 flat = true
-script = ExtResource("5_08ged")
+script = ExtResource("5_7ahhq")
 
 [node name="Node2D" type="Node2D" parent="."]
 

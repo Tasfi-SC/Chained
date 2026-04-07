@@ -93,7 +93,7 @@ func take_damage(amount: float) -> void:
 		health_bar.hide()
 
 		if anim.sprite_frames.has_animation("death"):
-			
+			get_tree().call_group("portals", "unlock_portal")
 			anim.play("death")
 			print(name, " started death animation")
 			await get_tree().create_timer(0.6).timeout

@@ -1,6 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://dwonik53rhsea"]
+[gd_scene load_steps=23 format=3 uid="uid://cb3pc5ib4mhhm"]
 
-[ext_resource type="Script" uid="uid://xaugcqdkjrfx" path="res://puzzle_scene_1_2_.gd" id="1_u02i8"]
+[ext_resource type="Script" path="res://puzzle_scene_1_2_.gd" id="1_u02i8"]
 [ext_resource type="Texture2D" uid="uid://bvvqx7bmv38v1" path="res://scene1/puzzle_1_pieces.png" id="2_lci8c"]
 [ext_resource type="Script" path="res://scene1/portal_1_2.gd" id="3_lci8c"]
 [ext_resource type="Texture2D" uid="uid://bc2v1f83dnqpe" path="res://scene4/s4sprite2.png" id="4_er5w0"]
@@ -201,6 +201,7 @@ texture = SubResource("AtlasTexture_6t6dd")
 [node name="Portal" type="Node2D" parent="."]
 position = Vector2(1338, -130)
 script = ExtResource("3_lci8c")
+next_scene_path = "res://scene1/scene_1_3.tscn"
 
 [node name="PortalTileMap" type="TileMapLayer" parent="Portal"]
 position = Vector2(-317, 116)

@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=4 uid="uid://dtl6xljk3jbft"]
 
 [ext_resource type="Texture2D" uid="uid://bje32lhe3hhxo" path="res://scene4/4-2maze.png" id="1_h5a6m"]
-[ext_resource type="PackedScene" uid="uid://bbei2gde8t82i" path="res://mazeplayer.tscn" id="2_rqc3p"]
+[ext_resource type="PackedScene" uid="uid://dnc3ahct4lyys" path="res://mazeplayer.tscn" id="2_rqc3p"]
 [ext_resource type="Texture2D" uid="uid://b7bc4oag2qk3" path="res://scene2/transparent.png" id="3_rqc3p"]
-[ext_resource type="Script" uid="uid://ce0uucpo5kj2s" path="res://scene4/teleport.gd" id="5_0fohj"]
-[ext_resource type="PackedScene" uid="uid://d2d17dcov8brp" path="res://mazeenemy.tscn" id="5_sc2g0"]
+[ext_resource type="Script" path="res://scene4/teleport.gd" id="5_0fohj"]
+[ext_resource type="PackedScene" uid="uid://d1am3sfgfu370" path="res://mazeenemy.tscn" id="5_sc2g0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dg84g"]
 texture = ExtResource("3_rqc3p")
@@ -40,10 +40,12 @@ tile_set = SubResource("TileSet_sc2g0")
 navigation_visibility_mode = 1
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_dg84g")
 
 [node name="mazeplayer" parent="." instance=ExtResource("2_rqc3p")]
 position = Vector2(1378, 1468)
+scale = Vector2(0.5, 0.5)
 
 [node name="mazeenemy" parent="." instance=ExtResource("5_sc2g0")]
 position = Vector2(1285, 931)

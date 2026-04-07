@@ -20,7 +20,7 @@ var in_water: bool = false
 @export var sword_cooldown: float = 0.8
 @export var pulse_cooldown: float = 5.0
 @export var pulse_hp_cost: float = 10.0
-
+@export var death_screen_scene: PackedScene
 @export var ball_scene: PackedScene
 @export var ball_speed: float = 400.0
 	
@@ -43,6 +43,7 @@ var pulse_cooldown_timer: float = 0.0
 @onready var camera: Camera2D = $Camera2D
 @onready var attack_collision: CollisionShape2D = $AttackHitbox/CollisionShape2D
 @onready var health_bar: ProgressBar = $CanvasLayer/ProgressBar
+ 
 signal hp_changed(new_hp, max_hp)
 signal player_died
 signal demon_form_activated
@@ -59,7 +60,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
-
+	if global_position.y > 1500:
+		_die()
+		return
 	_update_timers(delta)
 	_apply_gravity(delta)
 	if not can_move:
@@ -198,8 +201,10 @@ func _die() -> void:
 	health_bar.value = 0
 	_play_anim("death")
 	emit_signal("player_died")
-	await get_tree().create_timer(1.5).timeout
-	get_tree().paused = true
+	var ds = death_screen_scene.instantiate()
+	ds.current_level_path = get_tree().current_scene.scene_file_path
+	get_tree().root.add_child(ds)
+	get_tree().change_scene_to_file("res://death_screen.tscn")
 func activate_demon_form() -> void:
 	demon_form = true
 	demon_form_unlocked = true

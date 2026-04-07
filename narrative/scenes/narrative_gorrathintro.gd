@@ -31,7 +31,7 @@ func _input(event):
 			dialog_index +=1
 			process_current_line()
 		else:
-			get_tree().change_scene_to_file("res://narrative/scenes/narratives_2start.tscn")
+			get_tree().change_scene_to_file("res://scene1/scene_1_2.tscn")
 
 func parse_line(line: String):
 	var line_info = line.split(":")
