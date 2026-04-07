@@ -218,4 +218,6 @@ collision_mask = 2
 position = Vector2(-260, -32)
 shape = SubResource("RectangleShape2D_an2tp")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="body_entered" from="Portal/TriggerArea" to="Portal" method="_on_area_2d_body_entered"]
