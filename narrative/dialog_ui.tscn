@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://5h5v01fv28gl"]
+
+[ext_resource type="Theme" path="res://narrative/textpanel.tres" id="1_eq2t8"]
+[ext_resource type="FontFile" uid="uid://dmttmx0rkwoiv" path="res://scene2/Minecraft.ttf" id="2_uxqvv"]
+
+[sub_resource type="Theme" id="Theme_inglp"]
+default_font = ExtResource("2_uxqvv")
+
+[node name="DialogUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(729, 22)
+layout_mode = 0
+offset_left = 374.0
+offset_top = 485.0
+offset_right = 1113.0
+offset_bottom = 617.0
+rotation = -0.0174533
+theme = ExtResource("1_eq2t8")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(1164, 629)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(0, 0, 25, 12.5, 0, 25)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 388.0
+offset_top = 491.0
+offset_right = 736.0
+offset_bottom = 545.0
+scale = Vector2(2, 2)
+theme = SubResource("Theme_inglp")
+theme_override_colors/table_border = Color(0, 0, 0, 1)
