@@ -4,6 +4,7 @@ extends Node2D
 @onready var dialog_ui = $resizefix/Control/narrative_mc/DialogUI/RichTextLabel
 @onready var character = $resizefix/Control/narrative_mc
 @onready var character_sprite = $resizefix/Control/narrative_mc/Sprite2D
+@onready var player = $"../Player"
 
 const speaker_change = {
 	"SERATH": preload("res://narrative/resources/serathtextbox.png")
@@ -28,6 +29,7 @@ func _ready() -> void:
 	get_node("../Serath").serath_died.connect(_on_serath_died)
 
 func _on_serath_died() -> void:
+	player.can_move = false
 	current_dialog = serath_dialog
 	dialog_index = 0
 	character.visible = true
@@ -42,6 +44,7 @@ func _input(event):
 			process_current_line()
 		else:
 			character.visible = false
+			player.can_move= true 
 
 func parse_line(line: String):
 	var line_info = line.split(":")

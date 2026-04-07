@@ -1,15 +1,15 @@
 extends Node2D
 
 @onready var label = $resizefix/BLACKSCREENUI/RichTextLabel
-@onready var type_sound: AudioStreamPlayer2D = $TypeSound
+@onready var type_sound: AudioStreamPlayer = $TypeSound
 
-const FULL_TEXT = "[center]You're closer.\n\nAccept it.[/center]"
+const FULL_TEXT = "[center]YOU ARE CLOSER.\n\nACCEPT IT.[/center]"
 
 var is_typing = false
 
 func _ready():
 	var tween = create_tween()
-	tween.tween_property(MusicManagerScene2.player, "volume_db", -80.0, 5.0)
+	tween.tween_property(MusicManagerScene2.player, "volume_db", -60.0, 3.0)
 
 	label.text = FULL_TEXT
 	label.visible_characters = 0
@@ -19,7 +19,7 @@ func _ready():
 func start_typing():
 	is_typing = true
 	var tween = create_tween()
-	tween.tween_property(label, "visible_characters", len(label.get_parsed_text()), 6.0)
+	tween.tween_property(label, "visible_characters", len(label.get_parsed_text()), 2.0)
 	tween.tween_callback(func(): is_typing = false)
 	
 	while is_typing:

@@ -26,6 +26,12 @@ func _ready() -> void:
 
 	attack_timer.wait_time = attack_cooldown
 	attack_timer.one_shot = true
+	
+	attack_timer.timeout.connect(_on_attack_timer_timeout)
+
+	detection_area.body_entered.connect(_on_detection_area_body_entered)
+	detection_area.body_exited.connect(_on_detection_area_body_exited)
+	attack_area.body_entered.connect(_on_attack_area_body_entered)
 
 	if anim.sprite_frames.has_animation("right"):
 		anim.play("right")
@@ -33,12 +39,12 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
+	if not is_on_floor():
+		velocity.y += gravity * delta
 	if player == null:
 		for body in detection_area.get_overlapping_bodies():
 			if body.is_in_group("player"):
 				player = body
-	if not is_on_floor():
-		velocity.y += gravity * delta
 
 	if player:
 		var dir_x = sign(player.global_position.x - global_position.x)
@@ -53,6 +59,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 
 	move_and_slide()
+	$HealthBarUI.scale.x = sign(scale.x) if scale.x != 0 else 1
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	print(name, " detected: ", body.name)
