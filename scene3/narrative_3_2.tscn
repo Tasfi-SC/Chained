@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://mt1u83jyn2la" path="res://scene3/bgs/bg1.png" id="2_85dt3"]
 [ext_resource type="PackedScene" uid="uid://chc0tv4sn77do" path="res://narrative/narrative_mc.tscn" id="3_3wtil"]
 [ext_resource type="AudioStream" uid="uid://ci8r0p1hvbpaw" path="res://scene3/s3bgm.mp3" id="4_3wtil"]
-[ext_resource type="Script" uid="uid://btxgdxdxuw2d3" path="res://scene3/s3audio5.gd" id="4_vy0q1"]
+[ext_resource type="Script" path="res://scene3/s3audio5.gd" id="4_vy0q1"]
 
 [node name="Narrative3_2" type="Node2D"]
 script = ExtResource("1_85dt3")
@@ -21,9 +21,12 @@ texture = ExtResource("2_85dt3")
 expand_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="Background"]
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0, 0, 0, 0.564706)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.341176)
 
 [node name="resizefix" type="CanvasLayer" parent="."]
 
