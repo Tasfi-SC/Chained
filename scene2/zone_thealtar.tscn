@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://d3nja28dt0q0b"]
+[gd_scene load_steps=25 format=4 uid="uid://5icrmk8m14ys"]
 
 [ext_resource type="Script" uid="uid://dsvutwskod8i" path="res://scene2/zone_thealtar.gd" id="1_78m1a"]
 [ext_resource type="Texture2D" uid="uid://djb1jmk6gv7y5" path="res://scene2/s2-3.png" id="1_hgwu7"]
@@ -196,7 +196,7 @@ shape = SubResource("RectangleShape2D_jhemd")
 [node name="Player" parent="." instance=ExtResource("4_m8u4g")]
 position = Vector2(122, 1396)
 
-[node name="Serath" parent="." instance=ExtResource("2_i3dkl")]
+[node name="Serath" parent="." groups=["enemy"] instance=ExtResource("2_i3dkl")]
 position = Vector2(2028, 1059)
 
 [node name="S2-INTERACT" parent="." instance=ExtResource("8_m08ce")]
