@@ -25,7 +25,7 @@ const dialog_lines : Array[String] = [
 ]
 
 func _ready():
-	MusicManagerScene2.player.play()
+	MusicManagerScene2.play_music("res://scene2/Memories of the School (P3R ver.).mp3")
 	dialog_index = 0
 	process_current_line()
 	

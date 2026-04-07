@@ -27,7 +27,7 @@ const dialog_lines : Array[String] = [
 ]
 
 func _ready():
-	MusicManagerScene2.player.stop()
+	# MusicManagerScene2.player.stop()
 	dialog_index = 0
 	process_current_line()
 	

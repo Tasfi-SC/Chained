@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bukfh665d4sta"]
 
-[ext_resource type="Script" uid="uid://dkjq3pqan5k14" path="res://scene4/narrative_4_1.gd" id="1_nlqog"]
+[ext_resource type="Script" path="res://scene4/narrative_4_1.gd" id="1_nlqog"]
 [ext_resource type="Texture2D" uid="uid://srl2hpnyh68p" path="res://scene4/s42d-4.png" id="2_n7bon"]
 [ext_resource type="PackedScene" uid="uid://chc0tv4sn77do" path="res://narrative/narrative_mc.tscn" id="3_6b2bm"]
 

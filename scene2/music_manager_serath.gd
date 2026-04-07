@@ -2,7 +2,16 @@ extends Node
 
 @onready var player = $AudioStreamPlayer
 
-func _ready():
-	player.stream = preload("res://scene2/2-05. Living With Determination (P3R ver.).mp3")
-	player.volume_db = 0.0
+var curr_track = null
+var music_volume = -16.0
+
+func play_music(path):
+	if curr_track == path:
+		return
+	curr_track = path
+	player.stream = load(path)
+	player.volume_db = music_volume
 	player.play()
+func stop_music():
+	player.stop()
+	curr_track = null
