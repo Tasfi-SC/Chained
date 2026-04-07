@@ -10,9 +10,9 @@ func _ready() -> void:
 	print("Ball spawned. Layer: ", collision_layer, " Mask: ", collision_mask)
 	if is_demon:
 		damage = 25.0
-		$AnimatedSprite2D.play("demon_ball")
+		$AnimatedSprite2D.play("default")
 	else:
-		$AnimatedSprite2D.play("ball")
+		$AnimatedSprite2D.play("default")
 func _physics_process(delta: float) -> void:
 	global_position += direction * speed * delta
 

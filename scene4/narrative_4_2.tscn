@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkwi0b51i3nj7"]
+[gd_scene load_steps=6 format=3 uid="uid://h7hnie2nxehx"]
 
-[ext_resource type="Script" path="res://scene4/narrative_4_2.gd" id="1_e43dm"]
+[ext_resource type="Script" uid="uid://c51jwsvtl4kuo" path="res://scene4/narrative_4_2.gd" id="1_e43dm"]
 [ext_resource type="Texture2D" uid="uid://srl2hpnyh68p" path="res://scene4/s42d-4.png" id="2_mha3e"]
-[ext_resource type="PackedScene" uid="uid://b1wwr76rff5xw" path="res://narrative/scenes/narrative_mc.tscn" id="3_v03pi"]
+[ext_resource type="PackedScene" uid="uid://chc0tv4sn77do" path="res://narrative/narrative_mc.tscn" id="3_v03pi"]
+[ext_resource type="AudioStream" uid="uid://df70gndu25w87" path="res://scene4/scene4bgm1.mp3" id="4_mha3e"]
+[ext_resource type="Script" uid="uid://b86yxjpreemuf" path="res://scene4/s4audio5.gd" id="5_v03pi"]
 
 [node name="Narrative4_2" type="Node2D"]
 script = ExtResource("1_e43dm")
@@ -30,3 +32,8 @@ offset_bottom = 40.0
 
 [node name="narrative_mc" parent="resizefix/Control" instance=ExtResource("3_v03pi")]
 position = Vector2(310, 59)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_mha3e")
+volume_db = -16.22
+script = ExtResource("5_v03pi")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://7l13aguhk2xo" path="res://scene3/narrative_3_3.gd" id="1_q7gtf"]
 [ext_resource type="Texture2D" uid="uid://brb6vf66gj0rm" path="res://scene3/Scene3_3.png" id="2_5gxg1"]
-[ext_resource type="PackedScene" uid="uid://b1wwr76rff5xw" path="res://narrative/scenes/narrative_mc.tscn" id="2_q7gtf"]
+[ext_resource type="PackedScene" uid="uid://chc0tv4sn77do" path="res://narrative/narrative_mc.tscn" id="2_q7gtf"]
 
 [node name="Narrative3_3" type="Node2D"]
 script = ExtResource("1_q7gtf")

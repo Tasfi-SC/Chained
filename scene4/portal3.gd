@@ -22,6 +22,7 @@ func _ready() -> void:
 		trigger_collision.disabled = false
 
 func unlock_portal() -> void:
+	$AnimatedSprite2D.play("default")
 	is_unlocked = true
 	visible = true
 	trigger_collision.disabled = false
