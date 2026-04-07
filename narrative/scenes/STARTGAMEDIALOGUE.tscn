@@ -30,5 +30,6 @@ color = Color(0, 0, 0, 1)
 
 [node name="BLACKSCREENUI" parent="resizefix" instance=ExtResource("2_1q5jt")]
 
-[node name="TypeSound" type="AudioStreamPlayer2D" parent="."]
+[node name="TypeSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_1q5jt")
+volume_db = -40.0

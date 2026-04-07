@@ -4,6 +4,7 @@ extends Node2D
 @onready var dialog_ui = $resizefix/Control/narrative_mc/DialogUI/RichTextLabel
 @onready var character = $resizefix/Control/narrative_mc
 @onready var character_sprite = $resizefix/Control/narrative_mc/Sprite2D
+@onready var player = $"../Player"
 
 const speaker_change = {
 	"MC NAME": preload("res://narrative/resources/mctextbox.png"),
@@ -19,7 +20,7 @@ const speaker_scales = {
 }
 
 const crystals_dialog: Array[String] = [
-	"MC NAME: ...that's all of them.",
+	"MC NAME: that's all of them.",
 	"MC NAME: ...why does this feel familiar?",
 	"UNKNOWN: Keep going.",
 	"UNKNOWN: Fix the door.",
@@ -27,13 +28,15 @@ const crystals_dialog: Array[String] = [
 	"MC NAME: ...close to what?"
 ]
 const door_dialog: Array[String] = [
-	"UNKNOWN: Open it.",
+	"UNKNOWN: Go through the door.",
 	"MC NAME: ...you've been guiding me this whole time.",
 	"MC NAME: Why?",
-	"UNKNOWN: You were meant to be here."
+	"UNKNOWN: You were meant to be here.",
+	"MC NAME: ?"
 ]
 const slow_dialog: Array[String] = [
 	"MC NAME: This water is slowing me down...",
+	"MC NAME: I will just [color=red]dodge[/color] to walk faster.",
 	"MC NAME: ...",
 	"MC NAME: Rocks ahead...",
 	"MC NAME: They're blocking my way.",
@@ -50,17 +53,21 @@ func _ready() -> void:
 	get_node("../SlowTrig").slow_trig.connect(_on_slow_triggered)
 	
 func _on_slow_triggered() -> void:
+	player.can_move = false
 	current_dialog = slow_dialog
 	dialog_index = 0
 	character.visible = true
 	process_current_line()
+	
 func _on_all_crystals_collected() -> void:
+	player.can_move = false
 	current_dialog = crystals_dialog
 	dialog_index = 0
 	character.visible = true
 	process_current_line()
 
 func _on_door_interacted() -> void:
+	player.can_move = false
 	current_dialog = door_dialog
 	dialog_index = 0
 	character.visible = true
@@ -75,6 +82,7 @@ func _input(event):
 			process_current_line()
 		else:
 			character.visible = false
+			player.can_move = true
 
 func parse_line(line: String):
 	var line_info = line.split(":")

@@ -7,15 +7,18 @@ extends Node2D
 
 const speaker_change = {
 	"MC NAME": preload("res://narrative/resources/mctextbox.png"),
-	"UNKNOWN": preload("res://narrative/resources/textbox.png")
+	"UNKNOWN": preload("res://narrative/resources/textbox.png"),
+	"VOICE": preload("res://narrative/resources/textbox.png")
 }
 const speaker_positions = {
 	"MC NAME": Vector2(642, 362),
-	"UNKNOWN": Vector2(642, 362)
+	"UNKNOWN": Vector2(642, 362),
+	"VOICE": Vector2(642, 362)
 }
 const speaker_scales = {
 	"MC NAME": Vector2(0.8, 0.8), 
-	"UNKNOWN": Vector2(0.8, 0.8)
+	"UNKNOWN": Vector2(0.8, 0.8),
+	"VOICE": Vector2(0.8, 0.8)
 }
 var dialog_index : int = 0
 
@@ -28,8 +31,8 @@ const dialog_lines: Array[String] = [
 	"MC NAME: Then tell me what it is.",
 	"UNKNOWN: If I do...",
 	"UNKNOWN: ...you might stop walking.",
-	"UNKNOWN: Don't listen.",
-	"UNKNOWN: Come.",
+	"VOICE: Don't listen.",
+	"VOICE: Come.",
 	"UNKNOWN: I'll show you what she made."
 ]
 

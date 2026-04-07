@@ -29,6 +29,9 @@ color = Color(0, 0, 0, 1)
 [node name="resizefix" type="CanvasLayer" parent="."]
 
 [node name="BLACKSCREENUI" parent="resizefix" instance=ExtResource("2_pjemr")]
+offset_top = 43.0
+offset_bottom = 43.0
 
-[node name="TypeSound" type="AudioStreamPlayer2D" parent="."]
+[node name="TypeSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_pjemr")
+volume_db = -40.0
