@@ -28,12 +28,7 @@ func _ready() -> void:
 	health_bar.value = health
 	attack_timer.wait_time = attack_cooldown
 	attack_timer.one_shot = true
-	attack_timer.timeout.connect(_on_attack_timer_timeout)
-	detection_area.body_entered.connect(_on_detection_area_body_entered)
-	detection_area.body_exited.connect(_on_detection_area_body_exited)
-	attack_area.body_entered.connect(_on_attack_area_body_entered)
-	shockwave_area.body_entered.connect(_on_shockwave_area_body_entered)
-	anim.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
+
 	_set_state(State.IDLE)
 
 func _physics_process(delta: float) -> void:
@@ -135,7 +130,7 @@ func _trigger_next_attack() -> void:
 			_set_state(State.SUMMON)
 
 func _deal_percent_damage(body: Node2D) -> void:
-	var damage = body.health * 0.25
+	var damage = body.health * 0.5
 	body.take_damage(damage)
 	print("Gorth dealt: ", damage, " to ", body.name)
 

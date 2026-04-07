@@ -215,7 +215,7 @@ tile_set = SubResource("TileSet_di66y")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/TriggerArea"]
-position = Vector2(-257, -35)
+position = Vector2(-260, -32)
 shape = SubResource("RectangleShape2D_an2tp")
 
 [connection signal="body_entered" from="Portal/TriggerArea" to="Portal" method="_on_area_2d_body_entered"]

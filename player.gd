@@ -187,7 +187,7 @@ func take_damage(amount: float) -> void:
 	health_bar.value = health
 	print("Player took ", amount, " damage. HP: ", health)
 
-	if health <= 1:
+	if health <= 10:
 		_die()
 		return
 
@@ -200,9 +200,9 @@ func _die() -> void:
 	is_dead = true
 	is_invincible = true
 	health_bar.value = 0
-	get_tree().change_scene_to_file("res://death_screen.tscn")
-	_play_anim("death")
+	
 	emit_signal("player_died")
+	get_tree().change_scene_to_file("res://death_screen.tscn")
 	
 func activate_demon_form() -> void:
 	demon_form = true

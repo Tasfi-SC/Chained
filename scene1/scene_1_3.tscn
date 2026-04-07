@@ -83,6 +83,7 @@ max_health = 150.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("3_j2qst")
+target_path = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_2awwc")]
 position = Vector2(-546, 47)
