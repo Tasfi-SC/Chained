@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dd4ejqe36euin"]
+[gd_scene load_steps=7 format=3 uid="uid://dhwcd1ajigo8l"]
 
-[ext_resource type="Texture2D" uid="uid://b22tjaexa4hxv" path="res://scene1/s13.png" id="1_n7utc"]
+[ext_resource type="Texture2D" uid="uid://c5wfthafyf0ae" path="res://scene1/hell_bg_2048w.png" id="1_2awwc"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="2_2awwc"]
 [ext_resource type="Script" uid="uid://du3ie33q4ldpn" path="res://scene4/camera_2d.gd" id="3_812j7"]
 [ext_resource type="PackedScene" uid="uid://b8kda2qrih8qt" path="res://gorrath.tscn" id="4_2awwc"]
@@ -18,7 +18,7 @@ size = Vector2(1000, 50)
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource("1_n7utc")
+texture = ExtResource("1_2awwc")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -36,13 +36,12 @@ position = Vector2(-744, -2)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_w6n0x")
 
-[node name="Player" parent="." instance=ExtResource("2_2awwc")]
-position = Vector2(-546, 47)
-
 [node name="Gorrath" parent="." instance=ExtResource("4_2awwc")]
 position = Vector2(415, 20)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-2371, -131)
 script = ExtResource("3_812j7")
 target_path = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("2_2awwc")]
+position = Vector2(-546, 47)

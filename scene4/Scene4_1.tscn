@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bc2v1f83dnqpe" path="res://scene4/s4sprite2.png" id="5_kt14r"]
 [ext_resource type="Script" uid="uid://ce1w8kmrccjf8" path="res://scene4/narrative_area.gd" id="6_6vecb"]
 [ext_resource type="Script" uid="uid://b83yrtyijc5iw" path="res://scene4/s4_1-dialogue_layer.gd" id="7_kt14r"]
-[ext_resource type="PackedScene" uid="uid://chc0tv4sn77do" path="res://narrative/narrative_mc.tscn" id="7_opkj4"]
+[ext_resource type="PackedScene" uid="uid://b1wwr76rff5xw" path="res://narrative/narrative_mc.tscn" id="7_opkj4"]
 [ext_resource type="AudioStream" uid="uid://df70gndu25w87" path="res://scene4/scene4bgm1.mp3" id="10_pce8l"]
 [ext_resource type="Script" uid="uid://dtv3ey1bp7o45" path="res://scene4/audio_stream_player_2d.gd" id="11_ajglr"]
 
