@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://b22227gg4qpq2"]
 
-[ext_resource type="Texture2D" uid="uid://brb6vf66gj0rm" path="res://scene3/Scene3_3.png" id="1_s8laf"]
+[ext_resource type="Texture2D" uid="uid://b71uvb216ipw4" path="res://scene3/s3bossbg.png" id="1_hj130"]
 [ext_resource type="Script" path="res://scene3/camera1.gd" id="2_hhakq"]
 [ext_resource type="Script" uid="uid://d4darl0cvd0yy" path="res://scene3/portals3_1.gd" id="3_0pi25"]
 [ext_resource type="Texture2D" uid="uid://cbdau86ufwg73" path="res://scene3/s3sprite4.png" id="4_hj130"]
@@ -104,14 +104,14 @@ size = Vector2(193, 227)
 motion_scale = Vector2(0.85, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(-1899.15, -131.1)
-scale = Vector2(1.5, 1)
-texture = ExtResource("1_s8laf")
+position = Vector2(-1983, -139)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_hj130")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-2014, 0)
+position = Vector2(-2014, 262)
 shape = SubResource("RectangleShape2D_hnuht")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
@@ -129,24 +129,25 @@ script = ExtResource("3_0pi25")
 next_scene_path = "res://scene3/narrative_3_3.tscn"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Portal"]
-position = Vector2(-1684, -228)
+position = Vector2(-1735, 35)
 sprite_frames = SubResource("SpriteFrames_5bxnu")
 animation = &"run"
-frame_progress = 0.868203
+frame_progress = 0.269013
 
 [node name="TriggerArea" type="Area2D" parent="Portal"]
 position = Vector2(-297, -16)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/TriggerArea"]
-position = Vector2(-1319, -157)
+position = Vector2(-1362, 2)
 shape = SubResource("RectangleShape2D_oh20g")
 
 [node name="Player" parent="." instance=ExtResource("5_1ev6b")]
-position = Vector2(-2781, -148)
+position = Vector2(-2879, 87)
 
 [node name="pix" parent="." groups=["enemy"] instance=ExtResource("6_hhakq")]
-position = Vector2(-1983, -126)
+position = Vector2(-2256, 123)
+scale = Vector2(1.3, 1.3)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_0pi25")

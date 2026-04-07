@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ddgicgskb4d28"]
+[gd_scene load_steps=25 format=3 uid="uid://ddgicgskb4d28"]
 
 [ext_resource type="Texture2D" uid="uid://22agpkxod5xm" path="res://scene3/bg2.png" id="1_hnuht"]
 [ext_resource type="Script" path="res://scene3/camera1.gd" id="2_mtw2n"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="3_mtw2n"]
 [ext_resource type="Texture2D" uid="uid://cbdau86ufwg73" path="res://scene3/s3sprite4.png" id="3_x0jid"]
 [ext_resource type="PackedScene" uid="uid://d2rwvv4ct2agq" path="res://shadowblob.tscn" id="6_vwlc8"]
+[ext_resource type="Script" uid="uid://d16538byewpyx" path="res://shadowblob2.gd" id="7_2v0j3"]
 [ext_resource type="AudioStream" uid="uid://ci8r0p1hvbpaw" path="res://scene3/s3bgm.mp3" id="7_3bxea"]
 [ext_resource type="Script" uid="uid://bhn2b6t34i4dt" path="res://scene3/s3audio1.gd" id="8_oh20g"]
 
@@ -97,7 +98,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oh20g"]
-size = Vector2(193, 227)
+size = Vector2(193, 311.5)
 
 [node name="Scene3_1" type="Node2D"]
 
@@ -131,7 +132,7 @@ zoom = Vector2(0.95, 0.95)
 script = ExtResource("2_mtw2n")
 target_path = NodePath("../Player")
 
-[node name="Portal" type="Node2D" parent="."]
+[node name="Portal" type="Node2D" parent="." groups=["portals"]]
 position = Vector2(207, 198)
 script = ExtResource("3_hnuht")
 next_scene_path = "res://scene3/Scene3_2.tscn"
@@ -147,7 +148,7 @@ position = Vector2(-297, -16)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/TriggerArea"]
-position = Vector2(-1285, -198)
+position = Vector2(-1285, -155.75)
 shape = SubResource("RectangleShape2D_oh20g")
 
 [node name="Player" parent="." instance=ExtResource("3_mtw2n")]
@@ -161,6 +162,7 @@ position = Vector2(-2611, 105)
 
 [node name="Shadowblob3" parent="." groups=["enemy"] instance=ExtResource("6_vwlc8")]
 position = Vector2(-1731, 106)
+script = ExtResource("7_2v0j3")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_3bxea")

@@ -1,15 +1,56 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhwcd1ajigo8l"]
+[gd_scene load_steps=15 format=3 uid="uid://4j270ww8v2k"]
 
 [ext_resource type="Texture2D" uid="uid://c5wfthafyf0ae" path="res://scene1/hell_bg_2048w.png" id="1_2awwc"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="2_2awwc"]
 [ext_resource type="Script" uid="uid://du3ie33q4ldpn" path="res://scene4/camera_2d.gd" id="3_812j7"]
 [ext_resource type="PackedScene" uid="uid://b8kda2qrih8qt" path="res://gorrath.tscn" id="4_2awwc"]
+[ext_resource type="Script" uid="uid://bpr4miwgrludf" path="res://scene1/s1portal3.gd" id="5_j2qst"]
+[ext_resource type="Texture2D" uid="uid://bc2v1f83dnqpe" path="res://scene4/s4sprite2.png" id="6_w6n0x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j2qst"]
 size = Vector2(1510, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w6n0x"]
 size = Vector2(1000, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dvaux"]
+size = Vector2(526, 697)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cvwm"]
+atlas = ExtResource("6_w6n0x")
+region = Rect2(1240, 0, 120, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n24k5"]
+atlas = ExtResource("6_w6n0x")
+region = Rect2(976, 256, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phw6a"]
+atlas = ExtResource("6_w6n0x")
+region = Rect2(1116, 256, 120, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ra4b"]
+atlas = ExtResource("6_w6n0x")
+region = Rect2(1240, 256, 120, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fn86b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cvwm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n24k5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phw6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ra4b")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Node2D" type="Node2D"]
 
@@ -36,8 +77,9 @@ position = Vector2(-744, -2)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_w6n0x")
 
-[node name="Gorrath" parent="." instance=ExtResource("4_2awwc")]
+[node name="Gorrath" parent="." groups=["enemy"] instance=ExtResource("4_2awwc")]
 position = Vector2(415, 20)
+max_health = 150.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("3_812j7")
@@ -45,3 +87,25 @@ target_path = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_2awwc")]
 position = Vector2(-546, 47)
+
+[node name="Portal" type="Node2D" parent="." groups=["portals"]]
+position = Vector2(-213, 16)
+script = ExtResource("5_j2qst")
+next_scene_path = "res://narrative/scenes/S1-S2TRANSITION.tscn"
+starts_locked = true
+
+[node name="TriggerArea" type="Area2D" parent="Portal"]
+position = Vector2(1074, 0)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/TriggerArea"]
+position = Vector2(-102, -63)
+shape = SubResource("RectangleShape2D_dvaux")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Portal"]
+position = Vector2(747, 106)
+sprite_frames = SubResource("SpriteFrames_fn86b")
+frame = 3
+frame_progress = 1.0
+
+[connection signal="body_entered" from="Portal/TriggerArea" to="Portal" method="_on_area_2d_body_entered"]

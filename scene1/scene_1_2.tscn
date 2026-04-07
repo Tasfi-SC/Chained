@@ -1,9 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://b7e210q6rq7k6"]
+[gd_scene load_steps=13 format=3 uid="uid://cbbfyb5sx85la"]
 
 [ext_resource type="Texture2D" uid="uid://cgt0bvcgptjf0" path="res://scene1/s12-4.png" id="1_6fffa"]
 [ext_resource type="Script" uid="uid://du3ie33q4ldpn" path="res://scene4/camera_2d.gd" id="2_04cqc"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="3_cbdb5"]
-[ext_resource type="PackedScene" uid="uid://dwonik53rhsea" path="res://scene1/puzzle_scene_1_2_.tscn" id="4_04cqc"]
+[ext_resource type="PackedScene" uid="uid://cb3pc5ib4mhhm" path="res://scene1/puzzle_scene_1_2_.tscn" id="4_04cqc"]
 [ext_resource type="Texture2D" uid="uid://bvvqx7bmv38v1" path="res://scene1/puzzle_1_pieces.png" id="5_5j7qf"]
 [ext_resource type="Texture2D" uid="uid://cglm2fhpfqfwq" path="res://scene1/s1sprite2.png" id="5_cbdb5"]
 

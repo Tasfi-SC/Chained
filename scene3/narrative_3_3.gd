@@ -23,9 +23,10 @@ var dialog_index : int = 0
 const ui_base_position = Vector2(30, 430) 
 const text_base_position = Vector2(180, 550)
 const dialog_lines : Array[String] = [
-	"PIX:Call it tragedy or call it misery but even by hell's standards, your fate is something pitiful.",
-	"MC NAME: Who are you?", 
-	"PIX: In some distant version of things, you might have fared better......"
+	"PIX:CALL IT TRAGEDY OR CALL IT MISERY BUT EVEN BY HELL'S STANDARDS.",
+	"PIX: YOUR FATE IS SOMETHING PITIFUL.", 
+	"MC NAME: WHO ARE YOU?", 
+	"PIX: IN SOME DISTANT VERSION OF THINGS, YOU MIGHT HAVE FARED BETTER......"
 
 	
 

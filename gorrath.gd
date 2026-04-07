@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed: float = 80.0
-@export var max_health: float = 500.0
+@export var max_health: float = 250.0
 @export var attack_cooldown: float = 5.0
 @export var gravity: float = 900.0
 
@@ -157,6 +157,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 			_set_state(State.IDLE)
 		State.DEATH:
 			anim.stop()
+			get_tree().call_group("portals", "unlock_portal")
 			await get_tree().create_timer(0.5).timeout
 			queue_free()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://duopngv2r54qa"]
+[gd_scene load_steps=18 format=3 uid="uid://cmf3k1qbkctgf"]
 
 [ext_resource type="Texture2D" uid="uid://5vggdwuspw36" path="res://scene1/s11.png" id="1_pmduu"]
 [ext_resource type="Script" uid="uid://du3ie33q4ldpn" path="res://scene4/camera_2d.gd" id="2_7x6nd"]
@@ -204,6 +204,7 @@ position = Vector2(-1198, 246)
 [node name="Portal" type="Node2D" parent="."]
 position = Vector2(1600, 250)
 script = ExtResource("4_s4vxc")
+next_scene_path = "res://narrative/scenes/narrative_gorrathintro.tscn"
 
 [node name="PortalTileMap" type="TileMapLayer" parent="Portal"]
 position = Vector2(-317, 116)

@@ -23,7 +23,7 @@ const dialog_lines : Array[String] = [
 	"MC NAME: ...",
 	"MC NAME: ..this isn't...",
 	"MC NAME: ...where am I?",
-	"UNKWOWN: Accept it.",
+	"UNKWOWN: You have grown.",
 	"MC NAME: ..who said that?",
 	"UNKWOWN: ...",
 	"MC NAME: ..."
@@ -40,7 +40,7 @@ func _input(event):
 			dialog_index +=1
 			process_current_line()
 		else:
-			get_tree().change_scene_to_file("res://narrative/scenes/narrative_gorrathintro.tscn")
+			get_tree().change_scene_to_file("res://scene1/scene_1_1.tscn")
 
 func parse_line(line: String):
 	var line_info = line.split(":")
