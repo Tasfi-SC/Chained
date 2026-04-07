@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bu0px4npkiqk3"]
+[gd_scene load_steps=3 format=3 uid="uid://cieobmgor2pf1"]
 
 [ext_resource type="Script" uid="uid://bkgaakbwfqfe5" path="res://narrative/scenes/s_4_finaltransitioncredits.gd" id="1_bnkpc"]
 [ext_resource type="PackedScene" uid="uid://b20r40aumgwx4" path="res://narrative/scenes/BLACKSCRRENUI.tscn" id="2_d65pb"]

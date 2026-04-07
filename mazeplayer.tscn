@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dnc3ahct4lyys"]
 
-[ext_resource type="Script" path="res://mazeplayer.gd" id="1_fnrer"]
+[ext_resource type="Script" uid="uid://b2hn84p23m32h" path="res://mazeplayer.gd" id="1_fnrer"]
 [ext_resource type="Texture2D" uid="uid://bql7ypfkgc2hc" path="res://mc/mcs4.png" id="2_fnrer"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fnrer"]

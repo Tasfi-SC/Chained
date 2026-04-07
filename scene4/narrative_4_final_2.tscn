@@ -1,19 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxab4378graue"]
+[gd_scene load_steps=6 format=3 uid="uid://bhy4inhldj2ep"]
 
 [ext_resource type="Script" uid="uid://dxle84a670iwe" path="res://scene4/narrative_4_final_2.gd" id="1_3ooij"]
 [ext_resource type="Texture2D" uid="uid://srl2hpnyh68p" path="res://scene4/s42d-4.png" id="2_3ooij"]
 [ext_resource type="PackedScene" uid="uid://chc0tv4sn77do" path="res://narrative/narrative_mc.tscn" id="3_m3uh0"]
 [ext_resource type="AudioStream" uid="uid://df70gndu25w87" path="res://scene4/scene4bgm1.mp3" id="4_c1g7x"]
-[ext_resource type="Script" uid="uid://uwlkhfdfio5e" path="res://scene4/s4audio7.gd" id="5_m3uh0"]
+[ext_resource type="Script" path="res://scene4/s4audio7.gd" id="5_m3uh0"]
 
 [node name="Narrative4_final_2" type="Node2D"]
 script = ExtResource("1_3ooij")
 
-[node name="Background" type="Node2D" parent="."]
+[node name="Background" type="CanvasLayer" parent="."]
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
-offset_right = 1600.0
-offset_bottom = 900.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_3ooij")
 expand_mode = 1
 
@@ -22,16 +25,24 @@ offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0, 0, 0, 0.564706)
 
-[node name="resizefix" type="Node2D" parent="."]
+[node name="resizefix" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="resizefix"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="narrative_mc" parent="resizefix/Control" instance=ExtResource("3_m3uh0")]
-position = Vector2(310, 59)
+position = Vector2(-703, -806)
+scale = Vector2(1.3, 1.3)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_c1g7x")

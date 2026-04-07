@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxrrsjcfqdu2t"]
+[gd_scene load_steps=3 format=3 uid="uid://cxm710bkpmq0q"]
 
-[ext_resource type="Script" path="res://narrative/scenes/s_4_finaltransition_2.gd" id="1_u2pce"]
+[ext_resource type="Script" uid="uid://dk2quwcsi110v" path="res://narrative/scenes/s_4_finaltransition_2.gd" id="1_u2pce"]
 [ext_resource type="PackedScene" uid="uid://b20r40aumgwx4" path="res://narrative/scenes/BLACKSCRRENUI.tscn" id="2_q2f16"]
 
 [node name="narrativeS4-FINAL" type="Node2D"]
@@ -28,6 +28,8 @@ color = Color(0, 0, 0, 1)
 [node name="resizefix" type="CanvasLayer" parent="."]
 
 [node name="BLACKSCREENUI" parent="resizefix" instance=ExtResource("2_q2f16")]
+offset_top = 76.0
+offset_bottom = 76.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
