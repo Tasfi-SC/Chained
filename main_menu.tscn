@@ -1,10 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bh3ehmm50u7o3"]
+[gd_scene load_steps=12 format=3 uid="uid://cgytc54v211bm"]
 
 [ext_resource type="Texture2D" uid="uid://bv3jo4jetk82y" path="res://narrative/resources/mainmenu2.png" id="1_fu7sn"]
 [ext_resource type="Script" uid="uid://d005o27h63ubm" path="res://main_menu.gd" id="1_glbon"]
 [ext_resource type="FontFile" uid="uid://cf26ou5dj0sg2" path="res://narrative/resources/Cinzel-ExtraBold.ttf" id="2_jix8l"]
-[ext_resource type="Script" path="res://button_hover.gd" id="3_glbon"]
-[ext_resource type="Script" path="res://button_hover2.gd" id="4_jix8l"]
+[ext_resource type="Script" uid="uid://cfvqn35embwqe" path="res://button_hover.gd" id="3_glbon"]
+[ext_resource type="Script" uid="uid://cjvkryx171uhs" path="res://button_hover2.gd" id="4_jix8l"]
 [ext_resource type="Texture2D" uid="uid://cmdbyql64nwu0" path="res://narrative/resources/particlesprite.png" id="6_nlkkf"]
 [ext_resource type="AudioStream" uid="uid://df70gndu25w87" path="res://scene4/scene4bgm1.mp3" id="7_qe12f"]
 [ext_resource type="Script" uid="uid://crckwb624s0hp" path="res://audio_stream_playerMAINMENU.gd" id="8_8qtwp"]

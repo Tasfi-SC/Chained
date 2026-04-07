@@ -447,7 +447,7 @@ shape = SubResource("CircleShape2D_lcxyl")
 position = Vector2(33, 25)
 scale = Vector2(1.674, 2.77294)
 sprite_frames = SubResource("SpriteFrames_3nodl")
-animation = &"right"
+animation = &"shadowball"
 
 [node name="HurtBox" type="Area2D" parent="." groups=["enemy"]]
 collision_layer = 4

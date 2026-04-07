@@ -1,0 +1,268 @@
+[gd_scene load_steps=23 format=3 uid="uid://dwonik53rhsea"]
+
+[ext_resource type="Script" uid="uid://xaugcqdkjrfx" path="res://puzzle_scene_1_2_.gd" id="1_u02i8"]
+[ext_resource type="Texture2D" uid="uid://bvvqx7bmv38v1" path="res://scene1/puzzle_1_pieces.png" id="2_lci8c"]
+[ext_resource type="Script" path="res://scene1/portal_1_2.gd" id="3_lci8c"]
+[ext_resource type="Texture2D" uid="uid://bc2v1f83dnqpe" path="res://scene4/s4sprite2.png" id="4_er5w0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_er5w0"]
+atlas = ExtResource("2_lci8c")
+region = Rect2(390.322, 55.4592, 17.2996, 33.0699)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u02i8"]
+atlas = ExtResource("2_lci8c")
+region = Rect2(303.146, 111.328, 24.3776, 90.7515)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lci8c"]
+atlas = ExtResource("2_lci8c")
+region = Rect2(855.627, 117.389, 72.3034, 66.9076)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ia4x1"]
+atlas = ExtResource("2_lci8c")
+region = Rect2(119.104, 108.024, 73.0228, 62.2313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wsmu"]
+atlas = ExtResource("2_lci8c")
+region = Rect2(390.415, 55.7743, 15.8582, 33.3944)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0k7e"]
+atlas = ExtResource("2_lci8c")
+region = Rect2(389.779, 55.5807, 17.2427, 34.4854)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4374"]
+atlas = ExtResource("2_lci8c")
+region = Rect2(389.484, 54.625, 17.1579, 34.7218)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t6dd"]
+atlas = ExtResource("2_lci8c")
+region = Rect2(388.098, 50.8407, 18.7829, 38.3171)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ff78r"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lpy5h"]
+texture = ExtResource("4_er5w0")
+texture_region_size = Vector2i(137, 126)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:2/0 = 0
+8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:3/0 = 0
+6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:3/0 = 0
+7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:3/0 = 0
+8:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:4/0 = 0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:4/0 = 0
+5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:4/0 = 0
+6:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:4/0 = 0
+7:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:4/0 = 0
+8:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_0eebr"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_ff78r")
+sources/0 = SubResource("TileSetAtlasSource_lpy5h")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdrs6"]
+size = Vector2(535, 718)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82j6c"]
+size = Vector2(80, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82j6c"]
+atlas = ExtResource("2_lci8c")
+region = Rect2(465.792, 107.173, 71.9436, 72.6631)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oscv4"]
+size = Vector2(80, 113)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oscv4"]
+atlas = ExtResource("2_lci8c")
+region = Rect2(465.956, 107.485, 71.5839, 72.3034)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0te88"]
+size = Vector2(80, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0te88"]
+atlas = ExtResource("2_lci8c")
+region = Rect2(465.236, 108.204, 73.2026, 72.3034)
+
+[node name="PuzzleScene_1_2_" type="Node2D"]
+script = ExtResource("1_u02i8")
+light_off_texture = SubResource("AtlasTexture_er5w0")
+light_on_texture = SubResource("AtlasTexture_u02i8")
+lever_up_texture = SubResource("AtlasTexture_lci8c")
+lever_down_texture = SubResource("AtlasTexture_ia4x1")
+
+[node name="Light1" type="Sprite2D" parent="."]
+position = Vector2(-80, -140)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_0wsmu")
+
+[node name="Light2" type="Sprite2D" parent="."]
+position = Vector2(-30, -140)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_x0k7e")
+
+[node name="Light3" type="Sprite2D" parent="."]
+position = Vector2(20, -140)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_j4374")
+
+[node name="Light4" type="Sprite2D" parent="."]
+position = Vector2(70, -144)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_6t6dd")
+
+[node name="Portal" type="Node2D" parent="."]
+position = Vector2(1338, -130)
+script = ExtResource("3_lci8c")
+
+[node name="PortalTileMap" type="TileMapLayer" parent="Portal"]
+position = Vector2(-317, 116)
+tile_map_data = PackedByteArray(0, 0, 245, 255, 4, 0, 0, 0, 8, 0, 2, 0, 0, 0, 169, 0, 4, 0, 0, 0, 8, 0, 2, 0, 0, 0, 34, 1, 2, 0, 0, 0, 0, 0, 5, 0, 0, 0)
+tile_set = SubResource("TileSet_0eebr")
+
+[node name="TriggerArea" type="Area2D" parent="Portal"]
+visible = false
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/TriggerArea"]
+visible = false
+position = Vector2(-257, -35)
+shape = SubResource("RectangleShape2D_cdrs6")
+
+[node name="Lever3" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Lever3"]
+position = Vector2(150, 150)
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever3/Area2D"]
+position = Vector2(-11.5, -58)
+shape = SubResource("RectangleShape2D_82j6c")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lever3"]
+position = Vector2(138.5, 110)
+texture = SubResource("AtlasTexture_82j6c")
+
+[node name="Lever1" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Lever1"]
+position = Vector2(-150, 150)
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever1/Area2D"]
+position = Vector2(4, -53.5)
+shape = SubResource("RectangleShape2D_oscv4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lever1"]
+position = Vector2(-147.5, 107)
+texture = SubResource("AtlasTexture_oscv4")
+
+[node name="Lever2" type="Node2D" parent="."]
+position = Vector2(0, 150)
+
+[node name="Area2D" type="Area2D" parent="Lever2"]
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever2/Area2D"]
+position = Vector2(5, -55.5)
+shape = SubResource("RectangleShape2D_0te88")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lever2"]
+position = Vector2(1.5, -41)
+texture = SubResource("AtlasTexture_0te88")
+
+[node name="InteractLabel" type="Label" parent="."]
+offset_left = -34.0
+offset_top = -99.0
+offset_right = 35.0
+offset_bottom = -76.0
+text = "Press \"E\""
+
+[connection signal="body_entered" from="Portal/TriggerArea" to="Portal" method="_on_area_2d_body_entered"]
