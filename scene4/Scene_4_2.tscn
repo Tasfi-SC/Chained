@@ -40,7 +40,6 @@ tile_set = SubResource("TileSet_sc2g0")
 navigation_visibility_mode = 1
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-visible = false
 navigation_polygon = SubResource("NavigationPolygon_dg84g")
 
 [node name="mazeplayer" parent="." instance=ExtResource("2_rqc3p")]

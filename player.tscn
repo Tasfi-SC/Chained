@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d4fvlamwaexmq" path="res://mc/mc sprite.png" id="4_dw050"]
 [ext_resource type="Texture2D" uid="uid://o25bsw66x13o" path="res://mc/mcsprite normal.png" id="5_b26j0"]
 [ext_resource type="Texture2D" uid="uid://dfou5ra1xv1f1" path="res://mc/mcTest.png" id="7_dw050"]
-[ext_resource type="Script" uid="uid://4ke7re0kr2vw" path="res://ability_hud.gd" id="9_ivps1"]
+[ext_resource type="Script" path="res://ability_hud.gd" id="9_ivps1"]
 [ext_resource type="Texture2D" uid="uid://c0sv15205dbji" path="res://scene4/swordIcon.png" id="10_urp6f"]
 [ext_resource type="FontFile" uid="uid://cf26ou5dj0sg2" path="res://narrative/resources/Cinzel-ExtraBold.ttf" id="11_bwjto"]
 [ext_resource type="Texture2D" uid="uid://dl8b61ikeeq8y" path="res://scene4/ShadowBallIcon.png" id="12_606se"]
