@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var label = $resizefix/BLACKSCREENUI/RichTextLabel
-@onready var type_sound: AudioStreamPlayer2D = $TypeSound
+@onready var type_sound: AudioStreamPlayer = $TypeSound
 
 const FULL_TEXT = "[center]MC STARES AT HIS HANDS.\n\nHE DOESN'T FEEL VICTORIOUS. HE FEELS WRONG.\n\nHE KEEPS MOVING. THERE'S NOTHING ELSE TO DO.[/center]"
 
