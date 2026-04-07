@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://4j270ww8v2k"]
+[gd_scene load_steps=16 format=3 uid="uid://4j270ww8v2k"]
 
 [ext_resource type="Texture2D" uid="uid://c5wfthafyf0ae" path="res://scene1/hell_bg_2048w.png" id="1_2awwc"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="2_2awwc"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b8kda2qrih8qt" path="res://gorrath.tscn" id="4_2awwc"]
 [ext_resource type="Script" uid="uid://bpr4miwgrludf" path="res://scene1/s1portal3.gd" id="5_j2qst"]
 [ext_resource type="Texture2D" uid="uid://bc2v1f83dnqpe" path="res://scene4/s4sprite2.png" id="6_w6n0x"]
+[ext_resource type="AudioStream" uid="uid://bjmrk2dhdsmqi" path="res://Sounds/Soundtrack/Chained Banger2.mp3" id="7_w6n0x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j2qst"]
 size = Vector2(1510, 50)
@@ -107,5 +108,10 @@ position = Vector2(747, 106)
 sprite_frames = SubResource("SpriteFrames_fn86b")
 frame = 3
 frame_progress = 1.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_w6n0x")
+volume_db = -16.22
+autoplay = true
 
 [connection signal="body_entered" from="Portal/TriggerArea" to="Portal" method="_on_area_2d_body_entered"]

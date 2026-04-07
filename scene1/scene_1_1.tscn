@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://cmf3k1qbkctgf"]
+[gd_scene load_steps=19 format=3 uid="uid://cmf3k1qbkctgf"]
 
 [ext_resource type="Texture2D" uid="uid://5vggdwuspw36" path="res://scene1/s11.png" id="1_pmduu"]
 [ext_resource type="Script" uid="uid://du3ie33q4ldpn" path="res://scene4/camera_2d.gd" id="2_7x6nd"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="3_s4vxc"]
 [ext_resource type="Script" path="res://scene1/portal1_1.gd" id="4_s4vxc"]
 [ext_resource type="Texture2D" uid="uid://bc2v1f83dnqpe" path="res://scene4/s4sprite2.png" id="5_unrju"]
+[ext_resource type="AudioStream" uid="uid://bjmrk2dhdsmqi" path="res://Sounds/Soundtrack/Chained Banger2.mp3" id="6_unrju"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pmduu"]
 size = Vector2(664.5, 40)
@@ -219,5 +220,8 @@ position = Vector2(-260, -32)
 shape = SubResource("RectangleShape2D_an2tp")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_unrju")
+volume_db = -16.22
+autoplay = true
 
 [connection signal="body_entered" from="Portal/TriggerArea" to="Portal" method="_on_area_2d_body_entered"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bjmrk2dhdsmqi"
+path="res://.godot/imported/Chained Banger2.mp3-99531422af69f0f0d29170def07efe2b.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Soundtrack/Chained Banger2.mp3"
+dest_files=["res://.godot/imported/Chained Banger2.mp3-99531422af69f0f0d29170def07efe2b.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

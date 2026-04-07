@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cbbfyb5sx85la"]
+[gd_scene load_steps=14 format=3 uid="uid://cbbfyb5sx85la"]
 
 [ext_resource type="Texture2D" uid="uid://cgt0bvcgptjf0" path="res://scene1/s12-4.png" id="1_6fffa"]
 [ext_resource type="Script" uid="uid://dc80w4kde1qi" path="res://scene1/camera_2ds1_2.gd" id="2_5j7qf"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cb3pc5ib4mhhm" path="res://scene1/puzzle_scene_1_2_.tscn" id="4_04cqc"]
 [ext_resource type="Texture2D" uid="uid://bvvqx7bmv38v1" path="res://scene1/puzzle_1_pieces.png" id="5_5j7qf"]
 [ext_resource type="Texture2D" uid="uid://cglm2fhpfqfwq" path="res://scene1/s1sprite2.png" id="5_cbdb5"]
+[ext_resource type="AudioStream" uid="uid://bjmrk2dhdsmqi" path="res://Sounds/Soundtrack/Chained Banger2.mp3" id="7_0cef3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0cef3"]
 size = Vector2(2404, 43.5)
@@ -77,3 +78,8 @@ texture = SubResource("AtlasTexture_0cef3")
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 position = Vector2(266, 28)
 texture = SubResource("AtlasTexture_2e0oa")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_0cef3")
+volume_db = -16.22
+autoplay = true
