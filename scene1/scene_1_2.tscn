@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://cbbfyb5sx85la"]
 
 [ext_resource type="Texture2D" uid="uid://cgt0bvcgptjf0" path="res://scene1/s12-4.png" id="1_6fffa"]
-[ext_resource type="Script" uid="uid://du3ie33q4ldpn" path="res://scene4/camera_2d.gd" id="2_04cqc"]
+[ext_resource type="Script" uid="uid://dc80w4kde1qi" path="res://scene1/camera_2ds1_2.gd" id="2_5j7qf"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="3_cbdb5"]
 [ext_resource type="PackedScene" uid="uid://cb3pc5ib4mhhm" path="res://scene1/puzzle_scene_1_2_.tscn" id="4_04cqc"]
 [ext_resource type="Texture2D" uid="uid://bvvqx7bmv38v1" path="res://scene1/puzzle_1_pieces.png" id="5_5j7qf"]
@@ -43,7 +43,7 @@ texture = ExtResource("1_6fffa")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-2371, -131)
-script = ExtResource("2_04cqc")
+script = ExtResource("2_5j7qf")
 target_path = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_cbdb5")]

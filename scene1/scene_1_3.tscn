@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c5wfthafyf0ae" path="res://scene1/hell_bg_2048w.png" id="1_2awwc"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="2_2awwc"]
-[ext_resource type="Script" uid="uid://du3ie33q4ldpn" path="res://scene4/camera_2d.gd" id="3_812j7"]
+[ext_resource type="Script" uid="uid://jy14vrkhkawa" path="res://scene1/camera_2ds1_3.gd" id="3_j2qst"]
 [ext_resource type="PackedScene" uid="uid://b8kda2qrih8qt" path="res://gorrath.tscn" id="4_2awwc"]
 [ext_resource type="Script" uid="uid://bpr4miwgrludf" path="res://scene1/s1portal3.gd" id="5_j2qst"]
 [ext_resource type="Texture2D" uid="uid://bc2v1f83dnqpe" path="res://scene4/s4sprite2.png" id="6_w6n0x"]
@@ -82,8 +82,7 @@ position = Vector2(415, 20)
 max_health = 150.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("3_812j7")
-target_path = NodePath("../Player")
+script = ExtResource("3_j2qst")
 
 [node name="Player" parent="." instance=ExtResource("2_2awwc")]
 position = Vector2(-546, 47)

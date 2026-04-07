@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0pe5fargbhuc"]
+[gd_scene load_steps=6 format=3 uid="uid://daljniijeme5u"]
 
 [ext_resource type="Texture2D" uid="uid://bx61i0rnja4tu" path="res://scene4/s4final_1.png" id="1_kc5b4"]
 [ext_resource type="Script" uid="uid://bjpcqe22kagm5" path="res://scene4/narrative_4_final_1.gd" id="1_l85c7"]
 [ext_resource type="PackedScene" uid="uid://chc0tv4sn77do" path="res://narrative/narrative_mc.tscn" id="3_xjgqv"]
-[ext_resource type="Script" path="res://scene4/s4audio6.gd" id="4_a3ug3"]
+[ext_resource type="Script" uid="uid://cuo088nuxye66" path="res://scene4/s4audio6.gd" id="4_a3ug3"]
 [ext_resource type="AudioStream" uid="uid://df70gndu25w87" path="res://scene4/scene4bgm1.mp3" id="4_xjgqv"]
 
 [node name="Narrative4_final_1" type="Node2D"]

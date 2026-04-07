@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://dvloxd4thpsun"]
+[gd_scene load_steps=96 format=3 uid="uid://dvloxd4thpsun"]
 
 [ext_resource type="Script" uid="uid://b5t1wwtd1jx8r" path="res://player.gd" id="1_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://cx0aio4jxgmou" path="res://mc/mcdevilsword.png" id="1_sweqy"]
@@ -9,13 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://d4fvlamwaexmq" path="res://mc/mc sprite.png" id="4_dw050"]
 [ext_resource type="Texture2D" uid="uid://o25bsw66x13o" path="res://mc/mcsprite normal.png" id="5_b26j0"]
 [ext_resource type="Texture2D" uid="uid://dfou5ra1xv1f1" path="res://mc/mcTest.png" id="7_dw050"]
-[ext_resource type="Script" path="res://ability_hud.gd" id="9_ivps1"]
+[ext_resource type="Script" uid="uid://4ke7re0kr2vw" path="res://ability_hud.gd" id="9_ivps1"]
 [ext_resource type="Texture2D" uid="uid://c0sv15205dbji" path="res://scene4/swordIcon.png" id="10_urp6f"]
 [ext_resource type="FontFile" uid="uid://cf26ou5dj0sg2" path="res://narrative/resources/Cinzel-ExtraBold.ttf" id="11_bwjto"]
 [ext_resource type="Texture2D" uid="uid://dl8b61ikeeq8y" path="res://scene4/ShadowBallIcon.png" id="12_606se"]
 [ext_resource type="PackedScene" uid="uid://cxgeu5c6n732y" path="res://pauseMenu.tscn" id="13_urp6f"]
 [ext_resource type="AudioStream" uid="uid://bbx0rcb830jqw" path="res://mc/swordbgm.mp3" id="14_bwjto"]
 [ext_resource type="AudioStream" uid="uid://d3t3i4fb20e6m" path="res://mc/shadowballbgm.mp3" id="15_606se"]
+[ext_resource type="AudioStream" uid="uid://djmr4tmblqw1g" path="res://mc/jumpbgm.mp3" id="17_op7ga"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2hs0m"]
 radius = 34.0
@@ -650,6 +651,51 @@ tracks/2/keys = {
 }
 tracks/2/use_blend = true
 
+[sub_resource type="Animation" id="Animation_q13i1"]
+resource_name = "jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SFXPLayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("17_op7ga")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SFXPLayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("17_op7ga")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+
 [sub_resource type="Animation" id="Animation_u1c27"]
 resource_name = "shadowball"
 tracks/0/type = "value"
@@ -683,6 +729,7 @@ tracks/1/use_blend = true
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u1c27"]
 _data = {
 &"attack": SubResource("Animation_606se"),
+&"jump": SubResource("Animation_q13i1"),
 &"shadowball": SubResource("Animation_u1c27")
 }
 
