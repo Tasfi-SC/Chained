@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var label = $resizefix/BLACKSCREENUI/RichTextLabel
 
-const FULL_TEXT = "[center]THE VOICE IS GONE.\n\nFOR THE FIRST TIME SINCE HE FELL, MC CANT HEAR HER.\n\nTHE SINCE IS WORSE.[/center]"
+const FULL_TEXT = "[center]THE VOICE IS GONE.\n\nFOR THE FIRST TIME SINCE HE FELL, MC CAN'T HEAR HER.\n\nTHE SINCE IS WORSE.[/center]"
 
 var is_typing = false
 

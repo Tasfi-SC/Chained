@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="5_1ev6b"]
 [ext_resource type="PackedScene" uid="uid://b2eh8hhafpde3" path="res://pix.tscn" id="6_hhakq"]
 [ext_resource type="AudioStream" uid="uid://ci8r0p1hvbpaw" path="res://scene3/s3bgm.mp3" id="7_0pi25"]
-[ext_resource type="Script" uid="uid://dhuxevn6q7y8m" path="res://scene3/s3audio3.gd" id="8_hj130"]
+[ext_resource type="Script" path="res://scene3/s3audio3.gd" id="8_hj130"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnuht"]
 size = Vector2(1912, 108)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://djgcrnks5bn2p"]
+[gd_scene load_steps=27 format=3 uid="uid://dbnxfx06gnrl6"]
 
 [ext_resource type="Texture2D" uid="uid://vrmxnxyqxdvs" path="res://scene3/Scene3_2.png" id="1_7kvgt"]
 [ext_resource type="Script" path="res://scene3/camera1.gd" id="2_7rrqf"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cbdau86ufwg73" path="res://scene3/s3sprite4.png" id="4_51614"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="5_ttvjl"]
 [ext_resource type="AudioStream" uid="uid://ci8r0p1hvbpaw" path="res://scene3/s3bgm.mp3" id="6_7rrqf"]
-[ext_resource type="Script" uid="uid://bj0hamb5i5s1p" path="res://scene3/s3audio2.gd" id="7_c68fu"]
+[ext_resource type="Script" path="res://scene3/s3audio2.gd" id="7_c68fu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnuht"]
 size = Vector2(300, 108)

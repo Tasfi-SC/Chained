@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bje32lhe3hhxo" path="res://scene4/4-2maze.png" id="1_h5a6m"]
 [ext_resource type="PackedScene" uid="uid://dnc3ahct4lyys" path="res://mazeplayer.tscn" id="2_rqc3p"]
 [ext_resource type="Texture2D" uid="uid://b7bc4oag2qk3" path="res://scene2/transparent.png" id="3_rqc3p"]
-[ext_resource type="Script" path="res://scene4/teleport.gd" id="5_0fohj"]
+[ext_resource type="Script" uid="uid://ce0uucpo5kj2s" path="res://scene4/teleport.gd" id="5_0fohj"]
 [ext_resource type="PackedScene" uid="uid://d1am3sfgfu370" path="res://mazeenemy.tscn" id="5_sc2g0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dg84g"]

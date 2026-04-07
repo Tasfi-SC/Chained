@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0bukafmbhxi5"]
+[gd_scene load_steps=3 format=3 uid="uid://dumtm4u1vas5q"]
 
 [ext_resource type="Script" uid="uid://b7qmhqf78r624" path="res://narrative/scenes/s_3_s_4transition.gd" id="1_lgvfl"]
 [ext_resource type="PackedScene" uid="uid://b20r40aumgwx4" path="res://narrative/scenes/BLACKSCRRENUI.tscn" id="2_4ykwf"]
