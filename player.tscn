@@ -1,9 +1,10 @@
-[gd_scene load_steps=93 format=3 uid="uid://dvloxd4thpsun"]
+[gd_scene load_steps=94 format=3 uid="uid://dvloxd4thpsun"]
 
 [ext_resource type="Script" uid="uid://b5t1wwtd1jx8r" path="res://player.gd" id="1_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://cx0aio4jxgmou" path="res://mc/mcdevilsword.png" id="1_sweqy"]
 [ext_resource type="PackedScene" uid="uid://cmwbsv4iv1442" path="res://shadowball.tscn" id="2_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://dg58g1yek8xgc" path="res://mc/mcdevilsprite.png" id="2_2hs0m"]
+[ext_resource type="PackedScene" uid="uid://du8f513hlvx0o" path="res://death_screen.tscn" id="2_u1c27"]
 [ext_resource type="Texture2D" uid="uid://bf7lo4nx75th7" path="res://mc/mcdevilshadow.png" id="3_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://d4fvlamwaexmq" path="res://mc/mc sprite.png" id="4_dw050"]
 [ext_resource type="Texture2D" uid="uid://o25bsw66x13o" path="res://mc/mcsprite normal.png" id="5_b26j0"]
@@ -689,6 +690,7 @@ _data = {
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_2hs0m")
+death_screen_scene = ExtResource("2_u1c27")
 ball_scene = ExtResource("2_1jxqw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
