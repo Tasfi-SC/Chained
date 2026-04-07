@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=3 uid="uid://cmf3k1qbkctgf"]
 
 [ext_resource type="Texture2D" uid="uid://5vggdwuspw36" path="res://scene1/s11.png" id="1_pmduu"]
-[ext_resource type="Script" uid="uid://du3ie33q4ldpn" path="res://scene4/camera_2d.gd" id="2_7x6nd"]
+[ext_resource type="Script" path="res://scene4/camera_2d.gd" id="2_7x6nd"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="3_s4vxc"]
-[ext_resource type="Script" path="res://scene1/portal1_1.gd" id="4_s4vxc"]
+[ext_resource type="Script" uid="uid://cfbcq1jdnugkk" path="res://scene1/portal1_1.gd" id="4_s4vxc"]
 [ext_resource type="Texture2D" uid="uid://bc2v1f83dnqpe" path="res://scene4/s4sprite2.png" id="5_unrju"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pmduu"]

@@ -1,13 +1,13 @@
 [gd_scene load_steps=23 format=3 uid="uid://b22227gg4qpq2"]
 
-[ext_resource type="Texture2D" uid="uid://b71uvb216ipw4" path="res://scene3/s3bossbg.png" id="1_hj130"]
+[ext_resource type="Texture2D" uid="uid://b71uvb216ipw4" path="res://scene1/s3bossbg.png" id="1_hj130"]
 [ext_resource type="Script" uid="uid://o32myepnxxk1" path="res://scene3/camera1.gd" id="2_hhakq"]
 [ext_resource type="Script" uid="uid://d4darl0cvd0yy" path="res://scene3/portals3_1.gd" id="3_0pi25"]
 [ext_resource type="Texture2D" uid="uid://cbdau86ufwg73" path="res://scene3/s3sprite4.png" id="4_hj130"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="5_1ev6b"]
 [ext_resource type="PackedScene" uid="uid://b2eh8hhafpde3" path="res://pix.tscn" id="6_hhakq"]
 [ext_resource type="AudioStream" uid="uid://ci8r0p1hvbpaw" path="res://scene3/s3bgm.mp3" id="7_0pi25"]
-[ext_resource type="Script" uid="uid://dhuxevn6q7y8m" path="res://scene3/s3audio3.gd" id="8_hj130"]
+[ext_resource type="Script" path="res://scene3/s3audio3.gd" id="8_hj130"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnuht"]
 size = Vector2(1912, 108)

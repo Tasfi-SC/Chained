@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b71uvb216ipw4"
-path="res://.godot/imported/s3bossbg.png-6be8956a7041dcff49893f1365d28001.ctex"
+path="res://.godot/imported/s3bossbg.png-007b5cd3b35bb31ce537f0dda4acc0f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scene3/s3bossbg.png"
-dest_files=["res://.godot/imported/s3bossbg.png-6be8956a7041dcff49893f1365d28001.ctex"]
+source_file="res://scene1/s3bossbg.png"
+dest_files=["res://.godot/imported/s3bossbg.png-007b5cd3b35bb31ce537f0dda4acc0f2.ctex"]
 
 [params]
 
