@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d1am3sfgfu370"]
 
-[ext_resource type="Script" path="res://mazeenemy.gd" id="1_ywcpn"]
+[ext_resource type="Script" uid="uid://bhphxrc8qd3j8" path="res://mazeenemy.gd" id="1_ywcpn"]
 [ext_resource type="Texture2D" uid="uid://ctaoj6v5xvncf" path="res://scene4/redblob.png" id="2_ywcpn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ywcpn"]
