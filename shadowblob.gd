@@ -75,6 +75,9 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 
 func _on_attack_timer_timeout() -> void:
 	can_attack = true
+	for body in attack_area.get_overlapping_bodies():
+		if body.is_in_group("player"):
+			_on_attack_area_body_entered(body)
 
 func take_damage(amount: float) -> void:
 	if is_dead:

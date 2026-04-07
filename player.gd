@@ -201,9 +201,6 @@ func _die() -> void:
 	health_bar.value = 0
 	_play_anim("death")
 	emit_signal("player_died")
-	var ds = death_screen_scene.instantiate()
-	ds.current_level_path = get_tree().current_scene.scene_file_path
-	get_tree().root.add_child(ds)
 	get_tree().change_scene_to_file("res://death_screen.tscn")
 func activate_demon_form() -> void:
 	demon_form = true
