@@ -2,27 +2,28 @@ extends Node2D
 
 @onready var label = $resizefix/BLACKSCREENUI/RichTextLabel
 
-const FULL_TEXT = "[center]MALEFICA RAISES HER HAND.\n\nCHAINS RISE FROM THE FLOOR, WRAPPING AROUND MC's WRIST,ANKLES, THROAT.
-\n\nTHEY PULL HIM DOWNWARD SLOWLY UNTIL HE IS ON HIS KNEES, A CHAIN RUNNING FROM HIS COLLAR TO HER HAND LIKE A LEASH.\n\n
-MALEFICA LOOKS DOWN AT HIM. HER EXPRESSION DOES NOT CHANGE. SHE REACHES DOWN AND TOUCHES HIS HAIR ONCE\n\n
-AND WALKS TOWARDS THE DOOR AT THE FAR END OF THE ROOM. IT OPENS ONTO PALE GREY LIGHT. THE HUMAN WORLD.
-SHE STEPS THROUGH.
-[/center]"
+const TEXT_PARTS : Array[String] = [
+	"[center]Malefica raises her hand.\n\nChains rise from the floor, wrapping around MC's wrist, ankles, throat.[/center]",
+	"[center]They pull him downward slowly until he is on his knees, a chain running from his collar to her hand like a leash.[/center]",
+	"[center]Malefica looks down at him. Her expression does not change. She reaches down and touches his hair once.[/center]",
+	"[center]And walks towards the door at the far end of the room. It opens onto pale grey light. The human world.\n\nShe steps through.[/center]"
+]
 
-var is_typing = false
+var part_index : int = 0
+var is_typing : bool = false
 
 func _ready():
 	label.scroll_following = true
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	label.text = FULL_TEXT
-	label.visible_characters = 0
 	await get_tree().create_timer(0.2).timeout
-	start_typing()
+	show_current_part()
 
-func start_typing():
+func show_current_part():
+	label.text = TEXT_PARTS[part_index]
+	label.visible_characters = 0
 	is_typing = true
 	var tween = create_tween()
-	tween.tween_property(label, "visible_characters", len(label.get_parsed_text()),50)
+	tween.tween_property(label, "visible_characters", len(label.get_parsed_text()), 10)
 	await tween.finished
 	is_typing = false
 
@@ -31,5 +32,8 @@ func _input(event):
 		if is_typing:
 			label.visible_characters = -1
 			is_typing = false
+		elif part_index < len(TEXT_PARTS) - 1:
+			part_index += 1
+			show_current_part()
 		else:
 			get_tree().change_scene_to_file("res://narrative/scenes/S4-FINALTRANSITION2.tscn")
