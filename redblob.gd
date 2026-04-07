@@ -4,7 +4,7 @@ signal defeated
 
 @export var speed: float = 80.0
 @export var max_health: float = 70.0
-@export var attack_damage: float = 15.0
+@export var attack_damage: float = 25.0
 @export var gravity: float = 900.0
 @export var attack_cooldown: float = 1.0
 
@@ -26,11 +26,6 @@ func _ready() -> void:
 
 	attack_timer.wait_time = attack_cooldown
 	attack_timer.one_shot = true
-	attack_timer.timeout.connect(_on_attack_timer_timeout)
-
-	detection_area.body_entered.connect(_on_detection_area_body_entered)
-	detection_area.body_exited.connect(_on_detection_area_body_exited)
-	attack_area.body_entered.connect(_on_attack_area_body_entered)
 
 	if anim.sprite_frames.has_animation("right"):
 		anim.play("right")
@@ -38,7 +33,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
-
+	if player == null:
+		for body in detection_area.get_overlapping_bodies():
+			if body.is_in_group("player"):
+				player = body
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
@@ -73,12 +71,15 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 
 	if body.is_in_group("player"):
 		body.take_damage(attack_damage)
-		print("Redblob dealt ", attack_damage, " damage")
+		print("Shadowblob dealt ", attack_damage, " damage")
 		can_attack = false
 		attack_timer.start()
 
 func _on_attack_timer_timeout() -> void:
 	can_attack = true
+	for body in attack_area.get_overlapping_bodies():
+		if body.is_in_group("player"):
+			_on_attack_area_body_entered(body)
 
 func take_damage(amount: float) -> void:
 	if is_dead:

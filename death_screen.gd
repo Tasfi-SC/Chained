@@ -1,5 +1,5 @@
 extends CanvasLayer 
-var current_level_path: String
+
 func _ready():
 	$Node2D/AnimatedSprite2D.play("default")
 	show()
@@ -7,7 +7,7 @@ func _ready():
 
 func _on_resume_pressed() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file(current_level_path)
+	get_tree().change_scene_to_file("res://scene1/scene_1_1.tscn")
 
 func _on_mainmenu_pressed() -> void:
 	get_tree().paused = false

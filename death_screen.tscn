@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://du8f513hlvx0o"]
 
 [ext_resource type="Script" uid="uid://67bkdcdwwh8f" path="res://death_screen.gd" id="1_f562y"]
-[ext_resource type="Texture2D" uid="uid://bv3jo4jetk82y" path="res://narrative/resources/mainmenu2.png" id="2_s44ck"]
+[ext_resource type="Texture2D" uid="uid://cujeli8ksjd4v" path="res://narrative/resources/deathMenu2.png" id="2_f562y"]
 [ext_resource type="FontFile" uid="uid://cf26ou5dj0sg2" path="res://narrative/resources/Cinzel-ExtraBold.ttf" id="3_nus4h"]
 [ext_resource type="Script" path="res://button_hover.gd" id="4_b1ui3"]
 [ext_resource type="Script" path="res://button_hover2.gd" id="5_7ahhq"]
@@ -31,13 +31,12 @@ animations = [{
 
 [node name="death_screen" type="CanvasLayer"]
 process_mode = 3
-visible = false
 script = ExtResource("1_f562y")
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 1616.0
 offset_bottom = 1055.0
-texture = ExtResource("2_s44ck")
+texture = ExtResource("2_f562y")
 
 [node name="MainMenu" type="Control" parent="."]
 layout_mode = 3

@@ -115,7 +115,7 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqtpi"]
 bg_color = Color(0.721569, 0.0588235, 0.113725, 1)
 
-[node name="Redblob" type="CharacterBody2D"]
+[node name="Redblob" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 4
 script = ExtResource("1_jq1ew")
 
@@ -124,12 +124,10 @@ sprite_frames = SubResource("SpriteFrames_k6do3")
 animation = &"right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(23, 40)
 shape = SubResource("CircleShape2D_jq1ew")
 
 [node name="DetectionArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -138,11 +136,10 @@ position = Vector2(25, 40)
 shape = SubResource("CircleShape2D_uqtpi")
 
 [node name="AttackArea" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-visible = false
 position = Vector2(24, 40)
 shape = SubResource("CircleShape2D_xg54v")
 
