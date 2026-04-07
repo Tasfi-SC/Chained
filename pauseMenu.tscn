@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cxgeu5c6n732y"]
+[gd_scene load_steps=10 format=3 uid="uid://cxgeu5c6n732y"]
 
 [ext_resource type="Script" uid="uid://u3hxxf8fe81l" path="res://pause_menu.gd" id="1_iw6dd"]
 [ext_resource type="Texture2D" uid="uid://bv3jo4jetk82y" path="res://narrative/resources/mainmenu2.png" id="2_mv768"]
@@ -6,8 +6,6 @@
 [ext_resource type="Script" uid="uid://cfvqn35embwqe" path="res://button_hover.gd" id="4_3w8xh"]
 [ext_resource type="Script" uid="uid://cjvkryx171uhs" path="res://button_hover2.gd" id="5_08ged"]
 [ext_resource type="Texture2D" uid="uid://cmdbyql64nwu0" path="res://narrative/resources/particlesprite.png" id="6_37dju"]
-[ext_resource type="AudioStream" uid="uid://df70gndu25w87" path="res://scene4/scene4bgm1.mp3" id="7_ndjyy"]
-[ext_resource type="Script" uid="uid://crckwb624s0hp" path="res://audio_stream_playerMAINMENU.gd" id="8_wsvru"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qe12f"]
 atlas = ExtResource("6_37dju")
@@ -88,11 +86,6 @@ position = Vector2(651, 411.5)
 scale = Vector2(1.05469, 1.00588)
 sprite_frames = SubResource("SpriteFrames_dy7ct")
 frame_progress = 0.654756
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_ndjyy")
-autoplay = true
-script = ExtResource("8_wsvru")
 
 [connection signal="pressed" from="MainMenu/resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MainMenu/mainmenu" to="." method="_on_mainmenu_pressed"]

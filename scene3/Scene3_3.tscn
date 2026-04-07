@@ -1,11 +1,13 @@
-[gd_scene load_steps=21 format=3 uid="uid://b22227gg4qpq2"]
+[gd_scene load_steps=23 format=3 uid="uid://b22227gg4qpq2"]
 
 [ext_resource type="Texture2D" uid="uid://brb6vf66gj0rm" path="res://scene3/Scene3_3.png" id="1_s8laf"]
-[ext_resource type="Script" uid="uid://o32myepnxxk1" path="res://scene3/camera1.gd" id="2_hhakq"]
+[ext_resource type="Script" path="res://scene3/camera1.gd" id="2_hhakq"]
 [ext_resource type="Script" uid="uid://d4darl0cvd0yy" path="res://scene3/portals3_1.gd" id="3_0pi25"]
 [ext_resource type="Texture2D" uid="uid://cbdau86ufwg73" path="res://scene3/s3sprite4.png" id="4_hj130"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="5_1ev6b"]
 [ext_resource type="PackedScene" uid="uid://b2eh8hhafpde3" path="res://pix.tscn" id="6_hhakq"]
+[ext_resource type="AudioStream" uid="uid://ci8r0p1hvbpaw" path="res://scene3/s3bgm.mp3" id="7_0pi25"]
+[ext_resource type="Script" uid="uid://dhuxevn6q7y8m" path="res://scene3/s3audio3.gd" id="8_hj130"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnuht"]
 size = Vector2(1912, 108)
@@ -94,7 +96,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oh20g"]
 size = Vector2(193, 227)
 
-[node name="Scene3_1" type="Node2D"]
+[node name="Scene3_3" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -145,5 +147,10 @@ position = Vector2(-2781, -148)
 
 [node name="pix" parent="." groups=["enemy"] instance=ExtResource("6_hhakq")]
 position = Vector2(-1983, -126)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_0pi25")
+volume_db = -16.22
+script = ExtResource("8_hj130")
 
 [connection signal="body_entered" from="Portal/TriggerArea" to="Portal" method="_on_trigger_area_body_entered"]

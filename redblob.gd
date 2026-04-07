@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 	if player:
 		var dir_x = sign(player.global_position.x - global_position.x)
 
-		# Base sprite art is actually LEFT-facing
+		
 		anim.flip_h = dir_x > 0
 		velocity.x = dir_x * speed
 

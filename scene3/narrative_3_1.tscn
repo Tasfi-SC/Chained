@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsbbuobo76ug6"]
+[gd_scene load_steps=5 format=3 uid="uid://bsbbuobo76ug6"]
 
 [ext_resource type="Script" uid="uid://c514s0cpj4xdo" path="res://scene3/narrative_3_1.gd" id="1_agmow"]
 [ext_resource type="Texture2D" uid="uid://22agpkxod5xm" path="res://scene3/bg2.png" id="2_pwxa8"]
-[ext_resource type="PackedScene" uid="uid://b1wwr76rff5xw" path="res://narrative/scenes/narrative_mc.tscn" id="3_ka2ka"]
+[ext_resource type="PackedScene" uid="uid://chc0tv4sn77do" path="res://narrative/narrative_mc.tscn" id="3_ka2ka"]
+[ext_resource type="Script" uid="uid://h0eqke6kv2gi" path="res://scene3/s3audio4.gd" id="4_pwxa8"]
 
 [node name="Narrative3_1" type="Node2D"]
 script = ExtResource("1_agmow")
@@ -30,3 +31,6 @@ offset_bottom = 40.0
 
 [node name="narrative_mc" parent="resizefix/Control" instance=ExtResource("3_ka2ka")]
 position = Vector2(321, 78)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+script = ExtResource("4_pwxa8")

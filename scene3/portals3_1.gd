@@ -11,6 +11,8 @@ extends Node2D
 var is_unlocked: bool = true
 
 func _ready() -> void:
+	MusicManagerScene2.player.stop()
+	MusicManagerSerath.player.stop()
 	trigger_area.body_entered.connect(_on_body_entered)
 
 	if anim.sprite_frames.has_animation("run"):

@@ -11,7 +11,7 @@ func _ready():
 	var tween = create_tween()
 	tween.tween_property(MusicManagerSerath.player, "volume_db", -80.0, 5.0)
 	await tween.finished
-	MusicManagerSerath.player.stop()
+	MusicManagerSerath.stop_music()
 	label.text = FULL_TEXT
 	label.visible_characters = 0
 	await get_tree().create_timer(0.2).timeout

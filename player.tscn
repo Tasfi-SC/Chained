@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://dvloxd4thpsun"]
+[gd_scene load_steps=93 format=3 uid="uid://dvloxd4thpsun"]
 
 [ext_resource type="Script" uid="uid://b5t1wwtd1jx8r" path="res://player.gd" id="1_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://cx0aio4jxgmou" path="res://mc/mcdevilsword.png" id="1_sweqy"]
@@ -13,6 +13,8 @@
 [ext_resource type="FontFile" uid="uid://cf26ou5dj0sg2" path="res://narrative/resources/Cinzel-ExtraBold.ttf" id="11_bwjto"]
 [ext_resource type="Texture2D" uid="uid://dl8b61ikeeq8y" path="res://scene4/ShadowBallIcon.png" id="12_606se"]
 [ext_resource type="PackedScene" uid="uid://cxgeu5c6n732y" path="res://pauseMenu.tscn" id="13_urp6f"]
+[ext_resource type="AudioStream" uid="uid://bbx0rcb830jqw" path="res://mc/swordbgm.mp3" id="14_bwjto"]
+[ext_resource type="AudioStream" uid="uid://d3t3i4fb20e6m" path="res://mc/shadowballbgm.mp3" id="15_606se"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2hs0m"]
 radius = 34.0
@@ -596,6 +598,93 @@ height = 200.0
 radius = 56.0
 height = 220.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urp6f"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwjto"]
+bg_color = Color(0.574958, 0.236742, 0.712424, 1)
+
+[sub_resource type="Animation" id="Animation_606se"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SFXPLayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("14_bwjto")
+}],
+"times": PackedFloat32Array(0.0333333)
+}
+tracks/1/use_blend = true
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SFXPLayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("14_bwjto")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_u1c27"]
+resource_name = "shadowball"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SFXPLayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 6.26,
+"start_offset": 0.0,
+"stream": ExtResource("15_606se")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u1c27"]
+_data = {
+&"attack": SubResource("Animation_606se"),
+&"shadowball": SubResource("Animation_u1c27")
+}
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 collision_mask = 5
@@ -644,10 +733,16 @@ limit_bottom = 1600
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 220.0
-offset_bottom = 47.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+offset_right = 200.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_urp6f")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bwjto")
 max_value = 600.0
 value = 600.0
 
@@ -707,6 +802,13 @@ theme_override_font_sizes/font_size = 30
 text = "K"
 
 [node name="PauseMenu" parent="." instance=ExtResource("13_urp6f")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_u1c27")
+}
+
+[node name="SFXPLayer" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="AttackHitbox" to="." method="_on_attack_hitbox_body_entered"]

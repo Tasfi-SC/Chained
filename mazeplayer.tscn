@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbei2gde8t82i"]
+
+[ext_resource type="Texture2D" uid="uid://bq5sv60fjbvcb" path="res://scene4/cattest.png" id="1_8krqi"]
+[ext_resource type="Script" uid="uid://b2hn84p23m32h" path="res://mazeplayer.gd" id="1_fnrer"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fnrer"]
+size = Vector2(41, 50)
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_fnrer")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-5.126e-06, -5)
+scale = Vector2(0.0216, 0.0237)
+texture = ExtResource("1_8krqi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -3)
+shape = SubResource("RectangleShape2D_fnrer")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 2752
+limit_bottom = 1536

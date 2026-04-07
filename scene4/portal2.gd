@@ -5,6 +5,7 @@ extends Node2D
 @onready var trigger_area: Area2D = $TriggerArea
 
 func _ready() -> void:
+	$AnimatedSprite2D.play("default")
 	trigger_area.body_entered.connect(_on_body_entered)
 
 

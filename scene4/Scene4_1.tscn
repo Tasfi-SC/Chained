@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://defdjkkv75wul"]
+[gd_scene load_steps=20 format=3 uid="uid://defdjkkv75wul"]
 
 [ext_resource type="Script" uid="uid://dfmmj3sw2ow2j" path="res://scene4/scene_4_1.gd" id="1_kt14r"]
 [ext_resource type="Texture2D" uid="uid://d0rxfiaiy3r0m" path="res://scene4/s42d.png" id="1_t6s70"]
@@ -131,6 +131,35 @@ sources/0 = SubResource("TileSetAtlasSource_kyfma")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6djli"]
 size = Vector2(535, 718)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajglr"]
+atlas = ExtResource("5_kt14r")
+region = Rect2(966, 256, 138, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftfhq"]
+atlas = ExtResource("5_kt14r")
+region = Rect2(1104, 256, 138, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7c42u"]
+atlas = ExtResource("5_kt14r")
+region = Rect2(1224, 256, 136, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_smun8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajglr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftfhq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7c42u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kt14r"]
 size = Vector2(148, 447)
 
@@ -177,17 +206,17 @@ shape = SubResource("RectangleShape2D_8tx4p")
 script = ExtResource("4_opkj4")
 next_scene_path = "res://scene4/Scene_4_2.tscn"
 
-[node name="PortalTileMap" type="TileMapLayer" parent="Portal"]
-position = Vector2(-317, 116)
-tile_map_data = PackedByteArray(0, 0, 245, 255, 4, 0, 0, 0, 8, 0, 2, 0, 0, 0, 169, 0, 4, 0, 0, 0, 8, 0, 2, 0, 0, 0, 34, 1, 2, 0, 0, 0, 0, 0, 5, 0, 0, 0)
-tile_set = SubResource("TileSet_nfbki")
-
 [node name="TriggerArea" type="Area2D" parent="Portal"]
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/TriggerArea"]
 position = Vector2(-257, -35)
 shape = SubResource("RectangleShape2D_6djli")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Portal"]
+position = Vector2(-480, 190)
+sprite_frames = SubResource("SpriteFrames_smun8")
+frame_progress = 0.0800594
 
 [node name="NarrativeArea" type="Area2D" parent="."]
 collision_mask = 3

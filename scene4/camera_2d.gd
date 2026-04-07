@@ -2,7 +2,7 @@ extends Camera2D
 
 @export var target_path: NodePath
 @export var follow_speed: float = 8.0
-@export var fixed_y: float = -131.0  # Set this to your camera's current Y position
+@export var fixed_y: float = -131.0  
 
 var target: Node2D
 
