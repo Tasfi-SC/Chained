@@ -131,11 +131,13 @@ func _handle_attacks() -> void:
 	if Input.is_action_just_pressed("attack_melee"):
 		if sword_unlocked and sword_cooldown_timer <= 0.0:
 			_do_sword_attack()
+			$AnimationPlayer.play("attack")
 		elif not sword_unlocked:
 			_do_melee()
 	if Input.is_action_just_pressed("attack_ball") and shadow_ball_unlocked:
 		if ball_cooldown_timer <= 0.0:
 			_do_shadow_ball()
+			$AnimationPlayer.play("shadowball")
 func _do_melee() -> void:
 	is_attacking = true
 	_play_anim("melee")
@@ -148,6 +150,7 @@ func _do_sword_attack() -> void:
 	is_attacking = true
 	sword_cooldown_timer = sword_cooldown
 	_play_anim("sword_slash")
+	$AnimationPlayer.play("attack")
 	attack_collision.disabled = false
 	await get_tree().create_timer(0.9).timeout
 	attack_collision.disabled = true
@@ -157,6 +160,7 @@ func _do_shadow_ball() -> void:
 	is_attacking = true
 	ball_cooldown_timer = ball_cooldown
 	_play_anim("shadow_ball")
+	$AnimationPlayer.play("shadowball")
 
 	await get_tree().create_timer(0.9).timeout
 	is_attacking = false

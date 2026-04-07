@@ -37,7 +37,7 @@ func _ready():
 	dialog_index = 0
 	process_current_line()
 
-	#dialog_ui.position = Vector2(200, 400)
+	
 	dialog_ui.size = Vector2(650, 100)
 	
 	speaker_label.position = Vector2(180, 685)
