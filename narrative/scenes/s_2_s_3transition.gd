@@ -3,7 +3,7 @@ extends Node2D
 @onready var label = $resizefix/BLACKSCREENUI/RichTextLabel
 @onready var type_sound: AudioStreamPlayer2D = $TypeSound
 
-const FULL_TEXT = "[center]MC doesn't know what 'she' means.\n\nHe has a sword made of nothing.\n\nHe keeps moving.[/center]"
+const FULL_TEXT = "[center]MC DOES NOT KNOW WHAT 'SHE' MEANS.\n\nHE HAS WEAPONS MADE OF NOTHING.\n\nHE KEEPS MOVING..[/center]"
 
 var is_typing = false
 

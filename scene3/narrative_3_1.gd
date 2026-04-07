@@ -11,16 +11,17 @@ const speaker_change = {
 }
 const speaker_positions = {
 	"MC NAME": Vector2(642, 362),
-	"PIX": Vector2(300, 760)
+	"PIX": Vector2(380, 740)
 }
 const speaker_scales = {
 	"MC NAME": Vector2(0.8, 0.8), 
-	"PIX": Vector2(1, 1)
+	"PIX": Vector2(0.9, 0.9)
 }
 var dialog_index : int = 0
 
 const dialog_lines : Array[String] = [
-	"PIX: Oh, the little prince finally showed up! We've been saving a seat!"
+	"PIX: Oh, the little prince finally showed up!",
+	"PIX: We've been saving a seat!"
 ]
 
 func _ready():
@@ -43,7 +44,7 @@ func parse_line(line: String):
 		"dialog_line": line_info[1]
 	}
 func process_current_line():
-	speaker_label.position.y -= 20
+	# speaker_label.position.y -= 20
 	var line = dialog_lines[dialog_index]
 	var line_info = parse_line(line)
 	speaker_label.text = line_info["speaker_name"]
