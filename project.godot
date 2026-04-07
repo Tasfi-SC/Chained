@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Chained"
-run/main_scene="uid://ww44cwudoql2"
+run/main_scene="uid://bh3ehmm50u7o3"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

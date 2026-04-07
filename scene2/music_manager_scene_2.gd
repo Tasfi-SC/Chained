@@ -3,7 +3,7 @@ extends Node
 @onready var player = $AudioStreamPlayer
 
 var curr_track = null
-var music_volume = -16.0
+var music_volume = -25.0
 
 func play_music(path):
 	if curr_track == path:
