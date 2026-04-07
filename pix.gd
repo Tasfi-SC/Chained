@@ -135,7 +135,7 @@ func _trigger_next_attack() -> void:
 			_set_state(State.DUPLICATE)
 
 func _deal_percent_damage(body: Node2D) -> void:
-	var damage = body.health * 0.25
+	var damage = body.max_health * 0.25
 	body.take_damage(damage)
 	print("Pix dealt: ", damage, " to ", body.name)
 

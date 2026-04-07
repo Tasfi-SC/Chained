@@ -5,8 +5,8 @@ extends Camera2D
 @export var fixed_y: float = -131.0 
 
 var target: Node2D
-const MAP_LEFT = -3470.0
-const MAP_RIGHT = -282.0
+const MAP_LEFT = -2985.0
+const MAP_RIGHT = -803.0
 const HALF_WIDTH = 800.0
 func _ready() -> void:
 	target = get_node_or_null(target_path)

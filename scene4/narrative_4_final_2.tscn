@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhy4inhldj2ep"]
+[gd_scene load_steps=6 format=3 uid="uid://dxab4378graue"]
 
 [ext_resource type="Script" uid="uid://dxle84a670iwe" path="res://scene4/narrative_4_final_2.gd" id="1_3ooij"]
 [ext_resource type="Texture2D" uid="uid://srl2hpnyh68p" path="res://scene4/s42d-4.png" id="2_3ooij"]
 [ext_resource type="PackedScene" uid="uid://chc0tv4sn77do" path="res://narrative/narrative_mc.tscn" id="3_m3uh0"]
 [ext_resource type="AudioStream" uid="uid://df70gndu25w87" path="res://scene4/scene4bgm1.mp3" id="4_c1g7x"]
-[ext_resource type="Script" path="res://scene4/s4audio7.gd" id="5_m3uh0"]
+[ext_resource type="Script" uid="uid://uwlkhfdfio5e" path="res://scene4/s4audio7.gd" id="5_m3uh0"]
 
 [node name="Narrative4_final_2" type="Node2D"]
 script = ExtResource("1_3ooij")

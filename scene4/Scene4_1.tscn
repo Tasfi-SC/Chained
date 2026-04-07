@@ -1,16 +1,16 @@
 [gd_scene load_steps=20 format=3 uid="uid://caefpt4a3kakf"]
 
-[ext_resource type="Script" path="res://scene4/scene_4_1.gd" id="1_kt14r"]
+[ext_resource type="Script" uid="uid://dfmmj3sw2ow2j" path="res://scene4/scene_4_1.gd" id="1_kt14r"]
 [ext_resource type="Texture2D" uid="uid://d0rxfiaiy3r0m" path="res://scene4/s42d.png" id="1_t6s70"]
-[ext_resource type="Script" path="res://scene4/camera_2d.gd" id="2_kyfma"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="3_6vecb"]
-[ext_resource type="Script" path="res://scene4/portal_1.gd" id="4_opkj4"]
+[ext_resource type="Script" uid="uid://c45plsi1yx2d" path="res://scene4/camera_2dS4_1.gd" id="3_ajglr"]
+[ext_resource type="Script" uid="uid://b3qi2j0c5x36k" path="res://scene4/portal_1.gd" id="4_opkj4"]
 [ext_resource type="Texture2D" uid="uid://bc2v1f83dnqpe" path="res://scene4/s4sprite2.png" id="5_kt14r"]
-[ext_resource type="Script" path="res://scene4/narrative_area.gd" id="6_6vecb"]
+[ext_resource type="Script" uid="uid://ce1w8kmrccjf8" path="res://scene4/narrative_area.gd" id="6_6vecb"]
 [ext_resource type="Script" uid="uid://b83yrtyijc5iw" path="res://scene4/s4_1-dialogue_layer.gd" id="7_kt14r"]
 [ext_resource type="PackedScene" uid="uid://chc0tv4sn77do" path="res://narrative/narrative_mc.tscn" id="7_opkj4"]
 [ext_resource type="AudioStream" uid="uid://df70gndu25w87" path="res://scene4/scene4bgm1.mp3" id="10_pce8l"]
-[ext_resource type="Script" path="res://scene4/audio_stream_player_2d.gd" id="11_ajglr"]
+[ext_resource type="Script" uid="uid://dtv3ey1bp7o45" path="res://scene4/audio_stream_player_2d.gd" id="11_ajglr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2gepj"]
 size = Vector2(3100.5, 238)
@@ -76,7 +76,7 @@ position = Vector2(10625, 115)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-2371, -131)
-script = ExtResource("2_kyfma")
+script = ExtResource("3_ajglr")
 target_path = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_6vecb")]

@@ -119,6 +119,7 @@ func _handle_movement(delta: float) -> void:
 func _handle_jump() -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
+		$AnimationPlayer.play("jump")
 func _handle_dodge(delta: float) -> void:
 	if Input.is_action_just_pressed("dodge") and not is_dodging:
 		var cooldown = dodge_cooldown_demon if demon_form else dodge_cooldown_human
@@ -186,7 +187,7 @@ func take_damage(amount: float) -> void:
 	health_bar.value = health
 	print("Player took ", amount, " damage. HP: ", health)
 
-	if health <= 0:
+	if health <= 1:
 		_die()
 		return
 
@@ -199,9 +200,10 @@ func _die() -> void:
 	is_dead = true
 	is_invincible = true
 	health_bar.value = 0
+	get_tree().change_scene_to_file("res://death_screen.tscn")
 	_play_anim("death")
 	emit_signal("player_died")
-	get_tree().change_scene_to_file("res://death_screen.tscn")
+	
 func activate_demon_form() -> void:
 	demon_form = true
 	demon_form_unlocked = true

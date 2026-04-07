@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://boy21kj7drrnu" path="res://scene4/s42d-3.png" id="1_fe1rh"]
 [ext_resource type="Script" uid="uid://bfyytb0h78ykt" path="res://scene4/scene_4_3.gd" id="1_isl8t"]
-[ext_resource type="Script" uid="uid://cekrokws1t3j4" path="res://scene4/camera_2d(2).gd" id="2_isl8t"]
+[ext_resource type="Script" uid="uid://dosir5fscy841" path="res://scene4/camera_2dS4_3.gd" id="3_4cvwm"]
 [ext_resource type="PackedScene" uid="uid://dvloxd4thpsun" path="res://player.tscn" id="3_knwn8"]
 [ext_resource type="Script" uid="uid://dwb68llvjmcy8" path="res://scene4/portal3.gd" id="4_y0meo"]
 [ext_resource type="Texture2D" uid="uid://bc2v1f83dnqpe" path="res://scene4/s4sprite2.png" id="5_v6xlp"]
@@ -86,7 +86,7 @@ shape = SubResource("RectangleShape2D_xv80l")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-2371, -131)
-script = ExtResource("2_isl8t")
+script = ExtResource("3_4cvwm")
 target_path = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_knwn8")]
