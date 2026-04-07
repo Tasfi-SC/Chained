@@ -6,7 +6,7 @@ extends Camera2D
 
 var target: Node2D
 const MAP_LEFT = -2950.0
-const MAP_RIGHT = 138.0
+const MAP_RIGHT = -259.0
 const HALF_WIDTH = 800.0
 func _ready() -> void:
 	target = get_node_or_null(target_path)
