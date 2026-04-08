@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cieobmgor2pf1"]
+[gd_scene load_steps=4 format=3 uid="uid://bu0px4npkiqk3"]
 
 [ext_resource type="Script" uid="uid://bkgaakbwfqfe5" path="res://narrative/scenes/s_4_finaltransitioncredits.gd" id="1_bnkpc"]
 [ext_resource type="PackedScene" uid="uid://b20r40aumgwx4" path="res://narrative/scenes/BLACKSCRRENUI.tscn" id="2_d65pb"]
+[ext_resource type="AudioStream" uid="uid://b3bhxwba7rwc4" path="res://narrative/resources/s3audiov2.mp3" id="3_d65pb"]
 
 [node name="narrativeS4-credit" type="Node2D"]
 script = ExtResource("1_bnkpc")
@@ -28,3 +29,8 @@ color = Color(0, 0, 0, 1)
 [node name="resizefix" type="CanvasLayer" parent="."]
 
 [node name="BLACKSCREENUI" parent="resizefix" instance=ExtResource("2_d65pb")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_d65pb")
+volume_db = -16.22
+autoplay = true

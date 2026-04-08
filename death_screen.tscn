@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://du8f513hlvx0o"]
 
-[ext_resource type="Script" uid="uid://67bkdcdwwh8f" path="res://death_screen.gd" id="1_f562y"]
+[ext_resource type="Script" uid="uid://67bkdcdwwh8f" path="res://scene3/death_screen.gd" id="1_f562y"]
 [ext_resource type="Texture2D" uid="uid://cujeli8ksjd4v" path="res://narrative/resources/deathMenu2.png" id="2_f562y"]
 [ext_resource type="FontFile" uid="uid://cf26ou5dj0sg2" path="res://narrative/resources/Cinzel-ExtraBold.ttf" id="3_nus4h"]
 [ext_resource type="Script" path="res://button_hover.gd" id="4_b1ui3"]

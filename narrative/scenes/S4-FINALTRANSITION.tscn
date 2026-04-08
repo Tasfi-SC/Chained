@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ww44cwudoql2"]
+[gd_scene load_steps=5 format=3 uid="uid://dqpmp06ifu27u"]
 
 [ext_resource type="Script" uid="uid://cuykrn1h4yv4k" path="res://narrative/scenes/s_4_finaltransition.gd" id="1_h8n7p"]
 [ext_resource type="PackedScene" uid="uid://b20r40aumgwx4" path="res://narrative/scenes/BLACKSCRRENUI.tscn" id="2_oek6m"]
 [ext_resource type="AudioStream" uid="uid://df70gndu25w87" path="res://scene4/scene4bgm1.mp3" id="3_oek6m"]
-[ext_resource type="Script" path="res://narrative/scenes/s4finalaudio1.gd" id="4_mgsme"]
+[ext_resource type="Script" uid="uid://dnqoypcdmrlaf" path="res://narrative/scenes/s4finalaudio1.gd" id="4_mgsme"]
 
 [node name="narrativeS4-FINAL" type="Node2D"]
 script = ExtResource("1_h8n7p")
@@ -35,5 +35,6 @@ offset_bottom = 76.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_oek6m")
-volume_db = -40.0
+volume_db = -16.22
+autoplay = true
 script = ExtResource("4_mgsme")

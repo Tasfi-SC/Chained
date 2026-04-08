@@ -7,7 +7,7 @@ func _ready():
 
 func _on_resume_pressed() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scene1/scene_1_1.tscn")
+	get_tree().change_scene_to_file("res://scene3/Scene3_2.tscn")
 
 func _on_mainmenu_pressed() -> void:
 	get_tree().paused = false

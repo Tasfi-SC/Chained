@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://dtl6xljk3jbft"]
+[gd_scene load_steps=11 format=4 uid="uid://dtl6xljk3jbft"]
 
 [ext_resource type="Texture2D" uid="uid://bje32lhe3hhxo" path="res://scene4/4-2maze.png" id="1_h5a6m"]
 [ext_resource type="PackedScene" uid="uid://dnc3ahct4lyys" path="res://mazeplayer.tscn" id="2_rqc3p"]
 [ext_resource type="Texture2D" uid="uid://b7bc4oag2qk3" path="res://scene2/transparent.png" id="3_rqc3p"]
-[ext_resource type="Script" uid="uid://ce0uucpo5kj2s" path="res://scene4/teleport.gd" id="5_0fohj"]
+[ext_resource type="Script" path="res://scene4/teleport.gd" id="5_0fohj"]
 [ext_resource type="PackedScene" uid="uid://d1am3sfgfu370" path="res://mazeenemy.tscn" id="5_sc2g0"]
+[ext_resource type="AudioStream" uid="uid://b3bhxwba7rwc4" path="res://narrative/resources/s3audiov2.mp3" id="6_0fohj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dg84g"]
 texture = ExtResource("3_rqc3p")
@@ -57,5 +58,10 @@ script = ExtResource("5_0fohj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleport"]
 position = Vector2(0, -35)
 shape = SubResource("RectangleShape2D_l85e8")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_0fohj")
+volume_db = -16.0
+autoplay = true
 
 [connection signal="body_entered" from="teleport" to="teleport" method="_on_body_entered"]
